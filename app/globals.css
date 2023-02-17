@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+    * {
+        transition: .3s;
+    }
+
+    .box-shadow-sm {
+        background-color: #BD8AFF;
+        box-shadow: 3px 3px 0 #BD8AFF;
+    }
+
+    .box-shadow-sm-hover:hover {
+        background-color: #BD8AFF;
+        box-shadow: 3px 3px 0 #BD8AFF;
+    }
+
+    .glowI {
+        animation: glowI 1s linear infinite;
+    }
+
+    @keyframes glowI {
+        0% {
+            box-shadow: 0 0 0 white;
+        }
+
+        50% {
+            box-shadow: 0 0 10px white, 0 0 30px white, 0 0 50px white;
+
+        }
+    }
+
+    .glowII {
+        animation: glowI 5s linear infinite;
+    }
+
+    @keyframes glowI {
+        0% {
+            box-shadow: 0 0 0 white;
+        }
+
+        50% {
+            box-shadow: 0 0 10px white, 0 0 30px white, 0 0 50px white;
+
+        }
+    }
+
+    .testimonial {
+        animation: testimonial 1s linear alternate;
+    }
+
+    @keyframes testimonial {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+
+    .animate-blob {
+        animation: animateBlob 120s linear alternate infinite;
+    }
+
+    @keyframes animateBlob {
+        0% {
+            opacity: 0;
+            transform: scale(1.2) rotate(0deg);
+        }
+
+
+
+        30% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        50% {
+            /* opacity: .1; */
+            transform: scale(1.5) rotate(360deg);
+        }
+
+        70% {
+            /* opacity: .1; */
+            transform: scale(1.2);
+        }
+
+        90% {
+            opacity: .1;
+            transform: scale(2) rotate(0);
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}
