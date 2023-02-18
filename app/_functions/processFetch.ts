@@ -13,7 +13,7 @@ export async function fetchDaves(devs: any, dispatch: any) {
         page: devs.page + 1,
       },
     });
-  console.log('from devs --', data)
+  // console.log('from devs --', data)
 }
 export async function fetchRepos(repos: any, dispatch: any) {
   const url: string = `https://api.github.com/orgs/codinasion/repos?per_page=5&page=${

@@ -5,7 +5,7 @@ export async function fetchData(url: string): Promise<any> {
     console.log(fetchData.status, "----from fetchFunction---", url);
     return fetchData.status === 200 ? res : null;
   } catch (error) {
-    console.log(error, "----from fetchFunction---", url);
+    // console.log(error, "----from fetchFunction---", url);
     return error && null;
   }
 }
