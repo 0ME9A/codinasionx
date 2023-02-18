@@ -1,7 +1,7 @@
 "use client";
 import { fetchRepos } from "app/_functions/processFetch";
 import { theContext } from "app/_context/theContext";
-import { imgUrl } from "app/_functions/functions";
+import { imgUrl, random } from "app/_functions/functions";
 import { Suspense, useContext } from "react";
 import ShowoffRepoCard from "./ShowoffRepoCard";
 import BasicRepoCard from "./BasicRepoCard";
@@ -40,7 +40,7 @@ export default function Repos({ showOff = false }: reposType) {
           {filtered.slice(0, 4).map((item: any, key: number) => {
             return (
               <ShowoffRepoCard
-                key={crypto.randomUUID()}
+                key={random()}
                 id={key + 1}
                 imgUrl={imgUrl}
                 title={item.name}
@@ -66,7 +66,7 @@ export default function Repos({ showOff = false }: reposType) {
         <div className="lg:container min-h-[90vh] mx-auto rounded-[50px] bg-white/50 dark:bg-black/50 backdrop-blur-sm p-2 my-24 space-y-3 md:space-y-5">
           {data.map((item: any) => (
             <BasicRepoCard
-              key={crypto.randomUUID()}
+              key={random()}
               imgUrl={imgUrl}
               title={item.name}
               desc={item.description}

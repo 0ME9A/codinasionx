@@ -5,7 +5,7 @@ export async function fetchData(url: string): Promise<any> {
     console.log(fetchData.status, "----from fetchFunction---", url);
     return fetchData.status === 200 ? res : null;
   } catch (error) {
-    // console.log(error, "----from fetchFunction---", url);
+    console.log(error, "----from fetchFunction---", url);
     return error && null;
   }
 }
@@ -46,4 +46,17 @@ export function isValidURL(str: string) {
   ); // fragment locator
   return !!pattern.test(str);
 }
+
+export function random() {
+  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  const chaactersLength = characters.length;
+  let result = ""
+  for (var i = 0; i < 15; i++) {
+    result += characters.charAt(Math.floor(Math.random() * chaactersLength));
+  }
+  return result
+}
+
+
+
 export const imgUrl: string = `https://images.unsplash.com/photo-1560942485-b2a11cc13456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80`;

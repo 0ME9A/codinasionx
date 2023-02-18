@@ -15,6 +15,7 @@ import {
   scrollX,
 } from "app/_framerVariants/framerVariants";
 import { motion } from "framer-motion";
+import { random } from "app/_functions/functions";
 
 type devsContainerType = {
   forward: boolean;
@@ -63,7 +64,7 @@ export default function Devs({
             {data.slice(0, forward ? 30 : -1).map((item: any) => {
               return (
                 <DevCard
-                  key={crypto.randomUUID()}
+                  key={random()}
                   imgUrl={item.avatar_url}
                   devName={item.login}
                 />

@@ -1,7 +1,8 @@
 "use client";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { theContext } from "./_context/theContext";
-import { useEffect, useReducer } from "react";
 import { Rubik, Oswald } from "@next/font/google";
+import { useEffect, useReducer } from "react";
 import FooterContainer from "./_components/FooterComp/FooterContainer";
 import Background from "./_components/LayoutsComp/BackgroundHero";
 import Navbar from "./_components/NavComp/Navbar";
@@ -15,9 +16,8 @@ import {
   fetchRepos,
   fetchShowoffRepos,
 } from "./_functions/processFetch";
-import { motion, useScroll, useSpring } from "framer-motion";
 
-const rubik = Oswald({
+const oswald = Oswald({
   weight: ["300", "400", "600", "700"],
   style: ["normal"],
   subsets: ["latin"],
@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head />
       <body
-        className={`dark:bg-very-dark bg-purple-100 overflow-x-hidden ${rubik.className}`}
+        className={`dark:bg-very-dark bg-purple-100 overflow-x-hidden ${oswald.className}`}
       >
         <theContext.Provider value={{ values, dispatch }}>
           <motion.div

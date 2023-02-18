@@ -2,7 +2,7 @@ import TestimonialContainer from "./_components/TestimonialComp/TestimonialConta
 import BackgroundGradient from "./_components/LayoutsComp/BackgroundGradient";
 import BackgroundLight from "./_components/LayoutsComp/BackgroundLights";
 import Background from "./_components/LayoutsComp/BackgroundHero";
-import AboutCards from "./_components/AboutComp/OrgInfo/OrgHighlights";
+import OrgHighlights from "./_components/AboutComp/OrgInfo/OrgHighlights";
 import Repos from "./_components/ReposComp/Repos";
 import About from "./_components/AboutComp/About";
 import Devs from "app/_components/DevsComp/Devs";
@@ -18,7 +18,7 @@ export default async function HomePage() {
       <div className="relative z-10">
         <BackgroundLight />
         <div className="relative z-10">
-          <AboutCards />
+          <OrgHighlights />
           <About />
           <Repos showOff={true} />
           <BackgroundGradient>

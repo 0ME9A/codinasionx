@@ -1,6 +1,7 @@
 "use client";
 import { orgHighlightsData } from "@/data/Obj/orghighlights";
 import { container } from "app/_framerVariants/framerVariants";
+import { random } from "app/_functions/functions";
 import { motion } from "framer-motion";
 import OrgHighlightCard from "./OrgHighlightCard";
 
@@ -34,7 +35,7 @@ export default function OrgHighlights() {
       /> */}
       {orgHighlightsData.map((item) => (
         <OrgHighlightCard
-          key={crypto.randomUUID()}
+          key={random()}
           style={item.style}
           title={item.title}
           text={item.text}

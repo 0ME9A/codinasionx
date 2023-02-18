@@ -4,6 +4,7 @@ import { SocialMedia } from "@/data/navbarLinks";
 import { navLinks } from "@/data/Obj/nav";
 import BtnLink from "../Links/BtnLink";
 import Link from "next/link";
+import { random } from "app/_functions/functions";
 
 type menuType = {
   activeTab: string;
@@ -15,7 +16,7 @@ export default function Menu({ setState,  activeTab }: menuType) {
       <menu className="w-full rounded-[50px] p-5 lg:container h-fit dark:bg-very-dark bg-very-light z-[36] right-0 top-0">
         <ul>
           {navLinks.map((item) => (
-            <li className="group" key={crypto.randomUUID()}>
+            <li className="group" key={random()}>
               <Link
                 className={`p-3 inline-block hover:text-black dark:hover:text-white relative uppercase ${
                   activeTab === item.name
@@ -35,7 +36,7 @@ export default function Menu({ setState,  activeTab }: menuType) {
           {SocialMedia &&
             SocialMedia.map((item) => (
               <Link
-                key={crypto.randomUUID()}
+                key={random()}
                 href={item.href}
                 className="hover:scale-125"
               >

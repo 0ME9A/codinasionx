@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { lazy, Suspense } from "react";
 import Loading from "../Loading/Loading";
 import Button from "../Links/Button";
-import { fetchData } from "app/_functions/functions";
+import { fetchData, random } from "app/_functions/functions";
 import {
   usePathname,
   useSearchParams,
@@ -65,7 +65,7 @@ export default function Devs() {
               <DevCard
                 imgUrl={item.avatar_url}
                 devName={item.login}
-                key={crypto.randomUUID()}
+                key={random()}
                 target={"_blank"}
               />
             ))}

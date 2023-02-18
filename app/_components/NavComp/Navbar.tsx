@@ -4,7 +4,7 @@ import { useSelectedLayoutSegments } from "next/navigation";
 import { navLinks, navLinkType } from "@/data/Obj/nav";
 import { theContext } from "app/_context/theContext";
 import { FaGithub } from "react-icons/fa";
-import setThemeFun from "app/_functions/functions";
+import setThemeFun, { random } from "app/_functions/functions";
 import BtnLink from "../Links/BtnLink";
 import ThemeBtn from "./ThemeBtn";
 import MenuBtn from "./MenuBtn";
@@ -40,7 +40,7 @@ export default function Example() {
           <div className=" hidden lg:flex items-center md:gap-2 xl:gap-4 h-full">
             <ul className="flex">
               {navLinks.map((item: navLinkType) => (
-                <li className="group" key={crypto.randomUUID()}>
+                <li className="group" key={random()}>
                   <Link
                     className={`p-3 inline-block px-4 hover:text-black dark:hover:text-white relative uppercase ${
                       activeTab === item.name

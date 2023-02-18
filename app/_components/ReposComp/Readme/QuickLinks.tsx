@@ -4,6 +4,7 @@ import { GiEarthAmerica } from "react-icons/gi";
 import { IoTelescope } from "react-icons/io5";
 import Loading from "app/_components/Loading/Loading";
 import Link from "next/link";
+import { random } from "app/_functions/functions";
 
 export default function QuickLinks({ repo }: { repo: readmeType | null }) {
   type qLinkType = {
@@ -52,7 +53,7 @@ export default function QuickLinks({ repo }: { repo: readmeType | null }) {
         return (
           item.id && (
             <Link
-              key={crypto.randomUUID()}
+              key={random()}
               href={item.link}
               className="group flex gap-2 items-center"
               target={"_blank"}

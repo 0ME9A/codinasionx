@@ -5,6 +5,7 @@ import TestimonialCard from "./TestimonialCard";
 import Header from "../CommonComp/header";
 import { motion } from "framer-motion";
 import { child, scrollX } from "app/_framerVariants/framerVariants";
+import { random } from "app/_functions/functions";
 
 export default function TestimonialContainer() {
   const [testimonialId, setTestimonialId] = useState<number>(1);
@@ -40,7 +41,7 @@ export default function TestimonialContainer() {
                     profession={item.profession}
                     text={item.text}
                     style={`grayscale  ${item.style}`}
-                    key={crypto.randomUUID()}
+                    key={random()}
                   />
                 )
             )}
@@ -48,7 +49,7 @@ export default function TestimonialContainer() {
           <div className="col-span-12 flex md:col-span-1 md:flex-col mt-5 md:mt-0 justify-center items-center gap-2 ">
             {testimonialList.map((item) => (
               <motion.span
-                key={crypto.randomUUID()}
+                key={random()}
                 className={`w-5 aspect-square shadow-lg dark:glowI rounded-full border block bg-lightII dark:bg-dark border-black dark:border-white ${
                   testimonialId === item.id ? "glowI" : ""
                 }`}

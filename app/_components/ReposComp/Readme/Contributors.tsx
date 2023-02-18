@@ -3,6 +3,7 @@ import BasicDevCard from "app/_components/DevsComp/BasicDevCard";
 import BasicLink from "app/_components/Links/BasicLink";
 import Loading from "app/_components/Loading/Loading";
 import Box from "app/_components/LayoutsComp/Box";
+import { random } from "app/_functions/functions";
 
 type contributorsTypes = {
   devs: devsType | null;
@@ -17,7 +18,7 @@ export default function Contributor({ devs, repoName }: contributorsTypes) {
         <div className="flex flex-wrap">
           {devs.slice(0, 15).map((item) => (
             <BasicDevCard
-              key={crypto.randomUUID()}
+              key={random()}
               imgUrl={item.avatar_url}
               devName={item.login}
             />

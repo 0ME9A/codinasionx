@@ -7,6 +7,7 @@ import Link from "next/link";
 import Langs from "./Langs";
 import { motion } from "framer-motion";
 import { child, container } from "app/_framerVariants/framerVariants";
+import { random } from "app/_functions/functions";
 
 export default function FooterContainer() {
   return (
@@ -54,7 +55,7 @@ export default function FooterContainer() {
           {siteMap &&
             siteMap.map((item) => (
               <li
-                key={crypto.randomUUID()}
+                key={random()}
                 className="text-gray-700 dark:text-gray-300"
               >
                 <Link href={item.href}>{item.name}</Link>
@@ -69,7 +70,7 @@ export default function FooterContainer() {
           {topRepos &&
             topRepos.map((item) => (
               <li
-                key={crypto.randomUUID()}
+                key={random()}
                 className="text-gray-700 dark:text-gray-300"
               >
                 <Link href={item.href}>{item.name}</Link>
@@ -83,7 +84,7 @@ export default function FooterContainer() {
           {SocialMedia &&
             SocialMedia.map((item) => (
               <Link
-                key={crypto.randomUUID()}
+                key={random()}
                 href={item.href}
                 className="hover:scale-125"
               >

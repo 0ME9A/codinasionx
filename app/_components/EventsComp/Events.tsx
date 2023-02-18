@@ -6,6 +6,7 @@ import { useState } from "react";
 import Loading from "../Loading/Loading";
 import EventBtn from "./EventBtn";
 import Event from "./Event";
+import { random } from "app/_functions/functions";
 
 export default function Events() {
   const [eventLimit, setLimit] = useState<number>(3);
@@ -19,7 +20,7 @@ export default function Events() {
     >
       {events.slice(0, eventLimit).map((item) => (
         <Event
-          key={crypto.randomUUID()}
+          key={random()}
           id={item.id}
           type={item.type}
           title={item.title}
