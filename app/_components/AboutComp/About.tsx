@@ -1,10 +1,8 @@
 "use client";
-import BtnLink from "app/_components/Links/BtnLink";
-import Header from "app/_components/CommonComp/header";
 import { FaGithub } from "react-icons/fa";
-import {
-  motion,
-} from "framer-motion";
+import { motion } from "framer-motion";
+import Header from "app/_components/CommonComp/header";
+import BtnLink from "app/_components/Links/BtnLink";
 import {
   childScale,
   childScaleReverse,

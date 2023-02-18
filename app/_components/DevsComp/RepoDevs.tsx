@@ -1,19 +1,13 @@
 "use client";
+import { container, scrollX } from "app/_framerVariants/framerVariants";
+import { fetchData, random } from "app/_functions/functions";
+import { usePathname, useRouter } from "next/navigation";
+import { devs } from "@/data/Obj/contributors";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { lazy, Suspense } from "react";
 import Loading from "../Loading/Loading";
 import Button from "../Links/Button";
-import { fetchData, random } from "app/_functions/functions";
-import {
-  usePathname,
-  useSearchParams,
-  useSelectedLayoutSegment,
-  useSelectedLayoutSegments,
-  useRouter,
-} from "next/navigation";
-import { devs } from "@/data/Obj/contributors";
-import { container, scrollX } from "app/_framerVariants/framerVariants";
-import { motion } from "framer-motion";
 
 const DevCard = lazy(() => import("./DevCard"));
 
@@ -35,14 +29,10 @@ export default function Devs() {
       } else {
         router.replace("/repositories/");
       }
-
-      //     console.log(newData);
     }
 
     repoDevs();
   }, [page]);
-
-  // console.log(devs)
 
   return devs.length > 0 ? (
     <div className="lg:container mx-auto min-h-[90vh] my-24 px-2 flex justify-center items-end gap-5 flex-col">

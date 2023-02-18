@@ -1,13 +1,13 @@
 "use client";
+import { child, container } from "app/_framerVariants/framerVariants";
 import { siteMap, SocialMedia, topRepos } from "@/data/navbarLinks";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { random } from "app/_functions/functions";
 import { BiLinkExternal } from "react-icons/bi";
+import { motion } from "framer-motion";
 import BtnLink from "../Links/BtnLink";
 import Link from "next/link";
 import Langs from "./Langs";
-import { motion } from "framer-motion";
-import { child, container } from "app/_framerVariants/framerVariants";
-import { random } from "app/_functions/functions";
 
 export default function FooterContainer() {
   return (

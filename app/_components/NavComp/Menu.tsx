@@ -1,10 +1,10 @@
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { random } from "app/_functions/functions";
 import { Dispatch, SetStateAction } from "react";
 import { SocialMedia } from "@/data/navbarLinks";
 import { navLinks } from "@/data/Obj/nav";
 import BtnLink from "../Links/BtnLink";
 import Link from "next/link";
-import { random } from "app/_functions/functions";
 
 type menuType = {
   activeTab: string;

@@ -1,6 +1,3 @@
-"use client";
-import { childScale } from "app/_framerVariants/framerVariants";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,10 +13,7 @@ export default function DevCard({
   target = "_self",
 }: DevType) {
   return (
-    <motion.div
-      className="space-y-1 p-2 hover:shadow-lg border-2 border-transparent relative group rounded-2xl overflow-hidden w-full hover:border-darkII dark:shadow-dark hover:bg-light dark:hover:bg-dark"
-      variants={childScale}
-    >
+    <div className="space-y-1 p-2 hover:shadow-lg border-2 border-transparent relative group rounded-2xl overflow-hidden w-full hover:border-darkII dark:shadow-dark hover:bg-light dark:hover:bg-dark">
       <Link
         href={`/developers/${devName}`}
         target={target}
@@ -36,6 +30,6 @@ export default function DevCard({
           {devName}
         </span>
       </Link>
-    </motion.div>
+    </div>
   );
 }

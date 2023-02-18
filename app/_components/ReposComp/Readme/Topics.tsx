@@ -1,6 +1,6 @@
+import { random } from "app/_functions/functions";
 import Loading from "app/_components/Loading/Loading";
 import Box from "app/_components/LayoutsComp/Box";
-import { random } from "app/_functions/functions";
 
 export default function Topics({ topics }: { topics: string[] | null }) {
   return (

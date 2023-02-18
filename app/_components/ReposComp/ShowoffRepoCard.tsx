@@ -3,16 +3,13 @@ import { BiLinkExternal } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
 import { IoTelescope } from "react-icons/io5";
+import { motion } from "framer-motion";
 import LinkI from "../Links/BtnLink";
 import Atropos from "atropos/react";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
 import {
-  scrollY,
-  scrollScale,
   child,
-  childScaleReverse,
   childScale,
   container,
 } from "app/_framerVariants/framerVariants";

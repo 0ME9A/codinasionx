@@ -1,11 +1,11 @@
 import { icons } from "@/data/Obj/eventsIcon";
 import { motion } from "framer-motion";
+import BasicLink from "../Links/BasicLink";
 import {
   childScale,
   scrollHeight,
   scrollX,
 } from "app/_framerVariants/framerVariants";
-import BasicLink from "../Links/BasicLink";
 
 type eventsType = {
   id: number;
@@ -47,9 +47,9 @@ export default function Event({
           ></motion.span>
         </div>
         <div className="max-w-[700px] pb-10" title={title}>
-          <motion.h3 className="text-2xl" variants={scrollX(-50)}>
+          <motion.h2 className="text-2xl" variants={scrollX(-50)}>
             {title}
-          </motion.h3>
+          </motion.h2>
           <motion.p
             className="pb-2 text-gray-700 dark:text-gray-300"
             variants={scrollX(-50)}

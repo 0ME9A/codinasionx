@@ -1,8 +1,8 @@
 "use client";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { theContext } from "./_context/theContext";
-import { Rubik, Oswald } from "@next/font/google";
 import { useEffect, useReducer } from "react";
+import { Oswald } from "@next/font/google";
 import FooterContainer from "./_components/FooterComp/FooterContainer";
 import Background from "./_components/LayoutsComp/BackgroundHero";
 import Navbar from "./_components/NavComp/Navbar";

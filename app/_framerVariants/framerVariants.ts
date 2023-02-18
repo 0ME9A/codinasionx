@@ -2,11 +2,11 @@ import { Variants } from "framer-motion";
 
 export const scrollY = (initial_pos: number) => {
   const variantsY: Variants = {
-    offscreen: {
+    hidden: {
       opacity: 0,
       y: initial_pos,
     },
-    onscreen: {
+    show: {
       opacity: 1,
       y: 0,
       transition: { type: "spring", restSpeed: 30, duration: 0.2 },
@@ -118,38 +118,5 @@ export const childScaleII = {
     opacity: 1,
     transformOrigin: "center",
     scale: [1, 1.2, 1],
-  },
-};
-
-export const childOpacity = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    duration: 2,
-  },
-};
-
-export const childSocial = {
-  hidden: {
-    opacity: 0,
-    scaleY: 0,
-  },
-  show: {
-    opacity: 1,
-    scaleY: 1,
-  },
-};
-
-export const childWidth = {
-  hidden: {
-    width: 0,
-  },
-  show: {
-    width: "100%",
-    transition: {
-      duration: 10,
-    },
   },
 };

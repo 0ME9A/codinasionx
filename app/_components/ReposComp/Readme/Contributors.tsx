@@ -1,9 +1,9 @@
 import { devsType } from "app/repositories/[repo]/page";
+import { random } from "app/_functions/functions";
 import BasicDevCard from "app/_components/DevsComp/BasicDevCard";
 import BasicLink from "app/_components/Links/BasicLink";
 import Loading from "app/_components/Loading/Loading";
 import Box from "app/_components/LayoutsComp/Box";
-import { random } from "app/_functions/functions";
 
 type contributorsTypes = {
   devs: devsType | null;

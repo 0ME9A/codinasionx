@@ -1,12 +1,8 @@
 "use client";
+import { childScale } from "app/_framerVariants/framerVariants";
 import { IconType } from "react-icons/lib";
-import Atropos from "atropos/react";
 import { motion } from "framer-motion";
-import {
-  childScale,
-  scrollScale,
-  scrollY,
-} from "app/_framerVariants/framerVariants";
+import Atropos from "atropos/react";
 
 type cardType = {
   text: string;

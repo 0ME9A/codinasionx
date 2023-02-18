@@ -1,11 +1,11 @@
 "use client";
+import { scrollX } from "app/_framerVariants/framerVariants";
+import { random } from "app/_functions/functions";
 import { testimonialList } from "@/data/Obj/obj";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import TestimonialCard from "./TestimonialCard";
 import Header from "../CommonComp/header";
-import { motion } from "framer-motion";
-import { child, scrollX } from "app/_framerVariants/framerVariants";
-import { random } from "app/_functions/functions";
 
 export default function TestimonialContainer() {
   const [testimonialId, setTestimonialId] = useState<number>(1);
@@ -57,7 +57,6 @@ export default function TestimonialContainer() {
                 variants={scrollX(-50)}
                 initial="offscreen"
                 whileInView={"onscreen"}
-                // viewport={{ amount: 0.9, once: false }}
               ></motion.span>
             ))}
           </div>

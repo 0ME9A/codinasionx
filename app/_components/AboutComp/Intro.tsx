@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 import BtnLink from "../Links/BtnLink";
 
 export default function Intro() {

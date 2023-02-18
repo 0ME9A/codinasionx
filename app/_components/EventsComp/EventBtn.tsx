@@ -44,7 +44,7 @@ export default function EventBtn({ type, isBtn, state, setState }: eventsType) {
               Load more...
             </BasicLink>
           ) : (
-            <button className="pt-1" onClick={() => setState(state + 2)}>
+            <button className="pt-1" onClick={() => setState(state + 1)}>
               Load More...
             </button>
           )}

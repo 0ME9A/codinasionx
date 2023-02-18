@@ -1,13 +1,13 @@
 "use client";
+import { childScale, container } from "app/_framerVariants/framerVariants";
+import { devsType, readmeType } from "app/repositories/[repo]/page";
 import { imgUrl } from "app/_functions/functions";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import Atropos from "atropos/react";
 import Article from "./Article";
-import Aside from "./Aside";
 import Image from "next/image";
-import { useState } from "react";
-import { devsType, readmeType } from "app/repositories/[repo]/page";
-import { motion } from "framer-motion";
-import { childScale, container } from "app/_framerVariants/framerVariants";
+import Aside from "./Aside";
 
 type repoReadmeType = {
   repo: readmeType | null;

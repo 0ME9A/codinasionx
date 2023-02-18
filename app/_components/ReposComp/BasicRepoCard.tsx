@@ -6,8 +6,6 @@ import { IoTelescope } from "react-icons/io5";
 import LinkI from "../Links/BtnLink";
 import Atropos from "atropos/react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { childScale, scrollScale } from "app/_framerVariants/framerVariants";
 
 type status = {
   forks: number;
@@ -30,11 +28,7 @@ export default function BasicRepoCard({
   status,
 }: repoCardType) {
   return (
-    <motion.div
-      initial="offscreen"
-      whileInView={"onscreen"}
-      viewport={{ amount: 0.6, once: false }}
-      variants={scrollScale(0.8)}
+    <div
       className={`grid grid-cols-12 gap-2 md:gap-8 xl:gap-10 rounded-[50px] hover:bg-very-light dark:hover:bg-very-dark mx-auto ${style}`}
     >
       <Atropos
@@ -82,6 +76,6 @@ export default function BasicRepoCard({
           </LinkI>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

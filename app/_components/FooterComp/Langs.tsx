@@ -1,5 +1,5 @@
-import { langsList } from "@/data/Obj/lang";
 import { random } from "app/_functions/functions";
+import { langsList } from "@/data/Obj/lang";
 
 export default function Langs() {
   return (

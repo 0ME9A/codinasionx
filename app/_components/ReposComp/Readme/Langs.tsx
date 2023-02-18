@@ -1,12 +1,13 @@
 "use client";
 import { child } from "app/_framerVariants/framerVariants";
+import { random } from "app/_functions/functions";
 import { motion } from "framer-motion";
 import Loading from "app/_components/Loading/Loading";
 import Box from "app/_components/LayoutsComp/Box";
-import { random } from "app/_functions/functions";
 
 export default function Langs({ langs }: { langs: object | null }) {
   const langsArr = langs ? Object.keys(langs) : null;
+  console.log(langs)
   return (
     <Box title="Languages">
       {langsArr ? (

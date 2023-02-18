@@ -58,7 +58,6 @@ export default function Article({ repo, state, setState }: articleType) {
         <h2 className="text-xl font-semibold dark:text-white">
           {`Join us in discussions`}
         </h2>
-        {/* <hr className="border-gray-500/50"/> */}
         <p className="text-gray-700 dark:text-gray-300 mt-2">
           {`We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing, join us in the `}
           <BasicLink

@@ -1,12 +1,12 @@
 import TestimonialContainer from "./_components/TestimonialComp/TestimonialContainer";
 import BackgroundGradient from "./_components/LayoutsComp/BackgroundGradient";
+import OrgHighlights from "./_components/AboutComp/OrgInfo/OrgHighlights";
 import BackgroundLight from "./_components/LayoutsComp/BackgroundLights";
 import Background from "./_components/LayoutsComp/BackgroundHero";
-import OrgHighlights from "./_components/AboutComp/OrgInfo/OrgHighlights";
+import Intro from "./_components/AboutComp/Intro";
 import Repos from "./_components/ReposComp/Repos";
 import About from "./_components/AboutComp/About";
 import Devs from "app/_components/DevsComp/Devs";
-import Intro from "./_components/AboutComp/Intro";
 
 export default async function HomePage() {
   return (

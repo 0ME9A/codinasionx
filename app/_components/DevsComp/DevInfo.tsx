@@ -1,14 +1,14 @@
 "use client";
+import { child, container } from "app/_framerVariants/framerVariants";
 import { isValidURL } from "app/_functions/functions";
 import { MdOutlineMyLocation } from "react-icons/md";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { GiEarthAsiaOceania } from "react-icons/gi";
-import Loading from "../Loading/Loading";
-import History from "../Links/History";
 import { motion } from "framer-motion";
+import Loading from "../Loading/Loading";
 import BtnLink from "../Links/BtnLink";
+import History from "../Links/History";
 import Img from "../CommonComp/Img";
-import { child, container } from "app/_framerVariants/framerVariants";
 
 type devinfoType = {
   login: string;
@@ -24,8 +24,7 @@ type devinfoType = {
   followers: number;
   following: number;
 };
-
-function DevInfo({ dev }: { dev: devinfoType }) {
+export default function DevInfo({ dev }: { dev: devinfoType }) {
   return dev ? (
     <motion.div
       variants={container}
@@ -117,5 +116,3 @@ function DevInfo({ dev }: { dev: devinfoType }) {
     <Loading />
   );
 }
-
-export default DevInfo;

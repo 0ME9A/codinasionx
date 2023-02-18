@@ -1,4 +1,3 @@
-"use client";
 import { Dispatch, SetStateAction, useContext, useState } from "react";
 import { theContext } from "app/_context/theContext";
 import { HiMenuAlt3 } from "react-icons/hi";

@@ -2,7 +2,7 @@ import Repos from "app/_components/ReposComp/Repos";
 
 export default function Page() {
   return (
-    <div className={``}>
+    <div>
       <Repos showOff={false} />
     </div>
   );
