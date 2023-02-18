@@ -33,11 +33,9 @@ export default function RootLayout({
   const scaleX = useSpring(scrollYProgress);
 
   useEffect(() => {
-    return () => {
-      fetchRepos(values.repos, dispatch);
-      fetchDaves(values.devs, dispatch);
-      fetchShowoffRepos(dispatch);
-    };
+    fetchRepos(values.repos, dispatch);
+    fetchDaves(values.devs, dispatch);
+    fetchShowoffRepos(dispatch);
   }, []);
 
   return (
