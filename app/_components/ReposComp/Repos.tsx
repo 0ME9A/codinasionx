@@ -1,6 +1,6 @@
 "use client";
 import { scrollX } from "app/_framerVariants/framerVariants";
-import { imgUrl, random } from "app/_functions/functions";
+import { ImgUrl, imgUrl, random } from "app/_functions/functions";
 import { fetchRepos } from "app/_functions/processFetch";
 import { theContext } from "app/_context/theContext";
 import { Suspense, useContext } from "react";
@@ -75,7 +75,7 @@ export default function Repos({ showOff = false }: reposType) {
             {data.map((item: any) => (
               <BasicRepoCard
                 key={random()}
-                imgUrl={imgUrl}
+                imgUrl={ImgUrl(item.name)}
                 title={item.name}
                 desc={item.description}
                 repoUrl={item.name}

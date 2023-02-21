@@ -1,4 +1,6 @@
 "use client";
+import { child, container } from "app/_framerVariants/framerVariants";
+import { ImgUrl } from "app/_functions/functions";
 import { BiLinkExternal } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
@@ -8,11 +10,7 @@ import LinkI from "../Links/BtnLink";
 import Atropos from "atropos/react";
 import Image from "next/image";
 import React from "react";
-import {
-  child,
-  childScale,
-  container,
-} from "app/_framerVariants/framerVariants";
+import Img from "../CommonComp/Img";
 
 type status = {
   forks: number;
@@ -45,28 +43,17 @@ export default function ShowoffRepoCard({
       initial={"hidden"}
       whileInView={"show"}
     >
-      <motion.div
-        className={`col-span-12 md:col-span-4 xl:col-span-6 aspect-square w-full bg-very-dark dark:bg-very-light atropos-banner rounded-[50px]
-        ${order && order.includes(id) ? " md:order-1 " : " md:-order-1 "}
-        `}
-        variants={childScale}
-      >
-        <Atropos
-          activeOffset={40}
-          shadowScale={0.8}
-          highlight={true}
-          className={`aspect-square`}
-        >
-          <Image
-            src={imgUrl}
-            width={"800"}
-            height={"800"}
-            alt={`${title} repo preview`}
-            className={` w-full rounded-[50px] object-cover dark:shadow-darkShadow-lg shadow-lightShadow-lg
-        `}
-          />
-        </Atropos>
-      </motion.div>
+      {
+        <Img
+          imgUrl={ImgUrl(title)}
+          alt={""}
+          style={`col-span-12 md:col-span-4 xl:col-span-6 !h-full ${
+            order && order.includes(id) ? " md:order-1 " : " md:-order-1 "
+          }`}
+          radius={"rounded-[50px]"}
+        />
+      }
+
       <div
         className={`col-span-12 md:col-span-8 xl:col-span-6 rounded-[50px] flex flex-col items-start gap-3 p-2 justify-center text-black dark:text-white`}
       >

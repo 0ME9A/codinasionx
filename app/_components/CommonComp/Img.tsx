@@ -8,6 +8,7 @@ type imageType = {
   imgUrl: string;
   radius?: string;
   style?: string;
+
   alt: string;
 };
 export default function Img({ imgUrl, alt, style, radius }: imageType) {
@@ -20,6 +21,8 @@ export default function Img({ imgUrl, alt, style, radius }: imageType) {
         activeOffset={40}
         shadowScale={0.8}
         highlight={true}
+        className={`w-full h-full rounded-full object-cover ${radius}`}
+
       >
         <Image
           src={imgUrl}

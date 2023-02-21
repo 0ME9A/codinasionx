@@ -48,15 +48,18 @@ export function isValidURL(str: string) {
 }
 
 export function random() {
-  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
   const chaactersLength = characters.length;
-  let result = ""
+  let result = "";
   for (var i = 0; i < 15; i++) {
     result += characters.charAt(Math.floor(Math.random() * chaactersLength));
   }
-  return result
+  return result;
 }
 
+export function ImgUrl(name: string | undefined) {
+  return `https://raw.githubusercontent.com/0ME9A/screenshots/main/${name}.png`;
+}
 
-
-export const imgUrl: string = `https://images.unsplash.com/photo-1560942485-b2a11cc13456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80`;
+export const imgUrl: string = `https://images.unsplash.com/photo-1551482850-d649f078ed01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`;
+// export const imgUrl: string = `https://images.unsplash.com/photo-1636953056323-9c09fdd74fa6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80`;

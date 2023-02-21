@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useContext, useState } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { theContext } from "app/_context/theContext";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
@@ -9,7 +9,6 @@ type menuBtnType = {
   state: boolean;
 };
 export default function MenuBtn({ state, setState }: menuBtnType) {
-  const [menu, setMenu] = useState<boolean>(false);
   const context: any = useContext(theContext);
 
   return (
