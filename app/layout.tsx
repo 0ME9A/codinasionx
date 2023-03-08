@@ -30,8 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
 
   useEffect(() => {
     devsStatus === 200 && dispatch({ type: "DEVS", payload: { data: devs, status: devsStatus } });
+  }, [devsStatus]);
+  useEffect(() => {
     showoffRepoStatus === 200 && dispatch({ type: "SHOWOFFREPOS", payload: { data: showoffRepo, status: showoffRepoStatus } });
-  }, [showoffRepoStatus, devsStatus]);
+  }, [showoffRepoStatus]);
 
   return (
     <html lang="en" className="dark">
