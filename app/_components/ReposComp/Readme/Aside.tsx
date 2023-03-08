@@ -1,11 +1,7 @@
-import { devsType, readmeType } from "app/repositories/[repo]/page";
-import { child } from "app/_framerVariants/framerVariants";
-import { checkNull } from "app/_functions/functions";
-import { Dispatch, SetStateAction } from "react";
+import { asideType } from "app/_types/Repos";
 import { BiGitRepoForked } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
-import { motion } from "framer-motion";
 import JoinContribution from "./JoinContribution";
 import Contributor from "./Contributors";
 import QuickLinks from "./QuickLinks";
@@ -13,13 +9,6 @@ import LastUpadat from "./LastUpadat";
 import Topics from "./Topics";
 import Langs from "./Langs";
 
-type asideType = {
-  repo: readmeType | null;
-  langs: object | null;
-  devs: devsType | null;
-  state: boolean;
-  setState: Dispatch<SetStateAction<boolean>>;
-};
 export default function Aside({
   state,
   setState,
@@ -35,28 +24,28 @@ export default function Aside({
         opacity: state ? 1 : 0,
       }}
     >
-      <motion.div variants={child}>
+      <div>
         <div className="p-2 space-y-2 relative">
           <IoClose
-            className="text-white absolute right-2 top-2 md:hidden hover:scale-125 cursor-pointer text-2xl"
+            className="dark:text-white text-black absolute right-2 top-2 md:hidden hover:scale-125 cursor-pointer text-2xl"
             onClick={() => setState(!state)}
           />
-          <span className="flex gap-2 items-center">
+          <span title={`${repo.stargazers_count} Stars`} className="flex gap-2 items-center">
             <FaStar />
             {repo ? repo.stargazers_count : 0} Stars
           </span>
-          <span className="flex gap-2 items-center">
+          <span title={`${repo.forks} Forks`} className="flex gap-2 items-center">
             <BiGitRepoForked />
             {repo ? repo.forks : 0} Forks
           </span>
         </div>
         <QuickLinks repo={repo} />
-        <Topics topics={checkNull(repo, "topics")} />
+        <Topics topics={repo.topics} />
         <Langs langs={langs} />
-        <Contributor devs={devs} repoName={checkNull(repo, "name")} />
-        <LastUpadat lastUpdata={checkNull(repo, "updated_at")} />
-        <JoinContribution repoName={checkNull(repo, "name")} />
-      </motion.div>
+        <Contributor devs={devs} repoName={repo.name} />
+        <LastUpadat lastUpdata={repo.updated_at} />
+        <JoinContribution repoName={repo.name} />
+      </div>
     </div>
   );
 }

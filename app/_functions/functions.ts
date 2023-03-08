@@ -1,19 +1,19 @@
 export async function fetchData(url: string): Promise<any> {
   try {
     const fetchData = await fetch(url);
-    const res = await fetchData.json();
-    console.log(fetchData.status, "----from fetchFunction---", url);
-    return fetchData.status === 200 ? res : null;
+    if (fetchData.status === 200) {
+      const res = await fetchData.json();
+      return fetchData.status === 200 ? res : null;
+    }
   } catch (error) {
-    console.log(error, "----from fetchFunction---", url);
-    return error && null;
+    console.log("Error code: FD0000X");
   }
 }
 
-export const dateFun = (date: string) => {
+export function dateFunc(date: string) {
   const newDate = new Date(date);
   return newDate.toDateString();
-};
+}
 
 export function checkNull(parent: any, child: string) {
   return parent ? parent[child] : null;
@@ -49,17 +49,16 @@ export function isValidURL(str: string) {
 
 export function random() {
   const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
-  const chaactersLength = characters.length;
+  const charactersLength = characters.length;
   let result = "";
   for (var i = 0; i < 15; i++) {
-    result += characters.charAt(Math.floor(Math.random() * chaactersLength));
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
 
-export function ImgUrl(name: string | undefined) {
-  return `https://raw.githubusercontent.com/0ME9A/screenshots/main/${name}.png`;
+export function callImg(repoName?: string) {
+  return repoName
+    ? `https://raw.githubusercontent.com/0ME9A/screenshots/main/${repoName}.png`
+    : `https://images.unsplash.com/photo-1551482850-d649f078ed01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`;
 }
-
-export const imgUrl: string = `https://images.unsplash.com/photo-1551482850-d649f078ed01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`;
-// export const imgUrl: string = `https://images.unsplash.com/photo-1636953056323-9c09fdd74fa6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80`;

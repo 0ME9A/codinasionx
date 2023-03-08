@@ -1,22 +1,10 @@
 "use client";
-import {
-  child,
-  childScale,
-  container,
-  scrollScale,
-  scrollX,
-} from "app/_framerVariants/framerVariants";
-import Atropos from "atropos/react";
+import { child, childScale, container } from "app/_framerVariants/framerVariants";
 import { motion } from "framer-motion";
+import Atropos from "atropos/react";
 import Image from "next/image";
+import { testimonialType } from "app/_types/Testimonial";
 
-type testimonialType = {
-  name: string;
-  text: string;
-  imgUrl: string;
-  style?: string;
-  profession: string;
-};
 export default function TestimonialCard({
   imgUrl,
   name,
@@ -50,7 +38,7 @@ export default function TestimonialCard({
         </motion.div>
       </Atropos>
       <article className="col-span-12 md:col-span-7 px-2 pr-[10%] flex text-black dark:text-white flex-col justify-center">
-        <motion.h2 variants={child} className="text-2xl font-semibold">
+        <motion.h2 title={name} variants={child} className="text-2xl font-semibold">
           {name}
         </motion.h2>
         <motion.h3

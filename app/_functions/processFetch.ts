@@ -1,3 +1,4 @@
+// Not in use 
 import { fetchData } from "./functions";
 
 export async function fetchDaves(devs: any, dispatch: any) {
@@ -10,10 +11,8 @@ export async function fetchDaves(devs: any, dispatch: any) {
       type: "DEVS",
       payload: {
         data,
-        page: devs.page + 1,
       },
     });
-  // console.log('from devs --', data)
 }
 export async function fetchRepos(repos: any, dispatch: any) {
   const url: string = `https://api.github.com/orgs/codinasion/repos?per_page=5&page=${
@@ -39,5 +38,4 @@ export async function fetchShowoffRepos(dispatch: any) {
         data,
       },
     });
-  // console.log("function call- showoffrepos");
 }

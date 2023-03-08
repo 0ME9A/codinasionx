@@ -1,6 +1,6 @@
 "use client";
 import { container } from "app/_framerVariants/framerVariants";
-import { orgHighlightsData } from "@/data/Obj/orghighlights";
+import { orgHighlightsData } from "@/data/orghighlights";
 import { random } from "app/_functions/functions";
 import { motion } from "framer-motion";
 import OrgHighlightCard from "./OrgHighlightCard";
@@ -11,7 +11,7 @@ export default function OrgHighlights() {
       variants={container}
       initial={"hidden"}
       whileInView={"show"}
-      className="lg:container mx-auto grid lg:grid-cols-12 gap-5 relative -top-20 px-2"
+      className="lg:container mx-auto grid lg:grid-cols-12 gap-5 relative -top-32 p-2"
     >
       {/* <OrgHighlightCard
         title={orgHighlightsData[0].title}

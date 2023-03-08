@@ -1,10 +1,6 @@
 "use client";
+import { container, scrollX, scrollY } from "app/_framerVariants/framerVariants";
 import { motion, Variants } from "framer-motion";
-import {
-  container,
-  scrollX,
-  scrollY,
-} from "app/_framerVariants/framerVariants";
 
 type headerType = {
   title: string;
@@ -32,19 +28,21 @@ export default function Header({
   };
 
   return (
-    <motion.header className={` ${style}`} variants={container}>
+    <motion.header
+      className={` ${style}`}
+      variants={container}
+      initial="hidden"
+      whileInView={"show"}
+    >
       <motion.h2
         className="text-3xl md:text-4xl uppercase font-bold dark:text-white"
-        initial="hidden"
-        whileInView={"show"}
+        title={title}
         variants={animate[animateDirection]}
       >
         {title}
       </motion.h2>
       <motion.h3
         className="text-gray-700 dark:text-gray-300 font-thin tracking-wider"
-        initial="hidden"
-        whileInView={"show"}
         variants={animate[animateDirection]}
       >
         {subTitle}

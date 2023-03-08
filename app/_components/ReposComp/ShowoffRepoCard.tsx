@@ -1,31 +1,15 @@
 "use client";
 import { child, container } from "app/_framerVariants/framerVariants";
-import { ImgUrl } from "app/_functions/functions";
+import { showoffRepoCardType } from "app/_types/Repos";
 import { BiLinkExternal } from "react-icons/bi";
 import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
 import { IoTelescope } from "react-icons/io5";
 import { motion } from "framer-motion";
-import LinkI from "../Links/BtnLink";
-import Atropos from "atropos/react";
-import Image from "next/image";
-import React from "react";
+import LinkI from "../Links&Btns/BtnLink";
 import Img from "../CommonComp/Img";
+import React from "react";
 
-type status = {
-  forks: number;
-  stars: number;
-};
-type repoCardType = {
-  id: number | 0;
-  imgUrl: string;
-  title: string;
-  desc: string;
-  repoUrl: string;
-  style?: string;
-  order: number[];
-  status: status;
-};
 export default function ShowoffRepoCard({
   id = 0,
   imgUrl,
@@ -35,7 +19,7 @@ export default function ShowoffRepoCard({
   style,
   order,
   status,
-}: repoCardType) {
+}: showoffRepoCardType) {
   return (
     <motion.div
       className={`grid grid-cols-12 gap-2 md:gap-8 xl:gap-10 rounded-[50px] hover:bg-white/50 dark:hover:bg-black/50 md:hover:bg-very-light dark:md:hover:bg-very-dark mx-auto ${style}`}
@@ -45,12 +29,13 @@ export default function ShowoffRepoCard({
     >
       {
         <Img
-          imgUrl={ImgUrl(title)}
-          alt={""}
+          imgUrl={imgUrl}
+          alt={title}
           style={`col-span-12 md:col-span-4 xl:col-span-6 !h-full ${
             order && order.includes(id) ? " md:order-1 " : " md:-order-1 "
           }`}
-          radius={"rounded-[50px]"}
+          imgSize={[400, 400]}
+          radius={50}
         />
       }
 
@@ -58,17 +43,18 @@ export default function ShowoffRepoCard({
         className={`col-span-12 md:col-span-8 xl:col-span-6 rounded-[50px] flex flex-col items-start gap-3 p-2 justify-center text-black dark:text-white`}
       >
         <motion.h2
+          title={title}
           variants={child}
           className={`font-semibold text-3xl md:text-4xl `}
         >
           {title}
         </motion.h2>
         <motion.ul variants={child} className="flex gap-2 text-sm">
-          <li className="flex border-2 dark:shadow-darkShadow-sm shadow-lightShadow-sm items-center justify-center gap-2 p-1 px-3 rounded-full bg-white dark:bg-black">
+          <li title={`${status.stars} Stars`} className="flex border-2 dark:shadow-darkShadow-sm shadow-lightShadow-sm items-center justify-center gap-2 p-1 px-3 rounded-full bg-white dark:bg-black">
             <AiOutlineStar />
             {status.stars}
           </li>
-          <li className="flex border-2 dark:shadow-darkShadow-sm shadow-lightShadow-sm items-center justify-center gap-2 p-1 px-3 rounded-full bg-white dark:bg-black">
+          <li title={`${status.forks} Forks`} className="flex border-2 dark:shadow-darkShadow-sm shadow-lightShadow-sm items-center justify-center gap-2 p-1 px-3 rounded-full bg-white dark:bg-black">
             <GoRepoForked />
             {status.forks}
           </li>
@@ -81,6 +67,7 @@ export default function ShowoffRepoCard({
         </motion.p>
         <motion.div variants={child} className="flex gap-2 mt-2 lg:gap-5">
           <LinkI
+            title={`Read about ${title}`}
             url={`/repositories/${repoUrl}`}
             style="rounded-tl-none w-full sm:w-fit"
           >
@@ -88,6 +75,7 @@ export default function ShowoffRepoCard({
             ReadMe
           </LinkI>
           <LinkI
+            title={`Contribute to ${title}`}
             url={`https://github.com/codinasion/${repoUrl}`}
             target="_blank"
             style="w-full sm:w-fit"

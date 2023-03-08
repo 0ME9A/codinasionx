@@ -13,12 +13,10 @@ import {
   SiScala,
   SiCsharp,
   SiC,
-  SiCucumber,
 } from "react-icons/si";
 
-type langsListType = {
-  lang: JSX.Element;
-}[];
+type langsListType = { lang: JSX.Element;}[];
+
 export const langsList: langsListType = [
   {
     lang: <SiTypescript />,

@@ -1,7 +1,4 @@
-type loadingType = {
-  basic?: boolean;
-};
-export default function Loading({ basic = false }: loadingType) {
+export default function Loading({ basic = false }: { basic?: boolean }) {
   return !basic ? (
     <div className="p-20 min-h-[90vh] flex items-center justify-center mx-auto lg:container text-white">
       <span className="border-2 w-32 block mx-auto border-black dark:border-white !border-t-transparent rounded-full aspect-square animate-spin "></span>

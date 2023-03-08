@@ -1,10 +1,7 @@
+import { DevType } from "app/_types/Devs";
 import Image from "next/image";
 import Link from "next/link";
 
-type DevType = {
-  imgUrl: string;
-  devName: string;
-};
 export default function BasicDevCard({ imgUrl, devName }: DevType) {
   return (
     <Link

@@ -108,6 +108,14 @@ export const childScaleReverse = {
     scale: 1,
   },
 };
+export const noFramer = {
+  hidden: {
+    opacity: 1,
+  },
+  show: {
+    opacity: 1,
+  },
+};
 export const childScaleII = {
   hidden: {
     opacity: 0,

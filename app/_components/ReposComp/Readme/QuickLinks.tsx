@@ -1,18 +1,11 @@
 import { FaBalanceScale, FaGithub, FaRegHandshake } from "react-icons/fa";
-import { readmeType } from "app/repositories/[repo]/page";
+import { qLinkType, repoType } from "app/_types/Repos";
+import { random } from "app/_functions/functions";
 import { GiEarthAmerica } from "react-icons/gi";
 import { IoTelescope } from "react-icons/io5";
-import Loading from "app/_components/Loading/Loading";
 import Link from "next/link";
-import { random } from "app/_functions/functions";
 
-export default function QuickLinks({ repo }: { repo: readmeType | null }) {
-  type qLinkType = {
-    id: string | undefined;
-    text: string;
-    link: string;
-    icon: JSX.Element;
-  }[];
+export default function QuickLinks({ repo }: { repo: repoType | null }) {
   const qLink: qLinkType = [
     {
       id: repo?.homepage,
@@ -46,25 +39,22 @@ export default function QuickLinks({ repo }: { repo: readmeType | null }) {
     },
   ];
 
-  console.log(repo);
-  return repo ? (
+  return (
     <div className="p-2 gap-2 grid">
-      {qLink.map((item) => {
-        return (
+      {qLink.map(
+        (item) =>
           item.id && (
             <Link
               key={random()}
               href={item.link}
+              title={item.text}
               className="group flex gap-2 items-center"
               target={"_blank"}
             >
               {item.icon} {item.text}
             </Link>
           )
-        );
-      })}
+      )}
     </div>
-  ) : (
-    <Loading basic={true} />
   );
 }

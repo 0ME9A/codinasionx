@@ -1,20 +1,13 @@
-import { devsType } from "app/repositories/[repo]/page";
+import { contributorsTypes} from "app/_types/Repos";
 import { random } from "app/_functions/functions";
 import BasicDevCard from "app/_components/DevsComp/BasicDevCard";
-import BasicLink from "app/_components/Links/BasicLink";
-import Loading from "app/_components/Loading/Loading";
+import BasicLink from "app/_components/Links&Btns/BasicLink";
 import Box from "app/_components/LayoutsComp/Box";
 
-type contributorsTypes = {
-  devs: devsType | null;
-  params?: any;
-  repoName: string | null;
-};
 export default function Contributor({ devs, repoName }: contributorsTypes) {
-  console.log(devs);
-  return (
-    <Box title="Contributors">
-      {devs && repoName ? (
+  if (devs && repoName) {
+    return (
+      <Box title="Contributors">
         <div className="flex flex-wrap">
           {devs.slice(0, 15).map((item) => (
             <BasicDevCard
@@ -25,6 +18,7 @@ export default function Contributor({ devs, repoName }: contributorsTypes) {
           ))}
           {devs.length > 15 && (
             <BasicLink
+              title={`Expend`}
               href={`/repositories/${repoName}/developers`}
               style="h-full pt-5 p-2 text-sm"
             >
@@ -32,9 +26,8 @@ export default function Contributor({ devs, repoName }: contributorsTypes) {
             </BasicLink>
           )}
         </div>
-      ) : (
-        <Loading basic={true} />
-      )}
-    </Box>
-  );
+      </Box>
+    );
+  }
+  return <></>;
 }

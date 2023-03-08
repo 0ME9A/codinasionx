@@ -1,21 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
-import { icons } from "@/data/Obj/eventsIcon";
+import { childScale, scrollHeight, scrollX } from "app/_framerVariants/framerVariants";
+import { eventsBtnType } from "app/_types/Events";
+import { icons } from "@/data/eventsIcon";
 import { motion } from "framer-motion";
-import {
-  childScale,
-  scrollHeight,
-  scrollX,
-} from "app/_framerVariants/framerVariants";
-import BasicLink from "../Links/BasicLink";
+import BasicLink from "../Links&Btns/BasicLink";
 
-type eventsType = {
-  type: string;
-  isBtn: boolean;
-  state: number;
-  setState: Dispatch<SetStateAction<number>>;
-};
-
-export default function EventBtn({ type, isBtn, state, setState }: eventsType) {
+export default function EventBtn({ type, isBtn, state, setState }: eventsBtnType) {
   return (
     <div className="w-fit">
       <div className="relative z-[50] grid grid-flow-col justify-center items-start gap-3 w-fit">
@@ -40,7 +29,7 @@ export default function EventBtn({ type, isBtn, state, setState }: eventsType) {
           variants={scrollX(-50)}
         >
           {isBtn ? (
-            <BasicLink href={"/events"} target={"_blank"}>
+            <BasicLink href={"/events"} title={'Load more'} target={"_blank"}>
               Load more...
             </BasicLink>
           ) : (

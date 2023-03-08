@@ -12,7 +12,7 @@ const reducer = (state: any, action: actionType) => {
         ...state,
         devs: {
           data: [...state.devs.data, ...action.payload.data],
-          page: action.payload.page,
+          status: action.payload.status
         },
       };
     case "REPOS":
@@ -20,15 +20,15 @@ const reducer = (state: any, action: actionType) => {
         ...state,
         repos: {
           data: [...state.repos.data, ...action.payload.data],
-          page: action.payload.page,
+          status: action.payload.status
         },
       };
     case "SHOWOFFREPOS":
-      // console.log(action.payload)
       return {
         ...state,
         showoffRepos: {
           data: [...state.showoffRepos.data, ...action.payload.data],
+          status: action.payload.status
         },
       };
     default:

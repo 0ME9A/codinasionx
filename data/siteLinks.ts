@@ -1,7 +1,43 @@
-const navbarLinks = [
-  { name: "API", href: "#" },
-  { name: "Blog", href: "#" },
-  { name: "Projects", href: "#" },
+export type navLinkType = {
+  param: string;
+  name: string;
+  child:
+    | {
+        name: string;
+        link: string;
+      }[]
+    | null;
+};
+export const navLinks: navLinkType[] = [
+  {
+    param: "/",
+    name: "home",
+    child: null,
+  },
+  {
+    param: "/events",
+    name: "events",
+    child: null,
+  },
+  {
+    param: "/repositories",
+    name: "repositories",
+    child: [
+      { name: "program", link: "/program" },
+      { name: "good 1st issue", link: "/good-1st-issue" },
+      { name: "LinkFree-OG", link: "/linkfree-og" },
+    ],
+  },
+  {
+    param: "/developers",
+    name: "developers",
+    child: null,
+  },
+  {
+    param: "/about",
+    name: "about",
+    child: null,
+  },
 ];
 
 type urlType = {
@@ -25,5 +61,3 @@ export const SocialMedia: urlType = [
   { name: "Discord", href: "https://discord.com/invite/PzNmxsrXTX" },
   { name: "Twitter", href: "https://twitter.com/codinasion" },
 ];
-
-export default navbarLinks;

@@ -1,21 +1,16 @@
+import { DevType } from "app/_types/Devs";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-type DevType = {
-  imgUrl: string;
-  devName: string;
-  target?: string;
-};
-export default function DevCard({
-  imgUrl,
-  devName,
-  target = "_self",
-}: DevType) {
+export default function DevCard({ imgUrl, devName, target = "_self" }: DevType) {
   return (
-    <div className="space-y-1 p-2 hover:shadow-lg border-2 border-transparent relative group rounded-2xl overflow-hidden w-full hover:border-darkII dark:shadow-dark hover:bg-light dark:hover:bg-dark">
+    <div 
+    title={devName}
+    className="space-y-1 p-2 hover:shadow-lg border-2 border-transparent relative group rounded-2xl overflow-hidden w-full hover:border-darkII dark:shadow-dark hover:bg-light dark:hover:bg-dark"
+    >
       <Link
         href={`/developers/${devName}`}
+        title={devName}
         target={target}
         className="grid justify-center"
       >

@@ -1,28 +1,10 @@
-import { icons } from "@/data/Obj/eventsIcon";
+import { childScale, scrollHeight, scrollX } from "app/_framerVariants/framerVariants";
+import { eventsType } from "app/_types/Events";
+import { icons } from "@/data/eventsIcon";
 import { motion } from "framer-motion";
-import BasicLink from "../Links/BasicLink";
-import {
-  childScale,
-  scrollHeight,
-  scrollX,
-} from "app/_framerVariants/framerVariants";
+import BasicLink from "../Links&Btns/BasicLink";
 
-type eventsType = {
-  id: number;
-  type: string;
-  title: string;
-  description: string;
-  url: string;
-  date: string;
-};
-export default function Event({
-  id,
-  type,
-  title,
-  description,
-  url,
-  date,
-}: eventsType) {
+export default function Event({ id, type, title, description, url, date }: eventsType) {
   return (
     <div className="w-fit">
       <div className="relative z-[50] grid grid-flow-col justify-center items-start gap-3 w-fit">
@@ -57,7 +39,7 @@ export default function Event({
             {description}
           </motion.p>
           <motion.span variants={scrollX(-50)}>
-            <BasicLink href={url} target={"_blank"}>
+            <BasicLink title={`Github`} href={url} target={"_blank"}>
               GitHub
             </BasicLink>
           </motion.span>

@@ -7,6 +7,7 @@ export default function Brand() {
     <div className="text-xl font-semibold uppercase flex gap-2 items-center">
       <Link
         href={"/"}
+        title={"Home"}
         className={`border-2 p-[3px] rounded-full dark:border-white border-black glowII`}
       >
         <Image
@@ -19,7 +20,7 @@ export default function Brand() {
       </Link>
 
       <span className="flex flex-col">
-        <Link href={"/"} className="">
+        <Link href={"/"} title={"Home"}>
           Codinasion
         </Link>
         <span className="text-xs font-light">Codinasion ❤️ Open Source</span>

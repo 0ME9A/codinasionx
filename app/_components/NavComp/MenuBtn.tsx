@@ -1,13 +1,10 @@
-import { Dispatch, SetStateAction, useContext } from "react";
 import { theContext } from "app/_context/theContext";
+import { menuBtnType } from "app/_types/Nav";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { useContext } from "react";
 import ThemeBtn from "./ThemeBtn";
 
-type menuBtnType = {
-  setState: Dispatch<SetStateAction<boolean>>;
-  state: boolean;
-};
 export default function MenuBtn({ state, setState }: menuBtnType) {
   const context: any = useContext(theContext);
 
@@ -15,7 +12,7 @@ export default function MenuBtn({ state, setState }: menuBtnType) {
     <div className="lg:hidden flex gap-2 items-center">
       <ThemeBtn dispatch={context.dispatch} activeTheme={context.values.theme} />
       <span className="w-[2px] h-6 rounded-full dark:bg-white/50 bg-black/50"></span>
-      <button className="p-2" onClick={() => setState(!state)}>
+      <button title={'Menu toggler button'} className="p-2" onClick={() => setState(!state)}>
         {state ? (
           <IoClose className="text-2xl hover:scale-125 aspect-square text-red-700" />
         ) : (

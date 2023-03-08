@@ -1,11 +1,10 @@
 import { random } from "app/_functions/functions";
-import Loading from "app/_components/Loading/Loading";
 import Box from "app/_components/LayoutsComp/Box";
 
-export default function Topics({ topics }: { topics: string[] | null }) {
-  return (
-    <Box title="Topics">
-      {topics ? (
+export default function Topics({ topics }: { topics: string[] }) {
+  if (topics)
+    return (
+      <Box title="Topics">
         <ul className="flex flex-wrap gap-1">
           {topics.map((item: string) => {
             return (
@@ -18,9 +17,7 @@ export default function Topics({ topics }: { topics: string[] | null }) {
             );
           })}
         </ul>
-      ) : (
-        <Loading basic={true} />
-      )}
-    </Box>
-  );
+      </Box>
+    );
+  return <></>;
 }

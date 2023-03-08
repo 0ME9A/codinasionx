@@ -4,18 +4,14 @@ import { theContext } from "./_context/theContext";
 import { useEffect, useReducer } from "react";
 import { Oswald } from "@next/font/google";
 import FooterContainer from "./_components/FooterComp/FooterContainer";
-import Background from "./_components/LayoutsComp/BackgroundHero";
+import Background from "./_components/LayoutsComp/BackgroundBlobs";
 import Navbar from "./_components/NavComp/Navbar";
 import initialState from "./_context/theInitial";
 import reducer from "./_context/theReducer";
+import useFetch from "./_hooks/useFetch";
 import "atropos/atropos.css";
 import "./globals.css";
 import "./atropos.css";
-import {
-  fetchDaves,
-  fetchRepos,
-  fetchShowoffRepos,
-} from "./_functions/processFetch";
 
 const oswald = Oswald({
   weight: ["300", "400", "600", "700"],
@@ -23,22 +19,19 @@ const oswald = Oswald({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode; }) {
   const [values, dispatch] = useReducer(reducer, initialState);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);
+  const devsUrl = "https://api.github.com/repos/codinasion/program/contributors";
+  const showoffReposUrl = "https://api.github.com/orgs/codinasion/repos";
+  const { data: devs, status: devsStatus } = useFetch({ url: devsUrl });
+  const { data: showoffRepo, status: showoffRepoStatus } = useFetch({ url: showoffReposUrl });
 
   useEffect(() => {
-    fetchRepos(values.repos, dispatch);
-    fetchDaves(values.devs, dispatch);
-    fetchShowoffRepos(dispatch);
-    return () => {
-    };
-  }, []);
+    devsStatus === 200 && dispatch({ type: "DEVS", payload: { data: devs, status: devsStatus } });
+    showoffRepoStatus === 200 && dispatch({ type: "SHOWOFFREPOS", payload: { data: showoffRepo, status: showoffRepoStatus } });
+  }, [showoffRepoStatus, devsStatus]);
 
   return (
     <html lang="en" className="dark">

@@ -1,37 +1,10 @@
 import { IoIosCheckmarkCircle, IoIosCloseCircle } from "react-icons/io";
-import { BsFillPauseCircleFill } from "react-icons/bs";
 import { RiFocus2Line, RiLoader3Line } from "react-icons/ri";
+import { BsFillPauseCircleFill } from "react-icons/bs";
+import { eventIconsType } from "app/_types/Events";
 import { CiBullhorn } from "react-icons/ci";
-import { FiLoader } from "react-icons/fi";
 
-type iconsType = {
-  ab: {
-    type: JSX.Element;
-    color: string;
-  };
-  an: {
-    type: JSX.Element;
-    color: string;
-  };
-  dn: {
-    type: JSX.Element;
-    color: string;
-  };
-  hd: {
-    type: JSX.Element;
-    color: string;
-  };
-  lm: {
-    type: JSX.Element;
-    color: string;
-  };
-  pr: {
-    type: JSX.Element;
-    color: string;
-  };
-};
-// export const icons: iconsType = {
-export const icons: iconsType | any = {
+export const icons: eventIconsType | any = {
   ab: {
     type: <IoIosCloseCircle style={{ fontSize: "2.25rem" }} title="Aborted" />,
     color: "rgb(239 68 68)",

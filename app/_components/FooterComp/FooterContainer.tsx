@@ -1,27 +1,29 @@
 "use client";
 import { child, container } from "app/_framerVariants/framerVariants";
-import { siteMap, SocialMedia, topRepos } from "@/data/navbarLinks";
+import { siteMap, SocialMedia, topRepos } from "@/data/siteLinks";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import { random } from "app/_functions/functions";
 import { BiLinkExternal } from "react-icons/bi";
 import { motion } from "framer-motion";
-import BtnLink from "../Links/BtnLink";
+import BtnLink from "../Links&Btns/BtnLink";
 import Link from "next/link";
 import Langs from "./Langs";
 
 export default function FooterContainer() {
   return (
-    <div className={`bg-light dark:bg-darkII relative z-20`}>
+    <div className={`bg-light dark:bg-darkII relative z-20`} id={"footer"}>
       <Langs />
       <motion.footer
         variants={container}
         initial={"hidden"}
         whileInView={"show"}
+        viewport={{ once: true }}
         className="lg:container mx-auto grid grid-cols-12 gap-5 py-16 p-2 md:p-5"
       >
         <div className="col-span-12 md:col-span-6">
           <div>
             <motion.h2
+              title="Codinasion"
               variants={child}
               className="text-3xl md:text-4xl font-bold text-black dark:text-white "
             >
@@ -39,6 +41,7 @@ export default function FooterContainer() {
           </div>
           <motion.div variants={child}>
             <BtnLink
+              title={'Contribute'}
               url={`https://github.com/codinasion`}
               style="rounded-tl-none mt-5 w-full sm:w-fit"
             >
@@ -54,11 +57,8 @@ export default function FooterContainer() {
           <li className="font-semibold">Site Map</li>
           {siteMap &&
             siteMap.map((item) => (
-              <li
-                key={random()}
-                className="text-gray-700 dark:text-gray-300"
-              >
-                <Link href={item.href}>{item.name}</Link>
+              <li key={random()} className="text-gray-700 dark:text-gray-300">
+                <Link href={item.href} title={item.name}>{item.name}</Link>
               </li>
             ))}
         </motion.ul>
@@ -69,11 +69,8 @@ export default function FooterContainer() {
           <li className="font-semibold">Top Repos</li>
           {topRepos &&
             topRepos.map((item) => (
-              <li
-                key={random()}
-                className="text-gray-700 dark:text-gray-300"
-              >
-                <Link href={item.href}>{item.name}</Link>
+              <li key={random()} className="text-gray-700 dark:text-gray-300">
+                <Link href={item.href} title={item.name}>{item.name}</Link>
               </li>
             ))}
         </motion.ul>
@@ -83,11 +80,7 @@ export default function FooterContainer() {
         >
           {SocialMedia &&
             SocialMedia.map((item) => (
-              <Link
-                key={random()}
-                href={item.href}
-                className="hover:scale-125"
-              >
+              <Link key={random()} href={item.href} title={item.name} className="hover:scale-125">
                 {item.name.toLowerCase() === "github" && <FaGithub />}
                 {item.name.toLowerCase() === "twitter" && <FaTwitter />}
                 {item.name.toLowerCase() === "discord" && <FaDiscord />}

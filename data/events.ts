@@ -1,12 +1,6 @@
-type eventsType = {
-  id: number;
-  type: string;
-  title: string;
-  description: string;
-  url: string;
-  date: string;
-};
-export const events: eventsType[] = [
+import { eventsDataType } from "app/_types/Events";
+
+export const events: eventsDataType = [
   {
     id: 1,
     type: "an",

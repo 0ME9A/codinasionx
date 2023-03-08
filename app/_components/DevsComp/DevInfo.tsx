@@ -4,26 +4,14 @@ import { isValidURL } from "app/_functions/functions";
 import { MdOutlineMyLocation } from "react-icons/md";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { GiEarthAsiaOceania } from "react-icons/gi";
+import { devinfoType } from "app/_types/Devs";
 import { motion } from "framer-motion";
-import Loading from "../Loading/Loading";
-import BtnLink from "../Links/BtnLink";
-import History from "../Links/History";
+import DevsInfoSkeleton from "app/_components/Skeleton/Devs/DevsInfo";
+import BtnLink from "../Links&Btns/BtnLink";
+import History from "../Links&Btns/History";
 import Img from "../CommonComp/Img";
 
-type devinfoType = {
-  login: string;
-  avatar_url: string;
-  type: string;
-  name: string;
-  blog: string;
-  location: string;
-  bio: string;
-  twitter_username: null;
-  public_repos: number;
-  public_gists: number;
-  followers: number;
-  following: number;
-};
+
 export default function DevInfo({ dev }: { dev: devinfoType }) {
   return dev ? (
     <motion.div
@@ -34,14 +22,16 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
     >
       <Img
         imgUrl={dev.avatar_url}
-        style={"w-[20%] md:max-w-[300px]"}
+        style={"w-[20%] md:max-w-[300px] !rounded-full"}
+        radius={200}
+        imgSize={[200, 200]}
         alt={dev.login}
       />
       <motion.article
         variants={child}
         className={`dark:text-white pt-0 md:pt-20 w-full md:w-[60%] lg:w-[40%]`}
       >
-        <h1 className={`text-2xl font-semibold`}>
+        <h1 title={dev.name} className={`text-2xl font-semibold`}>
           {dev.name}{" "}
           {dev.type === "Organization" && (
             <span className="text-sm text-green-500 font-light">(org)</span>
@@ -54,9 +44,9 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
         >
           <thead>
             <tr>
-              <th className={`p-5 pb-0`}>Repo</th>
-              <th className={`p-5 pb-0`}>Followers</th>
-              <th className={`p-5 pb-0`}>Following</th>
+              <th title={`${dev.public_repos} repo`} className={`p-5 pb-0`}>Repo</th>
+              <th title={`${dev.followers} followers`} className={`p-5 pb-0`}>Followers</th>
+              <th title={`${dev.following} following`} className={`p-5 pb-0`}>Following</th>
             </tr>
           </thead>
           <tbody>
@@ -81,6 +71,7 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
           {isValidURL(dev.blog) && (
             <BtnLink
               url={dev.blog}
+              title={'Website'}
               target="_blank"
               style={`!bg-transparent col-span-3 sm:col-span-2 !p-0 border-none w-fit !shadow-none`}
             >
@@ -91,6 +82,7 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
           {!!dev.twitter_username && (
             <BtnLink
               url={`http://twitter.com/${dev.twitter_username}`}
+              title={'Twitter'}
               target="_blank"
               style={`!bg-transparent col-span-3 sm:col-span-1 !p-0 border-none w-fit !shadow-none`}
             >
@@ -100,10 +92,12 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
           )}
           <BtnLink
             url={`https://github.com/${dev.login}`}
+            title={'Github'}
             target="_blank"
             style={`!bg-transparent col-span-3 sm:col-span-2 !p-0 border-none w-fit !shadow-none`}
           >
-            <FaGithub className={`group-hover:scale-125`} /> GitHub
+            <FaGithub className={`group-hover:scale-125`} /> 
+            GitHub
           </BtnLink>
         </div>
       </motion.article>
@@ -113,6 +107,6 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
       />
     </motion.div>
   ) : (
-    <Loading />
+    <DevsInfoSkeleton />
   );
 }

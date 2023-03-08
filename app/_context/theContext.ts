@@ -6,14 +6,15 @@ type valuesType = {
   theme: string;
   devs: {
     data: string[];
-    page: number;
+    status: number
   };
   repos: {
     data: string[];
-    page: number;
+    status: number;
   };
   showoffRepos: {
     data: string[];
+    status: number;
   };
 };
 type actionType = {

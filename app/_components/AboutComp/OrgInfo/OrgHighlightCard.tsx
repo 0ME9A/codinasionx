@@ -1,31 +1,21 @@
 "use client";
 import { childScale } from "app/_framerVariants/framerVariants";
-import { IconType } from "react-icons/lib";
+import { orgHighlightCardType } from "app/_types/About";
 import { motion } from "framer-motion";
 import Atropos from "atropos/react";
 
-type cardType = {
-  text: string;
-  title: string;
-  icon: IconType | JSX.Element;
-  style: string;
-};
-export default function OrgHighlightCard({
-  icon,
-  text,
-  title,
-  style,
-}: cardType) {
+export default function OrgHighlightCard({ icon, text, title, style }: orgHighlightCardType) {
   return (
     <motion.div
-      className={`w-full dark:text-white rounded-[50px] bg-very-dark dark:bg-very-light text-center shadow-lg h-fit ${style} atropos-banner`}
+      title={title}
+      className={`w-full dark:text-white rounded-[50px] bg-very-dark dark:bg-very-light text-center shadow-lg h-fit atropos-banner ${style}`}
       variants={childScale}
     >
       <Atropos activeOffset={40} shadowScale={0.8} highlight={true}>
         <article className={`p-6 xl:p-8 dark:bg-dark bg-very-light`}>
           <>
             {icon}
-            <h3 className="text-3xl font-medium mt-5" data-atropos-offset="5">
+            <h3 title={title} className="text-3xl font-medium mt-5" data-atropos-offset="5">
               {title}
             </h3>
             <p

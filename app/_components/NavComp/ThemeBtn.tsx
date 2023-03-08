@@ -1,13 +1,11 @@
-import setThemeFun from "app/_functions/functions";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { themeBtnType } from "app/_types/Nav";
+import setThemeFun from "app/_functions/functions";
 
-type themeBtnType = {
-  activeTheme: string;
-  dispatch: () => void;
-};
 export default function ThemeBtn({ dispatch, activeTheme }: themeBtnType) {
   return (
     <button
+      title={`Theme toggler`}
       className="p-2"
       onClick={() => {
         setThemeFun(dispatch);
