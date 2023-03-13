@@ -13,7 +13,7 @@ export default function Page() {
     storage: true,
     per_page: 60,
   });
-  useInfinite({ onUpdate: page, apiCall: setIncrement });
+  useInfinite({ funcVal: page, apiCall: setIncrement });
 
   return <Devs apiData={{ data, status, setStatus }} btn={true} />;
 }

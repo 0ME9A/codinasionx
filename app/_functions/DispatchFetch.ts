@@ -2,9 +2,8 @@
 import { fetchData } from "./functions";
 
 export async function fetchDaves(devs: any, dispatch: any) {
-  const url: string = `https://api.github.com/repos/codinasion/program/contributors?page=${
-    devs.page + 1
-  }`;
+  const url: string = `https://api.github.com/repos/codinasion/program/contributors?page=${devs.page + 1
+    }`;
   const data = await fetchData(url);
   data &&
     dispatch({
@@ -15,16 +14,14 @@ export async function fetchDaves(devs: any, dispatch: any) {
     });
 }
 export async function fetchRepos(repos: any, dispatch: any) {
-  const url: string = `https://api.github.com/orgs/codinasion/repos?per_page=5&page=${
-    repos.page + 1
-  }`;
+  const url: string = `https://api.github.com/orgs/codinasion/repos?per_page=5&page=${repos.page + 1
+    }`;
   const data = await fetchData(url);
   data &&
     dispatch({
       type: "REPOS",
       payload: {
         data,
-        page: repos.page + 1,
       },
     });
 }
@@ -38,4 +35,20 @@ export async function fetchShowoffRepos(dispatch: any) {
         data,
       },
     });
+}
+export async function dispatchProgram(dispatch: any, data: string[], status: number) {
+  status === 200 &&
+    dispatch({
+      type: "PROGRAM",
+      payload: {
+        data,
+        status
+      },
+    });
+}
+export async function dispatchProgramTag(dispatch: any, payload: string) {
+  dispatch({
+    type: "PROGRAMTAG",
+    payload: { tag: payload },
+  });
 }

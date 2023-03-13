@@ -3,10 +3,13 @@ type actionType = {
   payload: any;
 };
 
-const reducer = (state: any, action: actionType) => {
+function reducer(state: any, action: actionType) {
+  console.log(state, '-----dispatch status----- ', action)
   switch (action.type) {
     case "THEME":
       return { ...state, theme: action.payload };
+    case "SEARCH":
+      return { ...state, search: action.payload };
     case "DEVS":
       return {
         ...state,
@@ -29,6 +32,47 @@ const reducer = (state: any, action: actionType) => {
         showoffRepos: {
           data: [...state.showoffRepos.data, ...action.payload.data],
           status: action.payload.status
+        },
+      };
+    case "PROGRAM":
+      return {
+        ...state,
+        program: {
+          data: [...action.payload.data],
+          status: action.payload.status,
+          compStatus: { ...state.program.compStatus }
+        },
+      };
+    case "PROGRAMASIDE":
+      return {
+        ...state,
+        program: {
+          ...state.program,
+          compStatus: { ...state.program.compStatus, aside: action.payload }
+        },
+      };
+    case "PROGRAMSEARCH":
+      return {
+        ...state,
+        program: {
+          ...state.program,
+          compStatus: { ...state.program.compStatus, search: action.payload }
+        },
+      };
+    case "PROGRAMTAG":
+      return {
+        ...state,
+        program: {
+          ...state.program,
+          compStatus: { ...state.program.compStatus, tag: action.payload }
+        },
+      };
+    case "PROGRAMLIMIT":
+      return {
+        ...state,
+        program: {
+          ...state.program,
+          compStatus: { ...state.program.compStatus, limit: action.payload }
         },
       };
     default:

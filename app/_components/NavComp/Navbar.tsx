@@ -44,11 +44,11 @@ export default function Example() {
   return (
     <>
       <nav
-        className={`py-4 fixed top-0 z-30 w-full backdrop-blur-sm dark:text-white bg-very-light ${
+        className={`fixed top-0 z-30 w-full backdrop-blur-sm dark:text-white bg-very-light ${
           scroll > 0 ? "dark:bg-very-dark bg-very-light" : "bg-transparent"
         }`}
       >
-        <div className="px-3 items-center flex justify-between lg:container mx-auto">
+        <div className="px-3 h-20 items-center flex justify-between lg:container mx-auto">
           <Brand />
           <div className=" hidden lg:flex items-center md:gap-2 xl:gap-4 h-full">
             <ul className="flex">

@@ -13,7 +13,7 @@ export default function Page() {
   const i = Array.from(Array(5).keys());
   const url = "https://api.github.com/orgs/codinasion/repos";
   const { data, setIncrement, page, status, setStatus } = useFetch({ url, storage: true, per_page: 5 });
-  useInfinite({ onUpdate: page, apiCall: setIncrement });
+  useInfinite({ funcVal: page, apiCall: setIncrement });
 
   return (
     <motion.div variants={container} initial={'hidden'} whileInView={'show'} className="p-2 my-24 lg:container mx-auto space-y-5 ">

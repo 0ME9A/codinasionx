@@ -1,9 +1,11 @@
+import { ProgramType } from "app/_types";
 import { createContext } from "react";
 import initialState from "./theInitial";
 import reducer from "./theReducer";
 
 type valuesType = {
   theme: string;
+  search: boolean;
   devs: {
     data: string[];
     status: number
@@ -15,6 +17,11 @@ type valuesType = {
   showoffRepos: {
     data: string[];
     status: number;
+  };
+  program: {
+    data: ProgramType[] | [];
+    status: number;
+    compStatus: { aside: boolean, search: string, limit: number, tag: string | 'All' }
   };
 };
 type actionType = {

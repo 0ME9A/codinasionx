@@ -1,11 +1,11 @@
+import HomeArticles from "app/_components/ProgramComp/HomeArticles";
+import HomeAside from "app/_components/ProgramComp/HomeAside";
+
 export default function Page() {
   return (
-    <div
-      className={
-        "min-h-screen lg:container mx-auto flex justify-center items-center"
-      }
-    >
-      <h1>The page under maintenance.</h1>
+    <div className={"flex lg:container mx-auto p-2 gap-3 relative"}>
+      <HomeArticles />
+      <HomeAside />
     </div>
-  );
+  )
 }
