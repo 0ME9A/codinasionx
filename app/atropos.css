@@ -1,3 +1,12 @@
 .atropos-banner .atropos-inner {
     border-radius: 50px;
 }
+
+/* .atropos-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    border-radius: 50px;
+} */

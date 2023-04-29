@@ -1,12 +1,13 @@
 type boxType = {
   title: string;
+  titlePlus?: string;
   style?: string;
   children?: React.ReactNode;
 };
-export default function Box({ title, children, style }: boxType) {
+export default function Box({ title, titlePlus='', children, style }: boxType) {
   return (
-    <section className={`p-2 space-y-2 ${style}`}>
-      <h3 title={title} className="border-b border-gray-500/50 py-1 text-lg text-black dark:text-white">{title}</h3>
+    <section className={`p-2 space-y-2 text-black dark:text-white ${style}`}>
+      <h3 title={`${title} ${titlePlus}`} className="border-b border-gray-500/50 py-1 text-lg text-black dark:text-white">{title}</h3>
       {children}
     </section>
   );

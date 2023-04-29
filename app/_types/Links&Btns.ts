@@ -1,10 +1,14 @@
 export type buttonType = {
   children: React.ReactNode;
-  localState?: boolean;
   style?: string;
   val: any;
   title: string;
-  fun: (devs: any, dispatch?: any) => Promise<void> | void;
+  func: (dispatch?: any) => Promise<void> | void;
+};
+
+export type clipBoartBtnType = {
+  clipText: string;
+  style?: string;
 };
 
 export type historyType = {
@@ -27,3 +31,14 @@ export type basicLinkType = {
   target?: string;
   children: React.ReactNode;
 };
+
+export type badgeType = {
+  BadgeData: {
+      text: string;
+      highlightText?: string | number | boolean;
+      style?: string;
+      funcVal: any;
+      funcState?: string | number | boolean | null;
+      clickFunc: Function;
+  }
+}

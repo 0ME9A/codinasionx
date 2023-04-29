@@ -89,10 +89,11 @@ export function callImg(repoName?: string): string {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export function countTag(objectWithTags: objectWithTagsType[]): tagCountType {
+export function countTag(objectWithTags: objectWithTagsType[]) {
   const tagCount: tagCountType = {};
   objectWithTags.forEach((obj: objectWithTagsType) => {
-    obj.tags.forEach((tag: string) => {
+    // obj.tags.forEach((tag: string) => {
+    obj.languages.forEach((tag: string) => {
       if (tag in tagCount) {
         tagCount[tag]++;
       } else {
@@ -106,11 +107,12 @@ export function countTag(objectWithTags: objectWithTagsType[]): tagCountType {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export function tagArray(obj: TagCount): Tag[] {
+export function tagArray(obj: TagCount | null): Tag[] {
   const langArray: Tag[] = [];
-
-  for (const key in obj) {
-    langArray.push({ language: key, program: obj[key] });
+  if (obj) {
+    for (let key in obj) {
+      langArray.push({ language: key, program: obj[key] });
+    }
   }
 
   return langArray;
@@ -123,10 +125,39 @@ export function compareArrays(arr1: ProgramType[], arr2: ProgramType[]): Program
   const combinedArray: ProgramType[] = arr1.concat(arr2);
 
   const uniqueArray = combinedArray.reduce((accumulator: ProgramType[], current: ProgramType) => {
-      const existingObj = accumulator.find((obj: ProgramType) => obj.title === current.title);
-      if (!existingObj) accumulator.push(current);
+    const existingObj = accumulator.find((obj: ProgramType) => obj.title === current.title);
+    if (!existingObj) accumulator.push(current);
 
-      return accumulator;
+    return accumulator;
   }, []);
   return uniqueArray;
+}
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+
+export type projectPathType = {
+  name: string;
+  slug: string;
+  active: boolean;
+}[]
+export function projectPath(path: string[]): projectPathType {
+  let newPath = []
+  for (let i = 0; i < path.length; i++) {
+    newPath.push({ name: path[i], slug: `/${path.slice(0, i + 1).toString().replaceAll(',', '/')}`, active: path.length !== i + 1 })
+  }
+  return newPath;
+}
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+
+export function clipBoard(text: string): boolean {
+  const elem: HTMLTextAreaElement = document.createElement('textarea');
+  elem.value = text;
+  document.body.appendChild(elem);
+  elem.select();
+  document.execCommand('copy');
+  document.body.removeChild(elem);
+  return true
 }

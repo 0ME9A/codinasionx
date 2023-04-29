@@ -1,5 +1,5 @@
+import siteMetadata from "@/data/SiteMetaData";
 import Favicon from "@/public/favicon/favicon.ico";
-import siteMetadata from "@/data/siteMetadata";
 import logo from "@/public/logo.png";
 
 export default function Head() {

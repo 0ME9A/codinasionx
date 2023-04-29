@@ -44,11 +44,11 @@ export const scrollHeight = (height: number | string) => {
 };
 export const scrollScale = (initial_pos: number) => {
   const variantsS: Variants = {
-    offscreen: {
+    hidden: {
       opacity: 0,
       scale: initial_pos,
     },
-    onscreen: {
+    show: {
       opacity: 1,
       scale: 1,
       transition: { type: "spring", restSpeed: 30, duration: 0.2 },

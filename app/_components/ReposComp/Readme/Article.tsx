@@ -3,7 +3,7 @@ import { articleType } from "app/_types/Repos";
 import { IoMdMore } from "react-icons/io";
 import { motion } from "framer-motion";
 import BasicLink from "app/_components/Links&Btns/BasicLink";
-import Img from "app/_components/CommonComp/Img";
+import AstroImg from "app/_components/CommonComp/Img";
 
 export default function Article({ repo, state, setState }: articleType) {
   return (
@@ -64,7 +64,7 @@ export default function Article({ repo, state, setState }: articleType) {
         </p>
       </article>
       <div className="text-white mt-10 flex flex-col md:flex-row gap-5 items-center">
-        <Img
+        <AstroImg
           imgUrl={"/img/octocat.png"}
           alt={"Thanks"}
           radius={50}

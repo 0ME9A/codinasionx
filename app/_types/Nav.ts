@@ -14,3 +14,8 @@ export type menuType = {
   activeTab: string;
   setState: Dispatch<SetStateAction<boolean>>;
 };
+
+export type projectNavType = {
+  api: { data: any, status: number }
+  layout: { name: string, slug: string, aside?: boolean };
+}

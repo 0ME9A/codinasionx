@@ -24,9 +24,14 @@
         background-color: white;
     }
 
+    /* .title-shadow{
+        text-shadow: 0 5px 5px, 5px 0 5px, 10px 10px 10px;
+    } */
+
     .glowII {
         animation: glowII 5s linear infinite;
     }
+
 
     @keyframes glowII {
         0% {
@@ -38,16 +43,20 @@
         }
     }
 
-    .animate-blob {
-        animation: animateBlob 180s linear alternate-reverse infinite;
+    .animate-chakra-spin {
+        animation: animateBlob 180s linear alternate infinite;
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%);
     }
-
+    
     @keyframes animateBlob {
         0% {
-            rotate: 0deg;
+            transform: translateX(-50%) rotate(0) scale(4);
         }
         100% {
-            rotate: 360deg;
+            transform: translateX(-50%) rotate(360deg) scale(4);
         }
     }
 }

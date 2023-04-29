@@ -1,9 +1,10 @@
 export type objectWithTagsType = {
-    tags: string[];
+    languages: string[];
 }
 
 export type tagCountType = {
-    [tag: string]: number;
+    [language: string]: number;
+    // [tag: string]: number;
 }
 
 export type ResponseData = {

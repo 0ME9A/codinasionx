@@ -5,7 +5,7 @@ import ArticleSkeleton from "app/_components/Skeleton/Repo/Article";
 import AsideSkeleton from "app/_components/Skeleton/Repo/Aside";
 import Article from "app/_components/ReposComp/Readme/Article";
 import Aside from "app/_components/ReposComp/Readme/Aside";
-import Img from "app/_components/CommonComp/Img";
+import AstroImg from "app/_components/CommonComp/Img";
 import useFetch from "app/_hooks/useFetch";
 
 export default function Page({ params }: { params: { repo: string } }) {
@@ -19,7 +19,7 @@ export default function Page({ params }: { params: { repo: string } }) {
   return (
     <div className="dark:bg-very-dark bg-very-light">
       {repoStatus === 0 || repoStatus === 200 ? (
-        <Img
+        <AstroImg
           imgUrl={callImg(params.repo)}
           alt={"repo.name"}
           radius={0}

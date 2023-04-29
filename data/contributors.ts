@@ -1,6 +1,6 @@
 import { devsDataType } from "app/_types/Devs";
 
-export const devs:devsDataType = [
+export const devs: devsDataType[] = [
   {
     login: "harshraj8843",
     id: 54644599,

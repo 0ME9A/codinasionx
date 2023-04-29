@@ -7,6 +7,7 @@ import Loading from "app/_components/Loading/Loading";
 import Event from "app/_components/EventsComp/Event";
 
 export default function page() {
+
   return events ? (
     <motion.div
       variants={container}

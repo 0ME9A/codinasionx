@@ -13,6 +13,17 @@ export type repoType = {
   forks: number;
 };
 
+export type basicRepoCardType = {
+  title: string;
+  desc: string;
+  repoUrl: string;
+  style?: string;
+  status: {
+    forks: number;
+    stars: number;
+  };
+}
+
 export type qLinkType = {
   id: string | undefined;
   text: string;

@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Devs from "app/_components/DevsComp/Devs";
+import Devs from "app/_components/DevsComp/AnimatedDevs";
 import useInfinite from "app/_hooks/useInfinite";
 import useFetch from "app/_hooks/useFetch";
 
@@ -13,7 +13,7 @@ export default function Page() {
     storage: true,
     per_page: 60,
   });
-  useInfinite({ funcVal: page, apiCall: setIncrement });
+  // useInfinite({ funcVal: page, apiCall: setIncrement });
 
   return <Devs apiData={{ data, status, setStatus }} btn={true} />;
 }

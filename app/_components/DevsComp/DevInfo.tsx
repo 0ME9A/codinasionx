@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import DevsInfoSkeleton from "app/_components/Skeleton/Devs/DevsInfo";
 import BtnLink from "../Links&Btns/BtnLink";
 import History from "../Links&Btns/History";
-import Img from "../CommonComp/Img";
+import AstroImg from "../CommonComp/Img";
 
 
 export default function DevInfo({ dev }: { dev: devinfoType }) {
@@ -20,7 +20,7 @@ export default function DevInfo({ dev }: { dev: devinfoType }) {
       whileInView={"show"}
       className="p-2 md:p-10 lg:p-16 justify-center flex flex-col md:flex-row gap-3 md:gap-5 lg:container mx-auto bg-gradient-to-tr from-light via-very-light to-very-light dark:from-darkII dark:via-very-dark relative dark:to-very-dark bg-darkII rounded-2xl lg:rounded-[50px] my-20 mb-2"
     >
-      <Img
+      <AstroImg
         imgUrl={dev.avatar_url}
         style={"w-[20%] md:max-w-[300px] !rounded-full"}
         radius={200}

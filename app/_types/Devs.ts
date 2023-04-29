@@ -21,18 +21,20 @@ export type DevType = {
   target?: string;
 };
 
+export type animateddevsType = {
+  api: {
+    data: devsDataType[];
+    status: number;
+  }
+  header: boolean;
+}
 export type devsType = {
-  apiData: {
-    data: any;
-    page?: number;
-    status?: number;
-    increment?: number;
-    setStatus: Dispatch<SetStateAction<number>>;
-    setIncrement?: Dispatch<SetStateAction<number>>;
-  };
-  btn: boolean;
-  header?: boolean;
-};
+  api: {
+    data: devsDataType[];
+    status: number;
+  }
+  infinite: boolean;
+}
 
 export type devsDataType = {
   login: string;
@@ -54,4 +56,4 @@ export type devsDataType = {
   type: string;
   site_admin: boolean;
   contributions: number;
-}[];
+};

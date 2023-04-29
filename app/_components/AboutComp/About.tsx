@@ -40,7 +40,6 @@ export default function About() {
             url={"https://github.com/codinasion"}
             title={"Join Codinasion"}
             target="_blank"
-            style="rounded-tl-none"
           >
             <FaGithub className="group-hover:scale-125" />
             Join Codinasion

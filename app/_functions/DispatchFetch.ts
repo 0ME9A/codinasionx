@@ -1,4 +1,5 @@
 // Not in use 
+import { ProgramType } from "app/_types";
 import { fetchData } from "./functions";
 
 export async function fetchDaves(devs: any, dispatch: any) {
@@ -36,7 +37,7 @@ export async function fetchShowoffRepos(dispatch: any) {
       },
     });
 }
-export async function dispatchProgram(dispatch: any, data: string[], status: number) {
+export async function dispatchProgram(dispatch: any, data: ProgramType[], status: number) {
   status === 200 &&
     dispatch({
       type: "PROGRAM",

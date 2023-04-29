@@ -12,7 +12,7 @@ type imageType = {
   imgSize?: number[];
   framer?: boolean;
 };
-export default function Img({
+export default function AstroImg({
   imgUrl,
   alt,
   style,
