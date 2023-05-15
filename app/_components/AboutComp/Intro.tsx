@@ -26,9 +26,9 @@ export default function Intro() {
           <motion.p
             className="max-w-6xl text-md sm:text-xl text-gray-700 dark:text-gray-300 tracking-wider font-thin text-center md:pt-5"
             variants={scrollY(50)}>
-            "Welcome to Codinasion - a community of passionate developers, where we share our knowledge and experience with each other.
+            Welcome to Codinasion - a community of passionate developers, where we share our knowledge and experience with each other.
             Whether you are a beginner or an experienced developer.
-            Join us today and become a part of our thriving community!"
+            Join us today and become a part of our thriving community!
           </motion.p>
           <motion.div className="flex mt-6 gap-2" variants={scrollY(50)}>
             <BtnLink href={"https://github.com/codinasion"} title={'Join Codinasion'} target="_blank">

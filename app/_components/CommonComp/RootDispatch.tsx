@@ -23,12 +23,5 @@ export default function RootDispatch({ api }: rootDispatchType) {
         prg.data.length && devs.status === 200 && dispatch(program(prg));
     }, [devs, prg, repos])
 
-    // console.log('-----------------');
-    // console.log(`dispatching devs---- ${JSON.stringify(api.devs)}`)
-    // console.log('```````````````````````````````````````');
-    // console.log(`dispatching program---- ${JSON.stringify(api.prg)}`)
-    // console.log('```````````````````````````````````````');
-    // console.log(`dispatching repo---- ${JSON.stringify(api.repos)}`)
-    // console.log('-----------------');
     return null
 }

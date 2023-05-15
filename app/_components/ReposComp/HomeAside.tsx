@@ -54,9 +54,9 @@ export default function HomeAside() {
             style={{ transform: `scaleY(${aside ? 1 : 0})`, opacity: aside ? 1 : 0 }}>
             <Box title={"Codinasion repositories"} style={`p-3 rounded-3xl p-2 bg-very-light lg:bg-white/50 dark:bg-very-dark dark:lg:bg-black/50 grid gap-2`}>
                 <p>
-                    Codinasion's repositories are a collection of open-source codebases that offer solutions for a variety of programming challenges.
+                    Codinasion&apos;s repositories are a collection of open-source codebases that offer solutions for a variety of programming challenges.
                     They provide a great opportunity for developers to contribute to open-source projects and gain experience in collaborative programming.
-                    Codinasion's repositories welcome different types of contributions and offer "good first issue" tickets for beginners to start their journey in open-source development
+                    Codinasion&apos;s repositories welcome different types of contributions and offer &quot;good first issue&quot; tickets for beginners to start their journey in open-source development.
                 </p>
             </Box>
             <AsideContributors contributors={filteredDev} />

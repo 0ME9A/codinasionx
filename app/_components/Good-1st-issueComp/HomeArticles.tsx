@@ -25,9 +25,9 @@ export default function HomeArticles({ data, status }: { data: issueType[], stat
         <div className={`w-full min-h-screen text-white rounded-3xl bg-white/50 dark:bg-black/50 backdrop-blur-sm overflow-hidden`}>
             {status !== 200 && i.map(() => <ProgramCardSkeleton key={random()} />)}
             {status === 200 && !filtered.length && <NoRecord />}
-            {status === 200 && filtered.length &&
+            {status === 200 && filtered.length > 0 &&
                 filtered.slice(0, issueProp.limit * 10).map((item: issueType) =>
-                    <IssueCard issue={item} />
+                    <IssueCard key={random()} issue={item} />
                 )
             }
         </div >

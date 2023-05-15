@@ -11,7 +11,7 @@ import useInfinite from "app/_hooks/useInfinite";
 import NoRecord from "../SearchComp/NoRecord";
 
 
-export default function kProjectDevs({ api }: { api: devProjectGitApiType }) {
+export default function ProjectDevs({ api }: { api: devProjectGitApiType }) {
     const i = Array.from(Array(5).keys());
     const [limit, setLimit] = useState<number>(1);
     const search = useSelector((state: RootState) => state.counter.search)
