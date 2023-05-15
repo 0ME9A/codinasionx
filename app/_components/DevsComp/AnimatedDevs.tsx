@@ -42,7 +42,6 @@ export default function AnimatedDevs({ api, header }: { api: devApiCodinasionTyp
               <DevCard
                 key={random()}
                 data={{
-                  href: `/developers/${item.user.login}`,
                   name: item.user.login,
                   avatar: `https://github.com/${item.user.login}.png`,
                   role: item.role
