@@ -27,7 +27,7 @@ export default function About() {
           {commonData.description}
         </motion.p>
         <motion.div
-          className="flex flex-wrap justify-center mt-6 gap-2"
+          className="w-full flex flex-wrap justify-center mt-6 gap-2"
           variants={childScale}>
           <BtnLink
             href={"https://github.com/codinasion"}

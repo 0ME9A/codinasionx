@@ -1,4 +1,3 @@
-"use client";
 import { projects, siteMap, SocialMedia } from "@/data/siteLinks";
 import { random } from "app/_functions/functions";
 import { socialType } from "app/_types/siteMap";

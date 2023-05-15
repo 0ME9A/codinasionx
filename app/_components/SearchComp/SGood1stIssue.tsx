@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ProgramCardSkeleton from "../Skeleton/Program/ProgramCardSkeleton";
 import SGood1stIssue from "./SGood1stIssueCard";
-import NoRecord from "./NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 
 
 type fetchIssue = {

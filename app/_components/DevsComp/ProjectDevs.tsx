@@ -8,7 +8,7 @@ import { useState } from "react";
 import DevCardSkeleton from "app/_components/Skeleton/Devs/DevCardSkeleton";
 import DevCard from "app/_components/DevsComp/Card/DevCard";
 import useInfinite from "app/_hooks/useInfinite";
-import NoRecord from "../SearchComp/NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 
 
 export default function ProjectDevs({ api }: { api: devProjectGitApiType }) {

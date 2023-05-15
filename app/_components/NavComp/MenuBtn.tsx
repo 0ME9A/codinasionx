@@ -1,4 +1,3 @@
-"use client";
 import { menuBtnType } from "app/_types/Nav";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";

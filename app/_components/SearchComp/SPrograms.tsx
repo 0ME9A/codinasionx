@@ -5,7 +5,7 @@ import { RootState } from "../RTK/Store/store";
 import { useSelector } from "react-redux";
 import ProgramCardSkeleton from "../Skeleton/Program/ProgramCardSkeleton";
 import SProgramCard from "./SProgramCard";
-import NoRecord from "./NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 
 
 export default function SPrograms() {

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import DevCardSkeleton from "app/_components/Skeleton/Devs/DevCardSkeleton";
 import DevCard from "app/_components/DevsComp/Card/DevCard";
-import NoRecord from "app/_components/SearchComp/NoRecord";
+import NoRecord from "app/_components/CommonComp/NoRecord";
 import useInfinite from "app/_hooks/useInfinite";
 import Container from "../LayoutsComp/Container";
 

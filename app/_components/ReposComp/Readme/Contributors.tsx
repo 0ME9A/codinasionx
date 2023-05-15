@@ -1,19 +1,19 @@
 "use client";
-import { devGitDataTypeII } from "app/_types/Devs";
+import { devProjectGitType } from "app/_types/Devs";
 import { random } from "app/_functions/functions";
 import { usePathname } from "next/navigation";
 import BasicDevCard from "app/_components/DevsComp/Card/BasicDevCard";
 import BasicLink from "app/_components/Links&Btns/BasicLink";
 import Box from "app/_components/LayoutsComp/Box";
 
-export default function Contributor({ devs }: { devs: devGitDataTypeII[] }) {
+export default function Contributor({ devs }: { devs: devProjectGitType[] }) {
   const pathNeme = usePathname()
 
   if (devs) {
     return (
       <Box title="Contributors">
         <div className="flex flex-wrap">
-          {devs.slice(0, 15).map((item: devGitDataTypeII) => (
+          {devs.slice(0, 15).map((item: devProjectGitType) => (
             <BasicDevCard
               key={random()}
               data={{

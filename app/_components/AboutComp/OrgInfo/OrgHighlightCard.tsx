@@ -9,8 +9,7 @@ export default function OrgHighlightCard({ icon, text, title, style }: orgHighli
     <motion.div
       title={title}
       className={`w-full dark:text-white rounded-[50px] bg-very-dark dark:bg-very-light text-center shadow-lg h-fit atropos-banner ${style}`}
-      variants={childScale}
-    >
+      variants={childScale}>
       <Atropos activeOffset={40} shadowScale={0.8} highlight={true}>
         <article className={`p-6 xl:p-8 dark:bg-dark bg-very-light`}>
           <>
@@ -20,8 +19,7 @@ export default function OrgHighlightCard({ icon, text, title, style }: orgHighli
             </h3>
             <p
               className="mt-3 text-gray-700 dark:text-gray-300"
-              data-atropos-offset="2"
-            >
+              data-atropos-offset="2">
               {text}
             </p>
           </>

@@ -27,7 +27,7 @@ export default function ProgramArticle({ data }: { data: programType }) {
     return (
         <section className={`w-full min-h-screen px-2 text-black dark:text-white rounded-3xl bg-white/50 dark:bg-black/50 backdrop-blur-sm overflow-hidden space-y-10 shadow-xl shadow-gray-500/10`}>
             <div className="space-y-2">
-                <div className="relative py-2 flex items-center justify-between">
+                <div className="relative py-2 flex items-start justify-between">
                     <h1 title={title} className="text-2xl lg:text-4xl font-semibold tracking-tight ">{title}</h1>
                     <ShareOnTwitter title={title} url={url} />
                 </div>

@@ -5,20 +5,20 @@ import { HiUserGroup } from "react-icons/hi";
 
 export const orgHighlightsData: orgHighlightsDataType = [
   {
-    title: "300+ Contributors",
-    text: `Codinasion is beloved by more than 300 very kind developers all over the world, who enjoy contributing to codinasion's open-source projects and helping millions of other developers.`,
+    title: "500+ Contributors",
+    text: `Codinasion is powered by a global community of 500+ contributors who help create and curate its content. Their passion for software development and open-source has helped Codinasion become a valuable resource for programmers of all skill levels.`,
     style: " col-span-12 xl:!col-span-4 ",
     icon: <HiUserGroup className="text-8xl mx-auto opacity-90" />,
   },
   {
     title: "200+ Stars",
-    text: `Codinasion's all-time favorite repository on GitHub Program has been started by more than 200 users and continuously growing up.`,
+    text: `Our program repository on GitHub has garnered over 200 stars, a testament to the quality and usefulness of the code we create. We're thrilled to see our work being appreciated by developers around the world and will continue to strive for excellence in all that we do.`,
     style: " col-span-12 sm:col-span-6 xl:!col-span-3 ",
     icon: <AiOutlineStar className="text-8xl mx-auto opacity-90" />,
   },
   {
     title: "10+ Active Repo",
-    text: `Codinasion loves open-source projects and provides more than 10 active repositories on GitHub for beginners and advanced developers/programmers and is continuously updated by codinasion's developers.`,
+    text: `Codinasion has more than 10 open-source repositories on Github that cover various topics including web development, machine learning, and data structures. These projects are maintained by a dedicated community of contributors who actively support and update them.`,
     style: " col-span-12 sm:col-span-6 xl:!col-span-5 ",
     icon: <RiGitRepositoryFill className="text-8xl mx-auto opacity-90" />,
   },

@@ -9,7 +9,7 @@ import { repoType } from "app/_types/Repos";
 import { LIMIT } from "../RTK/stateType";
 import ReposSkeleton from "app/_components/Skeleton/Repo/ReposSkeleton";
 import BasicRepoCard from "app/_components/ReposComp/BasicRepoCard";
-import NoRecord from "app/_components/SearchComp/NoRecord";
+import NoRecord from "app/_components/CommonComp/NoRecord";
 import useInfinite from "app/_hooks/useInfinite";
 
 

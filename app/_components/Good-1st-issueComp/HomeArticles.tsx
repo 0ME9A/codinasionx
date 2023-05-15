@@ -8,7 +8,7 @@ import { issueType } from "app/_types/Issue";
 import { useEffect } from "react";
 import ProgramCardSkeleton from "app/_components/Skeleton/Program/ProgramCardSkeleton";
 import useInfinite from "app/_hooks/useInfinite";
-import NoRecord from "../SearchComp/NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 import IssueCard from "./IssueCard";
 
 

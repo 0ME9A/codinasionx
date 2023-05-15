@@ -2,7 +2,7 @@
 import { RootState } from "../RTK/Store/store";
 import { repoType } from "app/_types/Repos";
 import { useSelector } from "react-redux";
-import AsideContributors from "../CommonComp/AsideContributors";
+import AsideContributors from "./AsideContributors";
 import GitHubCard from "../CommonComp/GitHubCard";
 import Box from "../LayoutsComp/Box";
 import { useEffect, useState } from "react";

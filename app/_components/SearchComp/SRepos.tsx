@@ -4,7 +4,7 @@ import { RootState } from "../RTK/Store/store";
 import { useSelector } from "react-redux";
 import Card from "../Skeleton/Repo/ReposSkeleton";
 import SReposCard from "./SRepoCard";
-import NoRecord from "./NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 
 
 export default function SRepos(): JSX.Element {

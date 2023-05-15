@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { LIMIT } from "../RTK/stateType";
 import ProgramCardSkeleton from "app/_components/Skeleton/Program/ProgramCardSkeleton";
 import useInfinite from "app/_hooks/useInfinite";
-import NoRecord from "../SearchComp/NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 import ProgramCard from "./ProgramCard";
 
 

@@ -5,7 +5,7 @@ import { RootState } from "../RTK/Store/store";
 import { useSelector } from "react-redux";
 import DevCardSkeleton from "../Skeleton/Devs/DevCardSkeleton";
 import DevCard from "../DevsComp/Card/DevCard";
-import NoRecord from "./NoRecord";
+import NoRecord from "../CommonComp/NoRecord";
 
 
 export default function SDevelopers() {
