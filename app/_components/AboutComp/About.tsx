@@ -1,11 +1,11 @@
 "use client";
 import { childScale, childScaleReverse, container } from "app/_framerVariants/framerVariants";
+import { commonData } from "@/data/siteMetadata";
 import { CgOrganisation } from "react-icons/cg";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import BtnLink from "app/_components/Links&Btns/BtnLink";
 import Header from "app/_components/CommonComp/header";
-import { commonData } from "@/data/siteMetadata";
 
 export default function About() {
   return (

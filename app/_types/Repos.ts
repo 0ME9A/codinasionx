@@ -1,4 +1,4 @@
-import { devGitDataTypeII } from "./Devs";
+import { devProjectGitType } from "./Devs";
 
 type status = {
   forks: number;
@@ -35,7 +35,7 @@ export type qLinkType = {
 
 export type asideType = {
   repo: repoType;
-  devs: devGitDataTypeII[];
+  devs: devProjectGitType[];
   langs: object | null;
   aside: boolean;
 };
@@ -73,5 +73,5 @@ export type readmeType = {
   repoName: string;
   repo: { data: repoType, status: number };
   lang: { data: langType, status: number };
-  devs: { data: devGitDataTypeII[], status: number };
+  devs: { data: devProjectGitType[], status: number };
 }
