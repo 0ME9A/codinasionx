@@ -1,9 +1,10 @@
-import { projects, siteMap, SocialMedia, topRepos } from "@/data/siteLinks";
+"use client";
+import { projects, siteMap, SocialMedia } from "@/data/siteLinks";
 import { random } from "app/_functions/functions";
 import { socialType } from "app/_types/siteMap";
 import { menuType } from "app/_types/Nav";
-import BtnLink from "../Links&Btns/BtnLink";
 import ThemeBtn from "../Links&Btns/ThemeBtn";
+import BtnLink from "../Links&Btns/BtnLink";
 import Link from "next/link";
 
 export default function Menu({ setState, activeTab }: menuType) {
@@ -46,7 +47,6 @@ export default function Menu({ setState, activeTab }: menuType) {
         <div className="py-3 text-black mt-5 dark:text-white border-t border-gray-500/20 col-span-12 flex text-2xl gap-2">
           <ThemeBtn />
           <span className="w-[2px] my-auto h-6 rounded-full dark:bg-white/50 bg-black/50"></span>
-
           {SocialMedia &&
             SocialMedia.map((item: socialType) => (
               <Link
@@ -62,11 +62,11 @@ export default function Menu({ setState, activeTab }: menuType) {
         <article className="py-5 px-2 max-w-[640px] text-black dark:text-white">
           <h2 title={'Codinasion'} className="text-xl font-semibold">Codinasion</h2>
           <p className=" py-2 pb-3 text-gray-500">
-            We are a group of developer/programer from all over the world helps other developers problems by our open-source projects. We provide a wide range of programmings and tools in multiple languages which is created by our independent developers.
+            We are a group of developer/programer from all over the world helps other developers problems by our open-source projects. We provide a wide range of programmings and tools in multiple languages which is created by our awesome developers.
           </p>
           <BtnLink
             title={'Join Codinasion'}
-            url={"https://github.com/codinasion"}
+            href={"https://github.com/codinasion"}
             style={`sm:w-fit rounded-tl-none`}>
             Join Codinasion
           </BtnLink>

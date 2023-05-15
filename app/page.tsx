@@ -1,32 +1,26 @@
 "use client";
-import { Dispatch, SetStateAction } from "react";
+import { RootState } from "./_components/RTK/Store/store";
+import { useSelector } from "react-redux";
 import OrgHighlights from "./_components/AboutComp/OrgInfo/OrgHighlights";
-import BackgroundLight from "./_components/LayoutsComp/BackgroundLights";
-import Background from "./_components/LayoutsComp/BackgroundBlobs";
 import ShowoffRepos from "./_components/ReposComp/ShowoffRepos";
 import AnimatedDevs from "./_components/DevsComp/AnimatedDevs";
 import Intro from "./_components/AboutComp/Intro";
 import About from "./_components/AboutComp/About";
 
+
 export default function HomePage() {
-  const alertError: Dispatch<SetStateAction<number>> = (): number => 404;
+  const repos = useSelector((state: RootState) => state.counter.repositories)
+  const devs = useSelector((state: RootState) => state.counter.developers)
 
   return (
     <>
-      <Background />
-      <div className="relative z-10">
-        <Intro />
-      </div>
-      <div className="relative z-10">
-        <BackgroundLight />
-        <div className="relative z-10">
-          <OrgHighlights />
-          <About />
-          <ShowoffRepos />
-          <div className={`relative bg-gradient-to-br from-transparent mt-10 via-very-light to-light dark:via-very-dark dark:to-dark`}>
-            <AnimatedDevs
-              api={{ data: [], status: 404 }} header={true}/>
-          </div>
+      <Intro />
+      <div className="bg-very-light dark:bg-very-dark relative z-10">
+        <OrgHighlights />
+        <About />
+        <ShowoffRepos api={repos} />
+        <div className={`relative bg-gradient-to-br from-transparent mt-10 via-very-light to-light dark:via-very-dark dark:to-dark`}>
+          <AnimatedDevs api={devs} header={true} />
         </div>
       </div>
     </>

@@ -3,3 +3,8 @@ export type tabsType = {
     title: string;
     tab: string;
 }
+
+export type searchBtnType = {
+    name: string,
+    slug: string
+}

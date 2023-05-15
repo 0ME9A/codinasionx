@@ -3,7 +3,6 @@ import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
 import Link from "next/link";
 
-
 export default function BasicRepoCard({ title, desc, repoUrl, style, status, }: basicRepoCardType) {
   return (
     <Link

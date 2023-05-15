@@ -1,4 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
+import { devGitDataTypeII } from "./Devs";
+
+type status = {
+  forks: number;
+  stars: number;
+};
 
 export type repoType = {
   name: string;
@@ -18,10 +23,7 @@ export type basicRepoCardType = {
   desc: string;
   repoUrl: string;
   style?: string;
-  status: {
-    forks: number;
-    stars: number;
-  };
+  status: status;
 }
 
 export type qLinkType = {
@@ -29,39 +31,18 @@ export type qLinkType = {
   text: string;
   link: string;
   icon: JSX.Element;
-}[];
-
-export type devsType = Array<{
-  id: number;
-  login: string;
-  avatar_url: string;
-}>;
+};
 
 export type asideType = {
   repo: repoType;
-  devs: devsType;
+  devs: devGitDataTypeII[];
   langs: object | null;
-  state: boolean;
-  setState: Dispatch<SetStateAction<boolean>>;
+  aside: boolean;
 };
 
 export type articleType = {
   repo: repoType;
-  state: boolean;
-  setState: Dispatch<SetStateAction<boolean>>;
-};
-
-export type contributorsTypes = {
-  devs: devsType;
-  repoName: string;
-};
-
-
-// -----------------------------------------------------------
-
-type status = {
-  forks: number;
-  stars: number;
+  aside: boolean;
 };
 
 export type showoffRepoCardType = {
@@ -75,8 +56,6 @@ export type showoffRepoCardType = {
   status: status;
 };
 
-// -----------------------------------------------------------
-
 export type repoCardType = {
   imgUrl: string;
   title: string;
@@ -85,3 +64,14 @@ export type repoCardType = {
   style?: string;
   status: status;
 };
+
+export type langType = {
+  [key: string]: number;
+}
+
+export type readmeType = {
+  repoName: string;
+  repo: { data: repoType, status: number };
+  lang: { data: langType, status: number };
+  devs: { data: devGitDataTypeII[], status: number };
+}

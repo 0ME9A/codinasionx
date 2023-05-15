@@ -9,7 +9,7 @@ export default function BackgroundBlobs() {
         width={500}
         height={500}
         className="opacity-20 scale-[2] invert dark:invert-0 animate-chakra-spin"
-        />
+        />   
     </div>
   );
 }

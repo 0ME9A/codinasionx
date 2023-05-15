@@ -10,8 +10,7 @@ export default function History({ text, style }: historyType) {
       title={text}
       className={`p-2 px-4 flex items-center justify-center gap-2 font-medium rounded-full border-black dark:border-white border-2 bg-light dark:bg-dark group dark:text-white dark:shadow-darkShadow-md shadow-lightShadow-md hover:rounded-full ${style}`}
       type="button"
-      onClick={() => router.back()}
-    >
+      onClick={() => router.back()}>
       <MdOutlineArrowBackIos />
       {text}
     </button>

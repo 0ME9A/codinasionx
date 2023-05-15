@@ -7,9 +7,7 @@ export default function Topics({ topics }: { topics: string[] }) {
     return (
       <Box title="Topics">
         <ul className="flex flex-wrap gap-1">
-          {topics.map((item: string) => {
-            return <Tag key={random()} tag={item} />;
-          })}
+          {topics.map((item: string) => <Tag key={random()} tag={item} />)}
         </ul>
       </Box>
     );

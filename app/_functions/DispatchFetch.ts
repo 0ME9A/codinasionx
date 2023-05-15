@@ -1,5 +1,5 @@
 // Not in use 
-import { ProgramType } from "app/_types";
+import { programType } from "app/_types/Program";
 import { fetchData } from "./functions";
 
 export async function fetchDaves(devs: any, dispatch: any) {
@@ -14,6 +14,7 @@ export async function fetchDaves(devs: any, dispatch: any) {
       },
     });
 }
+
 export async function fetchRepos(repos: any, dispatch: any) {
   const url: string = `https://api.github.com/orgs/codinasion/repos?per_page=5&page=${repos.page + 1
     }`;
@@ -26,6 +27,7 @@ export async function fetchRepos(repos: any, dispatch: any) {
       },
     });
 }
+
 export async function fetchShowoffRepos(dispatch: any) {
   const url: string = `https://api.github.com/orgs/codinasion/repos?per_page=50`;
   const data = await fetchData(url);
@@ -37,7 +39,8 @@ export async function fetchShowoffRepos(dispatch: any) {
       },
     });
 }
-export async function dispatchProgram(dispatch: any, data: ProgramType[], status: number) {
+
+export async function dispatchProgram(dispatch: any, data: programType[], status: number) {
   status === 200 &&
     dispatch({
       type: "PROGRAM",
@@ -47,6 +50,7 @@ export async function dispatchProgram(dispatch: any, data: ProgramType[], status
       },
     });
 }
+
 export async function dispatchProgramTag(dispatch: any, payload: string) {
   dispatch({
     type: "PROGRAMTAG",

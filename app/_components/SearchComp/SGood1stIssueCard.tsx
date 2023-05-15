@@ -1,3 +1,4 @@
+"use client";
 import { searchProperties } from "../RTK/States/States";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { random } from "app/_functions/functions";

@@ -1,7 +1,8 @@
 "use client";
+import { externaL, projects, siteMap, SocialMedia, topRepos } from "@/data/siteLinks";
 import { child, container } from "app/_framerVariants/framerVariants";
-import { projects, siteMap, SocialMedia, topRepos } from "@/data/siteLinks";
 import { random } from "app/_functions/functions";
+import { commonData } from "@/data/siteMetadata";
 import { BiLinkExternal } from "react-icons/bi";
 import { socialType } from "app/_types/siteMap";
 import { motion } from "framer-motion";
@@ -11,7 +12,7 @@ import Langs from "./Langs";
 
 export default function Footer() {
   return (
-    <div className={`bg-light dark:bg-darkII relative z-20`} id={"footer"}>
+    <div className={`bg-light dark:bg-darkII relative pb-0 z-20`} id={"footer"}>
       <Langs />
       <motion.footer
         variants={container}
@@ -19,6 +20,7 @@ export default function Footer() {
         whileInView={"show"}
         viewport={{ once: true }}
         className="lg:container mx-auto grid grid-cols-12 gap-5 py-16 p-2 md:p-5">
+
         <div className="col-span-12 md:col-span-6">
           <div>
             <motion.h2
@@ -30,13 +32,13 @@ export default function Footer() {
             <motion.p
               variants={child}
               className="text-gray-700 dark:text-gray-300">
-              {`We provide a wide range of programmings and tools in multiple languages which is created by our independent developers. Our all time favorite repo by developers is Program, offer you every type of programming in multiple languages.`}
+              {commonData.description}
             </motion.p>
           </div>
           <motion.div variants={child}>
             <BtnLink
               title={'Contribute'}
-              url={`https://github.com/codinasion`}
+              href={externaL.github.href}
               style="rounded-tl-none mt-5 w-full sm:w-fit">
               Contribute
               <BiLinkExternal className="group-hover:scale-125" />
@@ -80,7 +82,6 @@ export default function Footer() {
             ))}
         </motion.ul>
 
-
         <motion.div
           variants={child}
           className="py-5 text-white border-t col-span-12 flex text-3xl gap-2 capitalize">
@@ -96,6 +97,9 @@ export default function Footer() {
             ))}
         </motion.div>
       </motion.footer>
+      <div id={"scroll-to-bottom"} className={`flex items-centet text-center font-extralight opacity-50 text-xs uppercase justify-center p-2 py-1 bg-very-light dark:bg-very-dark text-black dark:text-white`}>
+        <p>Made with <span className="px-1 animate-pulse">❤️</span> by codinasion | open-source forever</p>
+      </div>
     </div>
   );
 }

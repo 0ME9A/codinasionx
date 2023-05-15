@@ -1,3 +1,4 @@
+"use client";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../RTK/dispatchFun/theme";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -12,11 +13,7 @@ export default function ThemeBtn() {
       title={`Theme toggler`}
       onClick={() => setTheme(dispatch)}
       className="p-2">
-      {theme === "dark" ? (
-        <FaSun className="hover:scale-125" />
-      ) : (
-        <FaMoon className="hover:scale-125" />
-      )}
+      {theme === "dark" ? (<FaSun className="hover:scale-125" />) : (<FaMoon className="hover:scale-125" />)}
     </button>
   );
 }

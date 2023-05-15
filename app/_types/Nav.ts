@@ -16,6 +16,10 @@ export type menuType = {
 };
 
 export type projectNavType = {
-  api: { data: any, status: number }
   layout: { name: string, slug: string, aside?: boolean };
 }
+
+export type NavbarLinkType = {
+  title: string;
+  url: string;
+};

@@ -4,7 +4,6 @@ export type objectWithTagsType = {
 
 export type tagCountType = {
     [language: string]: number;
-    // [tag: string]: number;
 }
 
 export type ResponseData = {
@@ -20,3 +19,9 @@ export type Tag = {
     language: string;
     program: number;
 }
+
+export type projectPathType = {
+    name: string;
+    slug: string;
+    active: boolean;
+}[]

@@ -5,8 +5,8 @@ import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
 import { motion } from "framer-motion";
 import AstroImg from "../CommonComp/Img";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 export default function ShowoffRepoCard({
   id = 0,
@@ -28,16 +28,13 @@ export default function ShowoffRepoCard({
         variants={container}
         initial={"hidden"}
         whileInView={"show"}>
-        {
-          <AstroImg
-            imgUrl={imgUrl}
-            alt={title}
-            style={`col-span-12 md:col-span-4 xl:col-span-6 !h-full ${order && order.includes(id) ? " md:order-1 " : " md:-order-1 "
-              }`}
-            imgSize={[400, 400]}
-            radius={50}
-          />
-        }
+        {<AstroImg
+          imgUrl={imgUrl}
+          alt={title}
+          style={`col-span-12 md:col-span-4 xl:col-span-6 !h-full ${order && order.includes(id) ? " md:order-1 " : " md:-order-1 "}`}
+          imgSize={[400, 400]}
+          radius={50}
+        />}
 
         <div className={`col-span-12 md:col-span-8 xl:col-span-6 rounded-[50px] flex flex-col items-start p-2 justify-center text-black dark:text-white`}>
           <motion.h2

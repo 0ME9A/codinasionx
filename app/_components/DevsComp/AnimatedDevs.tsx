@@ -1,19 +1,25 @@
 "use client";
+import { codinasionDevApiType, devApiCodinasionType } from "app/_types/Devs";
 import { container } from "app/_framerVariants/framerVariants";
 import { scrollX } from "app/_framerVariants/framerVariants";
 import { random } from "app/_functions/functions";
-import { animateddevsType } from "app/_types/Devs";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import DevCardSkeleton from "app/_components/Skeleton/Devs/DevCard";
-import DevCard from "app/_components/DevsComp/DevCard";
+import DevCardSkeleton from "app/_components/Skeleton/Devs/DevCardSkeleton";
+import DevCard from "app/_components/DevsComp/Card/DevCard";
 import BtnLink from "../Links&Btns/BtnLink";
 import Header from "../CommonComp/header";
 
 
-export default function AnimatedDevs({ api, header }: animateddevsType) {
+export default function AnimatedDevs({ api, header }: { api: devApiCodinasionType, header: boolean }) {
   const i = Array.from(Array(25).keys());
+  const { data, status } = api;
+  const [isMount, setMount] = useState(false)
 
-  return (
+  useEffect(() => setMount(true), [])
+
+  if (!isMount) { return null }
+  return isMount && (
     <motion.div
       className="lg:container mx-auto px-3 min-h-screen py-20 my-auto flex flex-col justify-center items-end gap-5"
       variants={container}>
@@ -30,14 +36,17 @@ export default function AnimatedDevs({ api, header }: animateddevsType) {
         variants={scrollX(-50)}
         initial={"hidden"}
         whileInView={"show"}>
-        {api.data.length
-          ? api.data.slice(0, 30).map((item: any) => {
+        {data.length
+          ? data.slice(0, 30).map((item: codinasionDevApiType) => {
             return (
               <DevCard
                 key={random()}
-                imgUrl={item.avatar_url}
-                devName={item.login}
-              />
+                data={{
+                  href: `/developers/${item.user.login}`,
+                  name: item.user.login,
+                  avatar: `https://github.com/${item.user.login}.png`,
+                  role: item.role
+                }} />
             );
           })
           : i.map(() => <DevCardSkeleton key={random()} />)}
@@ -48,7 +57,7 @@ export default function AnimatedDevs({ api, header }: animateddevsType) {
         variants={scrollX(-50)}
         initial={"hidden"}
         whileInView={"show"}>
-        <BtnLink title="Load more content" url={"/developers"} style={`w-full !block text-right`}>Expend...</BtnLink>
+        <BtnLink title="Load more content" href={"/developers"} style={`w-full !block text-right`}>Expend...</BtnLink>
       </motion.div>
     </motion.div>
   );

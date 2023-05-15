@@ -1,26 +1,34 @@
+"use client";
 import { child } from "app/_framerVariants/framerVariants";
 import { articleType } from "app/_types/Repos";
-import { IoMdMore } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { externaL } from "@/data/siteLinks";
 import { motion } from "framer-motion";
+import ShareOnTwitter from "app/_components/Links&Btns/share/Twitter";
 import BasicLink from "app/_components/Links&Btns/BasicLink";
 import AstroImg from "app/_components/CommonComp/Img";
 
-export default function Article({ repo, state, setState }: articleType) {
+
+export default function Article({ repo, aside }: articleType) {
+  const [isMount, setMount] = useState(false);
+  const [url, setUrl] = useState("https://codinasion.org")
+
+  useEffect(() => {
+    setUrl(window.location.href)
+    setMount(true)
+  }, [])
+
   return (
-    <motion.div
+    <motion.section
       variants={child}
       className="p-2 w-full lg:col-span-3 pb-60 md:!blur-0"
-      style={{ filter: `blur(${state ? "5px" : 0})` }}
-    >
+      style={{ filter: `blur(${aside ? "5px" : 0})` }}>
       <header className={``}>
         <div className="flex justify-between items-center">
           <h1 title={repo.name} className="text-2xl md:text-3xl lg:text-4xl uppercase py-2 font-bold text-black dark:text-white">
             {repo.name}
           </h1>
-          <IoMdMore
-            className="dark:text-white text-black md:hidden hover:scale-125 cursor-pointer text-2xl"
-            onClick={() => setState(!state)}
-          />
+          {isMount && <ShareOnTwitter title={repo.name} url={url} />}
         </div>
         <hr className="border-gray-500/50" />
         <p className="text-gray-700 dark:text-gray-300 mt-2">
@@ -40,8 +48,7 @@ export default function Article({ repo, state, setState }: articleType) {
           <BasicLink
             title={"Contributing Guide"}
             href={`https://github.com/codinasion/${repo.name}/blob/master/CONTRIBUTING.md`}
-            target="_blank"
-          >
+            target="_blank">
             Contributing Guide
           </BasicLink>{" "}
           how you can take part in improving.
@@ -54,11 +61,10 @@ export default function Article({ repo, state, setState }: articleType) {
         <p className="text-gray-700 dark:text-gray-300 mt-2">
           {`We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing, join us in the `}
           <BasicLink
-            title={"Discussions"}
-            href="https://github.com/orgs/codinasion/discussions"
-            target={"_blank"}
-          >
-            Discussions
+            title={externaL.discussion.name}
+            href={externaL.discussion.href}
+            target={"_blank"}>
+            {externaL.discussion.name}
           </BasicLink>
           .
         </p>
@@ -84,6 +90,6 @@ export default function Article({ repo, state, setState }: articleType) {
           </p>
         </article>
       </div>
-    </motion.div>
+    </motion.section>
   );
 }

@@ -1,9 +1,23 @@
-export type buttonType = {
+export type btnType = {
+  title: string;
+  style?: string;
+  children: React.ReactNode;
+  clickFunc: (e?: any) => void;
+  value: number | string | boolean | {};
+};
+
+export type basicBtnType = {
   children: React.ReactNode;
   style?: string;
-  val: any;
   title: string;
-  func: (dispatch?: any) => Promise<void> | void;
+};
+
+export type linkType = {
+  href: string;
+  title: string;
+  style?: string;
+  target?: string;
+  children: React.ReactNode;
 };
 
 export type clipBoartBtnType = {
@@ -16,29 +30,13 @@ export type historyType = {
   style: string;
 };
 
-export type linkType = {
-  url: string;
-  target?: string;
-  title: string;
-  style?: string;
-  children?: React.ReactNode;
-};
-
-export type basicLinkType = {
-  href: string;
-  title: string;
-  style?: string;
-  target?: string;
-  children: React.ReactNode;
-};
-
 export type badgeType = {
   BadgeData: {
-      text: string;
-      highlightText?: string | number | boolean;
-      style?: string;
-      funcVal: any;
-      funcState?: string | number | boolean | null;
-      clickFunc: Function;
+    text: string;
+    highlightText?: string | number | boolean;
+    funcVal: any;
+    funcState?: string | number | boolean | null;
+    clickFunc: Function;
   }
+  style?: string;
 }

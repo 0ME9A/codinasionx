@@ -23,14 +23,12 @@ export default function AstroImg({
   return (
     <motion.div
       variants={framer ? childScaleReverse : noFramer}
-      className={`h-fit aspect-square bg-very-dark dark:bg-very-light shadow-lightShadow-md dark:shadow-darkShadow-md md:shadow-lightShadow-lg md:dark:shadow-darkShadow-lg ${style} ${ radius && `atropos-banner rounded-[${radius}px]`}`}
-    >
+      className={`h-fit aspect-square bg-very-dark dark:bg-very-light shadow-lightShadow-md dark:shadow-darkShadow-md md:shadow-lightShadow-lg md:dark:shadow-darkShadow-lg ${style} ${ radius && `atropos-banner rounded-[${radius}px]`}`}>
       <Atropos
         activeOffset={40}
         shadowScale={0.8}
         highlight={true}
-        className={`w-full h-full`}
-      >
+        className={`w-full h-full`}>
         <Image
           src={imgUrl}
           alt={`${alt} avatar`}

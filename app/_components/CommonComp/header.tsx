@@ -32,19 +32,16 @@ export default function Header({
       className={` ${style}`}
       variants={container}
       initial="hidden"
-      whileInView={"show"}
-    >
+      whileInView={"show"}>
       <motion.h2
-        className="text-3xl md:text-4xl uppercase font-bold dark:text-white"
+        className="text-3xl md:text-4xl uppercase font-extrabold dark:text-white"
         title={title}
-        variants={animate[animateDirection]}
-      >
+        variants={animate[animateDirection]}>
         {title}
       </motion.h2>
       <motion.h3
         className="text-gray-700 dark:text-gray-300 font-thin tracking-wider"
-        variants={animate[animateDirection]}
-      >
+        variants={animate[animateDirection]}>
         {subTitle}
       </motion.h3>
     </motion.header>

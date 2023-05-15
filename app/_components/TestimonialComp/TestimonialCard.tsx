@@ -1,32 +1,22 @@
 "use client";
 import { child, childScale, container } from "app/_framerVariants/framerVariants";
+import { testimonialType } from "app/_types/Testimonial";
 import { motion } from "framer-motion";
 import Atropos from "atropos/react";
 import Image from "next/image";
-import { testimonialType } from "app/_types/Testimonial";
 
-export default function TestimonialCard({
-  imgUrl,
-  name,
-  profession,
-  text,
-  style,
-}: testimonialType) {
+export default function TestimonialCard({ imgUrl, name, profession, text, style }: testimonialType) {
   return (
     <motion.div
       className={`grid grid-cols-12 p-2 gap-6 md:gap-0 container mx-auto left-[500px] ${style}`}
       variants={container}
       initial={"hidden"}
-      whileInView={"show"}
-    >
+      whileInView={"show"}>
       <Atropos
         activeOffset={40}
         shadowScale={0.8}
         highlight={true}
-        className={
-          "md:col-span-5 md:p-[10%] col-span-12 w-28 md:w-full rounded-full overflow-hidden md:rounded-[50px] aspect-square atropos-banner relative z-20"
-        }
-      >
+        className={"md:col-span-5 md:p-[10%] col-span-12 w-28 md:w-full rounded-full overflow-hidden md:rounded-[50px] aspect-square atropos-banner relative z-20"}>
         <motion.div variants={childScale}>
           <Image
             src={imgUrl}
@@ -43,8 +33,7 @@ export default function TestimonialCard({
         </motion.h2>
         <motion.h3
           variants={child}
-          className="text-gray-500 font-thin tracking-wider"
-        >
+          className="text-gray-500 font-thin tracking-wider">
           {profession}
         </motion.h3>
         <motion.p variants={child} className="opacity-90 mt-2">

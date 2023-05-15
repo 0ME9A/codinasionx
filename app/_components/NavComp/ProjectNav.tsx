@@ -1,58 +1,61 @@
 "use client";
-import { issueProperties, program, programProperties, repositories, repositoriesProperties } from 'app/_components/RTK/States/States';
+import { commonPropertie } from 'app/_components/RTK/States/States';
 import { projectPath, random } from 'app/_functions/functions';
+import { projectPathType } from 'app/_types/_functionsType';
 import { useSelectedLayoutSegments } from 'next/navigation';
 import { HiOutlineChevronRight } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
+import { PLASIDE, PLMENU } from '../RTK/stateType';
 import { projectNavType } from 'app/_types/Nav';
+import { RootState } from '../RTK/Store/store';
 import { IoHomeSharp } from "react-icons/io5";
+import { usePathname } from 'next/navigation';
 import { BsThreeDots } from "react-icons/bs";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import SearchBtn from '../SearchComp/SearchBtn';
+import { useEffect } from 'react';
+import SearchBtn from '../Links&Btns/SearchBtn';
 import Link from "next/dist/client/link";
 
 
-export default function Nav({ api, layout }: projectNavType) {
-    const dispatch = useDispatch()
-    const segments = useSelectedLayoutSegments();
-    const path = projectPath([layout.slug, ...segments])
-    const [aside, setAside] = useState<boolean>(false)
 
-    function handleMenuStatus() {
-        layout.name === 'good1stissue' && dispatch(issueProperties({ type: "ASIDE", value: !aside }))
-        layout.name === 'program' && dispatch(programProperties({ type: "ASIDE", value: !aside }))
-        layout.name === 'repositories' && dispatch(repositoriesProperties({ type: "ASIDE", value: !aside }))
-        setAside(!aside)
-    }
+export default function Nav({ layout }: projectNavType) {
+    const dispatch = useDispatch();
+    const pathName = usePathname();
+    const splitPath = pathName.split("/");
+    const segments: string[] = useSelectedLayoutSegments();
+    const path: projectPathType = projectPath([layout.slug, ...segments]);
+    const { menu, aside } = useSelector((state: RootState) => state.counter.commonProperties.projectLayout);
 
-    useEffect(() => {
-        if (api.status === 200) {
-            layout.name === "program" && dispatch(program({ api: api.data, status: api.status }))
-            layout.name === "repositories" && dispatch(repositories({ api: api.data, status: api.status }))
+    function handleMenuStatus() { dispatch(commonPropertie({ type: PLASIDE, value: !aside })) }
+
+    useEffect(()=>{
+        if (splitPath.includes('developers')) {
+            dispatch(commonPropertie({ type: PLMENU, value: false }))
+            dispatch(commonPropertie({ type: PLASIDE, value: false }))
+        }else{
+            dispatch(commonPropertie({ type: PLMENU, value: true }))
+            dispatch(commonPropertie({ type: PLASIDE, value: false }))
         }
-    }, [api.status, api.data])
+    },[pathName])
 
     return (
-        <div className={`w-full dark:bg-very-light bg-very-dark text-white dark:text-black mt-20 sticky top-20 z-20`}>
+        <div className={`w-full dark:bg-very-light bg-very-dark text-white dark:text-black sticky top-20 z-20`}>
             <div className={`mx-auto lg:container flex justify-between item-center text-lg py-1 px-2 sm:px-5`}>
                 <div className="flex items-center gap-2 px-1 capitalize max-w-[80%] truncate">
                     <Link href={'/'} title={'Home'} className={`hover:scale-110`}><IoHomeSharp /></Link>
-                    {
-                        path.map((item) => (
-                            <span key={random()} className={`flex flex-nowrap items-center gap-2 lg:gap-3`}>
-                                <HiOutlineChevronRight />
-                                {
-                                    item.active ?
-                                        <Link href={item.slug} title={item.name} style={{ display: 'ruby' }}>{item.name}</Link> :
-                                        <span title={item.name} style={{ display: 'ruby' }}>{item.name}</span>
-                                }
-                            </span>
-                        ))
+                    {path.map((item) => (
+                        <span key={random()} className={`flex flex-nowrap items-center gap-2 lg:gap-3`}>
+                            <HiOutlineChevronRight />
+                            {item.active ?
+                                <Link href={item.slug} title={item.name} style={{ display: 'ruby' }}>{item.name}</Link> :
+                                <span title={item.name} style={{ display: 'ruby' }}>{item.name}</span>
+                            }
+                        </span>
+                    ))
                     }
                 </div>
                 <div className="flex gap-2 items-center">
                     <SearchBtn name={layout.name} slug={layout.slug} />
-                    {layout.aside && (
+                    {menu && (
                         <div className={`flex h-full items-center gap-2 lg:hidden`}>
                             <span className="w-[2px] h-[80%] bg-gray-500/30"></span>
                             <button

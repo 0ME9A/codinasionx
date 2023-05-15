@@ -1,13 +1,13 @@
 "use client";
 import { useSelectedLayoutSegments } from "next/navigation";
+import { externaL, siteMap } from "@/data/siteLinks";
 import { setTheme } from "../RTK/dispatchFun/theme";
 import { random } from "app/_functions/functions";
 import { siteMapType } from "app/_types/siteMap";
-import { siteMap } from "@/data/siteLinks";
 import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import SearchBtn from "../SearchComp/SearchBtn";
+import SearchBtn from "../Links&Btns/SearchBtn";
 import ThemeBtn from "../Links&Btns/ThemeBtn";
 import BtnLink from "../Links&Btns/BtnLink";
 import MenuBtn from "./MenuBtn";
@@ -60,7 +60,7 @@ export default function MainNav() {
                     {item.name}
                   </Link>
                   {item.child && (
-                    <div className="flex flex-col scale-y-0 origin-top group-hover:scale-y-100 group-focus:!scale-y-100 rounded-lg bg-very-light dark:bg-very-dark absolute min-w-full left-1/2 -translate-x-1/2 p-[3px] overflow-hidden">
+                    <div className="flex flex-col scale-y-0 origin-top group-hover:scale-y-100 group-focus:!scale-y-100 rounded-lg bg-very-light dark:bg-very-dark absolute min-w-full left-1/2 -translate-x-1/2 p-[3px] overflow-hidden shadow-lg shadow-gray-500/50">
                       {optionElem(item.child)}
                     </div>
                   )}
@@ -73,8 +73,8 @@ export default function MainNav() {
               <SearchBtn name={""} slug={""} />
               <ThemeBtn />
               <BtnLink
-                title={'GitHub'}
-                url={"https://github.com/codinasion"}
+                title={externaL.github.name}
+                href={externaL.github.href}
                 target="_blank"
                 style="px-2">
                 <FaGithub className="group-hover:scale-125" />

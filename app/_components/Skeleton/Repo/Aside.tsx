@@ -1,5 +1,4 @@
 import { random } from "app/_functions/functions";
-import React from "react";
 
 export default function Aside() {
   const i = Array.from(Array(20).keys());

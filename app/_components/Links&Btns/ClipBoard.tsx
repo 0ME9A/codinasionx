@@ -1,16 +1,17 @@
+"use client";
 import { HiOutlineClipboard, HiOutlineClipboardCheck } from "react-icons/hi";
 import { clipBoartBtnType } from "app/_types/Links&Btns";
-import { clipBoard } from "app/_functions/functions";
+import { clipBoard2 } from "app/_functions/functions";
 import { useState } from "react";
 
 export default function ClipBoard({ clipText, style }: clipBoartBtnType) {
     let [clip, setClip] = useState<boolean>(false)
 
-    const handleClipBoard = () => {
-        setClip(clipBoard(clipText))
-        setTimeout(() => {
-            setClip(false)
-        }, 3000);
+    const handleClipBoard = async () => {
+        const success = await clipBoard2(clipText);
+        if (success) { setClip(true) }
+        else { setClip(false) }
+        setTimeout(() => { setClip(false) }, 3000);
     }
 
     return (

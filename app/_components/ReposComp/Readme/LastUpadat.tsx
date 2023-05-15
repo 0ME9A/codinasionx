@@ -5,7 +5,7 @@ export default function LastUpadat({ lastUpdata }: { lastUpdata: string }) {
   const date = dateFunc(lastUpdata ? lastUpdata : "")
   if (lastUpdata)
     return (
-      <Box title={`Last Update ${date}`}>
+      <Box title={`Last Update `} titlePlus={date}>
         <span className="block text-sm opacity-50">
           {date}
         </span>

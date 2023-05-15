@@ -9,9 +9,7 @@ import { IoClose } from "react-icons/io5";
 import { tabs } from "@/data/search";
 import { useRef } from "react";
 import BasicBtn from "../Links&Btns/BasicBtn";
-import SGood1stIssue from "./SGood1stIssue";
 import SDevelopers from "./SDevelopers";
-import SLinkfreeOg from "./SLinkfreeOg";
 import SPrograms from "./SPrograms";
 import SRepos from "./SRepos";
 
@@ -28,6 +26,7 @@ export default function Search() {
             dispatch(searchProperties({ type: 'TAB', value: tab }))
         }
     }
+    
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>, tab: string | null) => {
         event.preventDefault();
         tab && handleSearch(tab);
@@ -62,26 +61,24 @@ export default function Search() {
                     </button>
                 </form>
                 <div className="flex gap-1 flex-wrap border-b border-gray-500/50 py-1 font-thin">
-                    {
-                        tabs.map((item: tabsType) =>
-                            <button
-                                key={random()}
-                                type="button"
-                                title={`${item.title} tab`}
-                                disabled={search.tab === item.tab}
-                                onClick={() => handleSearch(item.tab)}
-                                className={`px-2 p-1 rounded-lg shadow-lg shadow-gray-500/30 focus:bg-light/50 focus:dark:bg-dark/50 disabled:bg-light/50 disabled:dark:bg-dark/50`}>
-                                {item.title}
-                            </button>
-                        )
-                    }
+                    {tabs.map((item: tabsType) =>
+                        <button
+                            key={random()}
+                            type="button"
+                            title={`${item.title} tab`}
+                            disabled={search.tab === item.tab}
+                            onClick={() => handleSearch(item.tab)}
+                            className={`px-2 p-1 rounded-lg shadow-lg shadow-gray-500/30 focus:bg-light/50 focus:dark:bg-dark/50 disabled:bg-light/50 disabled:dark:bg-dark/50`}>
+                            {item.title}
+                        </button>
+                    )}
                 </div>
                 <div className="h-auto overflow-y-auto rounded-xl">
                     {search.tab === 'programs' && <SPrograms />}
                     {search.tab === 'repositories' && <SRepos />}
                     {search.tab === 'developers' && <SDevelopers />}
-                    {search.tab === 'linkfree-og' && <SLinkfreeOg />}
-                    {search.tab === 'good-1st-issue' && <SGood1stIssue />}
+                    {/* {search.tab === 'linkfree-og' && <SLinkfreeOg />}
+                    {search.tab === 'good-1st-issue' && <SGood1stIssue />} */}
                 </div>
             </div>
         </div>

@@ -11,8 +11,7 @@ export default function OrgHighlights() {
       variants={container}
       initial={"hidden"}
       whileInView={"show"}
-      className="lg:container mx-auto grid lg:grid-cols-12 gap-5 relative -top-32 p-2"
-    >
+      className="lg:container mx-auto grid lg:grid-cols-12 gap-5 relative pt-16 md:pt-8 p-2">
       {/* <OrgHighlightCard
         title={orgHighlightsData[0].title}
         text={orgHighlightsData[0].text}

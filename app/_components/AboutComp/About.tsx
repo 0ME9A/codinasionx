@@ -1,9 +1,11 @@
 "use client";
 import { childScale, childScaleReverse, container } from "app/_framerVariants/framerVariants";
+import { CgOrganisation } from "react-icons/cg";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import BtnLink from "app/_components/Links&Btns/BtnLink";
 import Header from "app/_components/CommonComp/header";
+import { commonData } from "@/data/siteMetadata";
 
 export default function About() {
   return (
@@ -12,8 +14,7 @@ export default function About() {
         className="items-center justify-center flex flex-col gap-5 px-5"
         variants={container}
         initial="hidden"
-        whileInView={"show"}
-      >
+        whileInView={"show"}>
         <Header
           title="About us"
           subTitle={`Developers from all over the world`}
@@ -21,28 +22,27 @@ export default function About() {
           animateDirection={"b"}
         />
         <motion.p
-          className="text-xl max-w-4xl w-full mx-auto text-center dark:text-white"
-          variants={childScaleReverse}
-        >
-          We are a group of developer/programer from all over the world helps
-          others developer problems by our open-source projects. We provide a
-          wide range of programmings and tools in multiple languages which is
-          created by our independent developers. Our all time favorite repo by
-          developers is Program, offer you every type of programming in multiple
-          languages. And codinasion is open-source it means any developer who
-          know programmings can contribute.
+          className="text-xl max-w-5xl w-full mx-auto text-center dark:text-white"
+          variants={childScaleReverse}>
+          {commonData.description}
         </motion.p>
         <motion.div
-          className="flex justify-center mt-6 gap-2"
-          variants={childScale}
-        >
+          className="flex flex-wrap justify-center mt-6 gap-2"
+          variants={childScale}>
           <BtnLink
-            url={"https://github.com/codinasion"}
+            href={"https://github.com/codinasion"}
             title={"Join Codinasion"}
             target="_blank"
-          >
+            style="w-full sm:w-fit">
             <FaGithub className="group-hover:scale-125" />
             Join Codinasion
+          </BtnLink>
+          <BtnLink
+            href={"/about"}
+            title={"Read more"}
+            style="w-full sm:w-fit">
+            <CgOrganisation className="group-hover:scale-125" />
+            Read more
           </BtnLink>
         </motion.div>
       </motion.div>

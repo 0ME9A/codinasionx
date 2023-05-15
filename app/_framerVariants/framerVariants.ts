@@ -14,6 +14,7 @@ export const scrollY = (initial_pos: number) => {
   };
   return variantsY;
 };
+
 export const scrollX = (initial_pos: number) => {
   const variantsX: Variants = {
     hidden: {
@@ -28,6 +29,7 @@ export const scrollX = (initial_pos: number) => {
   };
   return variantsX;
 };
+
 export const scrollHeight = (height: number | string) => {
   const variantsHeight: Variants = {
     hidden: {
@@ -42,6 +44,7 @@ export const scrollHeight = (height: number | string) => {
   };
   return variantsHeight;
 };
+
 export const scrollScale = (initial_pos: number) => {
   const variantsS: Variants = {
     hidden: {
@@ -108,6 +111,7 @@ export const childScaleReverse = {
     scale: 1,
   },
 };
+
 export const noFramer = {
   hidden: {
     opacity: 1,
@@ -116,6 +120,7 @@ export const noFramer = {
     opacity: 1,
   },
 };
+
 export const childScaleII = {
   hidden: {
     opacity: 0,
@@ -126,5 +131,21 @@ export const childScaleII = {
     opacity: 1,
     transformOrigin: "center",
     scale: [1, 1.2, 1],
+  },
+};
+
+export const variantsX: Variants = {
+  hidden: {
+    opacity: 0,
+    letterSpacing: "100px"
+  },
+  show: {
+    opacity: [0, 0, 0, 0, 0, 1],
+    x: 0,
+    letterSpacing: "5px",
+    transition: {
+      type: "spring",
+      restSpeed: 30
+    },
   },
 };

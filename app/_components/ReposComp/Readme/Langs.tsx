@@ -8,9 +8,7 @@ export default function Langs({ langs }: { langs: object | null }) {
     return (
       <Box title="Languages">
         <ul className="flex flex-wrap gap-1">
-          {langsArr.map((item: string) => (
-            <Tag key={random()} tag={item}/>
-          ))}
+          {langsArr.map((item: string) => <Tag key={random()} tag={item} />)}
         </ul>
       </Box>
     );

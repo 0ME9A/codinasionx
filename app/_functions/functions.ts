@@ -1,5 +1,5 @@
-import { ProgramType } from "app/_types";
-import { objectWithTagsType, ResponseData, Tag, TagCount, tagCountType } from "app/_types/_functionsType";
+import { programType } from "app/_types/Program";
+import { objectWithTagsType, projectPathType, ResponseData, Tag, TagCount, tagCountType } from "app/_types/_functionsType";
 
 export async function fetchData(url: string): Promise<ResponseData> {
   try {
@@ -121,11 +121,11 @@ export function tagArray(obj: TagCount | null): Tag[] {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export function compareArrays(arr1: ProgramType[], arr2: ProgramType[]): ProgramType[] {
-  const combinedArray: ProgramType[] = arr1.concat(arr2);
+export function compareArrays(arr1: programType[], arr2: programType[]): programType[] {
+  const combinedArray: programType[] = arr1.concat(arr2);
 
-  const uniqueArray = combinedArray.reduce((accumulator: ProgramType[], current: ProgramType) => {
-    const existingObj = accumulator.find((obj: ProgramType) => obj.title === current.title);
+  const uniqueArray = combinedArray.reduce((accumulator: programType[], current: programType) => {
+    const existingObj = accumulator.find((obj: programType) => obj.slug === current.slug);
     if (!existingObj) accumulator.push(current);
 
     return accumulator;
@@ -136,11 +136,6 @@ export function compareArrays(arr1: ProgramType[], arr2: ProgramType[]): Program
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export type projectPathType = {
-  name: string;
-  slug: string;
-  active: boolean;
-}[]
 export function projectPath(path: string[]): projectPathType {
   let newPath = []
   for (let i = 0; i < path.length; i++) {
@@ -151,7 +146,7 @@ export function projectPath(path: string[]): projectPathType {
 
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
-
+// deprecated
 export function clipBoard(text: string): boolean {
   const elem: HTMLTextAreaElement = document.createElement('textarea');
   elem.value = text;
@@ -161,3 +156,17 @@ export function clipBoard(text: string): boolean {
   document.body.removeChild(elem);
   return true
 }
+
+// new clipboard function
+export async function clipBoard2(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+    return false;
+  }
+}
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------

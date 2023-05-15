@@ -13,7 +13,8 @@ type fetchIssue = {
     data: issueType[]
     status: number;
 }
-export default function SPrograms(): JSX.Element {
+export default function SPrograms() {
+    return null
     const i = Array.from(Array(5).keys());
     const baseUrl = 'https://api.codinasion.org/';
     const search = useSelector((state: RootState) => state.counter.search)
@@ -28,21 +29,21 @@ export default function SPrograms(): JSX.Element {
         }
         fetchData(`${baseUrl}good-1st-issue`)
     }, [])
+
     return (
         <div className={`w-full border-b-[1px] border-gray-500/20`}>
-            {issue.status === 200 &&
-                filteredData ?
-                filteredData.map((item: issueType) =>
-                    <SGood1stIssue
-                        issue_short_url={item.issue_short_url}
-                        issue_labels={item.issue_labels}
-                        issue_author={item.issue_author}
-                        issue_title={item.issue_title}
-                        issue_url={item.issue_url}
-                        key={random()}
-                    />) : <NoRecord style={`col-span-full`} />
-            }
             {issue.status !== 200 && i.map(() => <ProgramCardSkeleton key={random()} />)}
+            {issue.status === 200 && !filteredData?.length && <NoRecord style={`col-span-full`} />}
+            {issue.status === 200 && filteredData?.length && filteredData?.map((item: issueType) =>
+                <SGood1stIssue
+                    issue_short_url={item.issue_short_url}
+                    issue_labels={item.issue_labels}
+                    issue_author={item.issue_author}
+                    issue_title={item.issue_title}
+                    issue_url={item.issue_url}
+                    key={random()}
+                />)
+            }
         </div>
     )
 }

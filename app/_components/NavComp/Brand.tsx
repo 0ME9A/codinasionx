@@ -1,4 +1,4 @@
-import logo from "@/public/logo.png";
+import logo from "@/public/icons/icon-32x32.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,11 +8,10 @@ export default function Brand() {
       <Link
         href={"/"}
         title={"Home"}
-        className={`border-2 p-[3px] rounded-full dark:border-white border-black glowII`}
-      >
+        className={`border-2 p-[3px] rounded-full dark:border-white border-black glowII`}>
         <Image
           src={logo}
-          alt={"brand avatar"}
+          alt={"brand logo"}
           width={"100"}
           height={"100"}
           className={`rounded-full w-8 aspect-square animate-wiggle`}

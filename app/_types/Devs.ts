@@ -1,42 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
-
-export type devinfoType = {
-  bio: string;
-  type: string;
-  name: string;
-  blog: string;
-  login: string;
-  location: string;
-  followers: number;
-  following: number;
-  avatar_url: string;
-  public_gists: number;
-  public_repos: number;
-  twitter_username: null;
-};
-
-export type DevType = {
-  imgUrl: string;
-  devName: string;
-  target?: string;
-};
-
-export type animateddevsType = {
-  api: {
-    data: devsDataType[];
-    status: number;
-  }
-  header: boolean;
-}
-export type devsType = {
-  api: {
-    data: devsDataType[];
-    status: number;
-  }
-  infinite: boolean;
-}
-
-export type devsDataType = {
+export type devProjectGitType = {
   login: string;
   id: number;
   node_id: string;
@@ -57,3 +19,52 @@ export type devsDataType = {
   site_admin: boolean;
   contributions: number;
 };
+
+export type devGitDataType = {
+  // id: number;
+  bio: string;
+  type: string;
+  name: string;
+  blog: string;
+  login: string;
+  location: string;
+  followers: number;
+  following: number;
+  avatar_url: string;
+  public_gists: number;
+  public_repos: number;
+  twitter_username: null;
+};
+
+export type codinasionDevApiType = {
+  user: {
+    id: number;
+    login: string;
+  }
+  role: "team" | "member" | "contributor";
+}
+export type codinasionDevType = {
+  name: string;
+  avatar: string;
+  role: "team" | "member" | "contributor";
+}
+
+export type devProjectGitApiType = {
+  data: devProjectGitType[];
+  status: number;
+}
+
+export type devApiGitInfoType = {
+  data: devGitDataType;
+  status: number;
+}
+
+export type devApiCodinasionType = {
+  data: codinasionDevApiType[];
+  status: number;
+}
+
+export type animatedDevsType = {
+  api: codinasionDevApiType[];
+  header: boolean;
+}

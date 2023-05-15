@@ -1,8 +1,8 @@
 import { random } from "app/_functions/functions";
 import { AiOutlinePlus } from "react-icons/ai";
-import Tag from "../CommonComp/Tag";
-import Box from "../LayoutsComp/Box";
 import BtnLink from "../Links&Btns/BtnLink";
+import Box from "../LayoutsComp/Box";
+import Tag from "../CommonComp/Tag";
 
 type PSolutionsType = {
     languages: string[];
@@ -15,7 +15,7 @@ export default function PSolutions({ languages, track_id }: PSolutionsType) {
             {/* {<ul className={`flex flex-wrap gap-2`}>{tags.map((tag: string) => <Tag tag={tag} key={random()} />)}</ul>} */}
             {languages.length && <ul className={`flex flex-wrap gap-2`}>{languages.map((tag: string) => <Tag tag={tag} key={random()} />)}</ul>}
             <BtnLink
-                url={`https://github.com/codinasion/program/issues/${track_id}`}
+                href={`https://github.com/codinasion/program/issues/${track_id}`}
                 title={"Add a solution"}
                 style={""}
                 target={"_blank"}>

@@ -1,3 +1,3 @@
 export default function Page() {
-    return <h1>hello good 1st issue</h1>
+    return <h1>The page is under Development lab.</h1>
 }

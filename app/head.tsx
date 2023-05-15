@@ -1,6 +1,5 @@
-import siteMetadata from "@/data/SiteMetaData";
-import Favicon from "@/public/favicon/favicon.ico";
-import logo from "@/public/logo.png";
+import logo from "@/public/icons/favicon.ico";
+import apple from "@/public/icons/apple-touch-icon.png"
 
 export default function Head() {
   return (
@@ -10,15 +9,15 @@ export default function Head() {
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
       />
       <meta charSet="UTF-8" />
-      <link rel="icon" href={`${Favicon.src}`} />
+      <link rel="icon" href={`${logo}`} />
       <meta name="theme-color" content="#000000" />
-      <link rel="apple-touch-icon" href={`${logo.src}`} />
-      <link rel="manifest" href={"/favicon/manifest.json"} />
-      <title key="title">{`${siteMetadata.title}`}</title>
+      <link rel="apple-touch-icon" href={`${apple}`} />
+      <link rel="manifest" href={"/manifest.json"} />
+      <title key="title">{`Codinasion`}</title>
       <meta
         key="description"
         name="description"
-        content={`${siteMetadata.description}`}
+        content={`Join Codinasion - a community for developers, where you can learn, connect, and share your knowledge and skills.`}
       />
     </>
   );

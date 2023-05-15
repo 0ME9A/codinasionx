@@ -6,10 +6,10 @@ import { IoTelescope } from "react-icons/io5";
 import Link from "next/link";
 
 export default function QuickLinks({ repo }: { repo: repoType | null }) {
-  const qLink: qLinkType = [
+  const qLink: qLinkType[] = [
     {
       id: repo?.homepage,
-      text: "Website",
+      text: "Source",
       link: repo?.homepage ?? "https://github.com/codinasion",
       icon: <GiEarthAmerica className="group-hover:scale-125" />,
     },
@@ -42,15 +42,14 @@ export default function QuickLinks({ repo }: { repo: repoType | null }) {
   return (
     <div className="p-2 gap-2 grid">
       {qLink.map(
-        (item) =>
+        (item: qLinkType) =>
           item.id && (
             <Link
               key={random()}
               href={item.link}
               title={item.text}
               className="group flex gap-2 items-center"
-              target={"_blank"}
-            >
+              target={"_blank"}>
               {item.icon} {item.text}
             </Link>
           )

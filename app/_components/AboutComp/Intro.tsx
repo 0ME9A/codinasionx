@@ -1,53 +1,44 @@
 "use client";
-import { container, scrollY } from "app/_framerVariants/framerVariants";
-import { motion, Variants } from "framer-motion";
+import { container, scrollY, variantsX } from "app/_framerVariants/framerVariants";
 import { FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 import BtnLink from "../Links&Btns/BtnLink";
+import Wave from "../LayoutsComp/Wave";
 
-const variantsX: Variants = {
-  hidden: {
-    opacity: 0,
-    letterSpacing: "100px"
-  },
-  show: {
-    opacity: [0, 0, 0, 0, 0, 1],
-    x: 0,
-    letterSpacing: "5px",
-    transition: {
-      type: "spring",
-      restSpeed: 30
-    },
-  },
-};
 
 export default function Intro() {
   return (
-    <motion.div
-      className="lg:container py-32 min-h-screen mx-auto flex flex-col justify-end items-center px-5 my-auto pb-[30vh]"
-      variants={container}
-      initial={"hidden"}
-      whileInView={"show"}>
-      <motion.h1
-        className="text-[15vw] xl:text-[12rem] text-center leading-[100%] lg:leading-[75%] tracking-wider dark:text-white font-extrabold title-shadow"        
-        variants={variantsX}>
-        CODINASION
-      </motion.h1>
-      <motion.p
-        className="max-w-4xl text-md sm:text-xl text-gray-700 dark:text-gray-300 tracking-wider font-thin text-center md:pt-5"
-        variants={scrollY(50)}>
-        We are a group of developer/programer from all over the world helps
-        other developers to start their open source journey with our{" "}
-        <span className="px-2 rounded-full bg-yellow-500 text-black uppercase text-sm font-normal inline-block">
-          Good First
-        </span>{" "}
-        Issue projects.{" "}
-      </motion.p>
-      <motion.div className="flex mt-6 gap-2" variants={scrollY(50)}>
-        <BtnLink url={"https://github.com/codinasion"} title={'Join Codinasion'} target="_blank">
-          <FaGithub className="group-hover:scale-125" />
-          Join Codinasion
-        </BtnLink>
-      </motion.div>
-    </motion.div>
+    <div className="relative w-full min-h-[50%] h-screen">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-very-light via-very-light/80 to-lightII/50 dark:from-very-dark dark:via-very-dark/70 dark:to-darkII/70"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl to-lightII/50 dark:from-very-dark dark:to-darkII/50"></div>
+      <Wave />
+      <div className="w-full h-full py-60 absolute top-0 z-20 flex justify-center items-center">
+        <motion.div
+          className="lg:container h-fit flex flex-col justify-end items-center px-5 relative z-20"
+          variants={container}
+          initial={"hidden"}
+          whileInView={"show"}>
+          <motion.h1
+            className="text-[13vw] xl:text-[12rem] text-center leading-[100%] lg:leading-[75%] tracking-wider dark:text-white font-extrabold text-stroke"
+            variants={variantsX}>
+            CODINASION
+          </motion.h1>
+          <motion.p
+            className="max-w-6xl text-md sm:text-xl text-gray-700 dark:text-gray-300 tracking-wider font-thin text-center md:pt-5"
+            variants={scrollY(50)}>
+            "Welcome to Codinasion - a community of passionate developers, where we share our knowledge and experience with each other.
+            Whether you are a beginner or an experienced developer.
+            Join us today and become a part of our thriving community!"
+          </motion.p>
+          <motion.div className="flex mt-6 gap-2" variants={scrollY(50)}>
+            <BtnLink href={"https://github.com/codinasion"} title={'Join Codinasion'} target="_blank">
+              <FaGithub className="group-hover:scale-125" />
+              Join Codinasion
+            </BtnLink>
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
   );
 }
+

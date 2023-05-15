@@ -1,12 +1,12 @@
 export type urlType = {
     name: string;
     href: string;
-
 };
+
 export type socialType = {
     name: string;
     href: string;
-    icon: JSX.Element;
+    icon: JSX.Element | null;
 };
 
 export type siteMapType = {

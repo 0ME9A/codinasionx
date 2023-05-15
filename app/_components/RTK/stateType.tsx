@@ -1,0 +1,9 @@
+export const KEYWORDS = "KEYWORDS";
+export const PLASIDE = "PLASIDE";
+export const PLMENU = "PLMENU";
+export const WINDOW = "WINDOW";
+export const ASIDE = "ASIDE";
+export const LIMIT = "LIMIT";
+export const MENU = "MENU";
+export const TAG = "TAG";
+export const TAB = "TAB";

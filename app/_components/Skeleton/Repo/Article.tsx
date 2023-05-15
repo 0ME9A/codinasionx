@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Article() {
   return (
     <div className=" w-full py-2">

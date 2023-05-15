@@ -1,5 +1,5 @@
-import About from "app/_components/AboutComp/About";
+import Detailed from "app/_components/AboutComp/Detailed";
 
 export default function page() {
-  return <About />;
+  return <Detailed />;
 }
