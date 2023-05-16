@@ -5,7 +5,7 @@ export default function MyApp({ children }: { children: React.ReactNode }) {
 
   return (
     <Container style="pt-20">
-      <Nav layout={{ name: `program`, slug: 'program', aside: true }} />
+      <Nav layout={{ name: `program`, slug: 'program' }} />
       {children}
     </Container>
   )

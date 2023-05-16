@@ -16,7 +16,7 @@ export type menuType = {
 };
 
 export type projectNavType = {
-  layout: { name: string, slug: string, aside?: boolean };
+  layout: { name: string, slug: string };
 }
 
 export type NavbarLinkType = {
