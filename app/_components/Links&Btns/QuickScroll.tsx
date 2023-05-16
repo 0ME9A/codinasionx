@@ -2,7 +2,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function QuickScroll({ style }: { style?: string }) {
     return (
-        <div className="p-2 fixed right-0 lg:right-[2%] bottom-[5%] z-50">
+        <div className="p-2 fixed right-1 md:right-[5%] bottom-[2%] lg:bottom-[5%] z-50">
             <a
                 title="scroll to top"
                 href="#scroll-to-top"
