@@ -39,7 +39,6 @@ export default async function Page({ params }: { params: { repo: string } }) {
   if ([repoRes, langsRes, devsRes].some(res => res.status !== 200)) notFound()
 
   return <Index
-    repoName={params.repo}
     repo={{ data: repoData, status: repoRes.status }}
     lang={{ data: langsData, status: langsRes.status }}
     devs={{ data: devsData, status: devsRes.status }}

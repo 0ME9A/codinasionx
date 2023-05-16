@@ -80,6 +80,13 @@ export function random(): string {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
+export function randomNum(n: number): number {
+  return Math.round(Math.random() * n)
+}
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+
 export function callImg(repoName?: string): string {
   return repoName
     ? `https://raw.githubusercontent.com/0ME9A/screenshots/main/${repoName}.png`

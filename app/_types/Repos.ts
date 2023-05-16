@@ -46,15 +46,23 @@ export type articleType = {
 };
 
 export type showoffRepoCardType = {
-  id: number | 0;
   imgUrl: string;
   title: string;
   desc: string;
   repoUrl: string;
   style?: string;
-  order: number[];
   status: status;
 };
+// export type showoffRepoCardType = {
+//   id: number | 0;
+//   imgUrl: string;
+//   title: string;
+//   desc: string;
+//   repoUrl: string;
+//   style?: string;
+//   order: number[];
+//   status: status;
+// };
 
 export type repoCardType = {
   imgUrl: string;
@@ -70,7 +78,6 @@ export type langType = {
 }
 
 export type readmeType = {
-  repoName: string;
   repo: { data: repoType, status: number };
   lang: { data: langType, status: number };
   devs: { data: devProjectGitType[], status: number };

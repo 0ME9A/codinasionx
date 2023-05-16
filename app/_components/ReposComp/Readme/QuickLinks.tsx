@@ -9,7 +9,7 @@ export default function QuickLinks({ repo }: { repo: repoType | null }) {
   const qLink: qLinkType[] = [
     {
       id: repo?.homepage,
-      text: "Source",
+      text: "Source/Website",
       link: repo?.homepage ?? "https://github.com/codinasion",
       icon: <GiEarthAmerica className="group-hover:scale-125" />,
     },

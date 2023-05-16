@@ -13,7 +13,7 @@ export default function GlobalError({ error, reset }: globalError) {
         <html>
             <Head />
             <body className="w-full h-screen flex items-center gap-2 justify-center">
-                <h2 className="text-3xl">Something went wrong!</h2>
+                <h1 className="text-3xl">Something went wrong!</h1>
                 <BtnLink href={"/"} title={"Try again"}>Try again</BtnLink>
             </body>
         </html>

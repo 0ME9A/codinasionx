@@ -36,7 +36,7 @@ export default function LayoutClient({ children, api }: layoutClientType) {
     return (
         <html lang="en" className="dark">
             <head />
-            <body className={`dark:bg-very-dark bg-very-light overflow-x-hidden ${oswald.className}`} suppressHydrationWarning={true} id={'scroll-to-top'}>
+            <body className={`w-full dark:bg-very-dark bg-very-light overflow-x-hidden ${oswald.className}`} suppressHydrationWarning={true} id={'scroll-to-top'}>
                 <Provider store={store}>
                     <Background />
                     <RootDispatch api={api} />
