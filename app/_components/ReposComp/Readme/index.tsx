@@ -29,7 +29,7 @@ export default function Index({ repo, lang, devs }: readmeType) {
     const aside = useSelector((state: RootState) => state.counter.commonProperties.projectLayout.aside);
 
     return (
-        <div>
+        <div className="overflow-x-hidden">
             {repo.status === 200 ? (
                 <svg id="visual"
                     viewBox="0 0 900 250"
