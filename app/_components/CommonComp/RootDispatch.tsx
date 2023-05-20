@@ -1,5 +1,5 @@
 "use client";
-import { developers, repositories, program } from "../RTK/States/States";
+import { developers, repositories, program } from "app/_rtk/States/States";
 import { codinasionDevApiType, codinasionDevType } from "app/_types/Devs";
 import { programType } from "app/_types/Program";
 import { repoType } from "app/_types/Repos";

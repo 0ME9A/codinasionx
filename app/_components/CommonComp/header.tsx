@@ -8,12 +8,7 @@ type headerType = {
   style?: string;
   animateDirection?: "t" | "r" | "b" | "l";
 };
-export default function Header({
-  title,
-  subTitle,
-  style,
-  animateDirection = "t",
-}: headerType) {
+export default function Header({ title, subTitle, style, animateDirection = "t", }: headerType) {
   type animateType = {
     l: Variants;
     r: Variants;

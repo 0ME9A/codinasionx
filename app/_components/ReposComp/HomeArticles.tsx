@@ -1,19 +1,20 @@
 "use client";
-import { repositoriesProperties } from "app/_components/RTK/States/States";
-import { RootState } from "app/_components/RTK/Store/store";
+import { repositoriesProperties } from "app/_rtk/States/States";
 import { useDispatch, useSelector } from "react-redux";
-import { filterRepos } from "app/_functions/Filters";
+import { filterRepos } from "app/_functions/filters";
 import { random } from "app/_functions/functions";
-import { useEffect, useState } from "react";
+import { RootState } from "app/_rtk/Store/store";
 import { repoType } from "app/_types/Repos";
-import { LIMIT } from "../RTK/stateType";
-import ReposSkeleton from "app/_components/Skeleton/Repo/ReposSkeleton";
+import { useEffect, useState } from "react";
+import { LIMIT } from "app/_rtk/stateType";
 import BasicRepoCard from "app/_components/ReposComp/BasicRepoCard";
-import NoRecord from "app/_components/CommonComp/NoRecord";
+import NoRecord from "app/_components/Loading&ErrorComp/NoRecord";
+import SHomeArticle from "../SkeletonComp/Repo/SHomeArticle";
+import ArticleSection from "../LayoutsComp/ArticleSection";
 import useInfinite from "app/_hooks/useInfinite";
 
 
-export default function HomeArticles() {
+export default function HomeArticle() {
     const dispatch = useDispatch()
     const i = Array.from(Array(5).keys());
     const search = useSelector((state: RootState) => state.counter.search)
@@ -30,17 +31,18 @@ export default function HomeArticles() {
     })
     useEffect(() => setMount(true), [])
 
-    if (!isMount) return (
-        <div className={`w-full min-h-screen text-white rounded-3xl bg-white/50 dark:bg-black/50 backdrop-blur-sm overflow-hidden mt-20`}>
-            {i.map(() => <ReposSkeleton key={random()} />)}
-        </div>
-    )
+    if (!isMount || status !== 200) {
+        return (
+            <ArticleSection >
+                <SHomeArticle />
+            </ArticleSection>
+        )
+    }
 
     return (
-        <div className={`w-full min-h-screen text-white rounded-2xl lg:rounded-3xl bg-white/50 dark:bg-black/50 backdrop-blur-sm overflow-hidden`}>
-            {status !== 200 && i.map(() => <ReposSkeleton key={random()} />)}
-            {status === 200 && !filteredData.length && <NoRecord />}
-            {status === 200 && filteredData.length > 0 &&
+        <ArticleSection>
+            {!filteredData && <NoRecord />}
+            {filteredData &&
                 filteredData.slice(0, limit * 10).map((item: repoType) => (
                     <BasicRepoCard
                         key={random()}
@@ -53,7 +55,6 @@ export default function HomeArticles() {
                         }} />
                 ))
             }
-        </div>
+        </ArticleSection>
     )
-
 }

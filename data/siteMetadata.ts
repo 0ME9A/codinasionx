@@ -74,7 +74,7 @@ export const icons: Icons = {
   ],
 };
 
-export function twitterMeta({ title, desc, authors }: { title: string, desc: string, authors: string[]}) {
+export function twitterMeta({ title, desc, authors }: { title: string, desc: string, authors: string[] }) {
   const twitter = {
     card: 'summary_large_image',
     title: title,
@@ -104,7 +104,16 @@ export function linkedInMeta({ title, desc, authors }: { title: string, desc: st
 
 export const commonData = {
   title: "Codinasion",
-  description: "Codinasion is a global community of developers who collaborate, create, and innovate with open source. Our mission is to provide valuable resources, mentorship, and opportunities to developers of all levels. We offer a range of programming solutions, tools, and resources in multiple languages that are free, open-source, and available to anyone who wants to contribute or learn. Whether you're a seasoned developer or just starting your coding journey, we welcome you to join our community and explore all that Codinasion has to offer.",
+  
+  description: `Codinasion is a global community of developers who collaborate, create, and innovate with open source. 
+  Our mission is to provide valuable resources, mentorship, and opportunities to developers of all levels.
+  We offer a range of programming solutions, tools, and resources in multiple languages that are free, open-source, and available to anyone who wants to contribute or learn. 
+  Whether you're a seasoned developer or just starting your coding journey, we welcome you to join our community and explore all that Codinasion has to offer.`,
+
+  repoDesc: `Codinasion' repositories are a collection of open-source codebases that offer solutions for a variety of programming challenges.
+  They provide a great opportunity for developers to contribute to open-source projects and gain experience in collaborative programming.
+  Codinasion' repositories welcome different types of contributions and offer "good first issue" tickets for beginners to start their journey in open-source development.`,
+
   siteUrl: "https://codinasion.org",
   github_url: "https://github.codinasion.org",
   twitter_url: "https://twitter.codinasion.org",

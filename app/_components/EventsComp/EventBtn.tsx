@@ -1,9 +1,8 @@
-"use client";
 import { childScale, scrollHeight, scrollX } from "app/_framerVariants/framerVariants";
 import { eventsBtnType } from "app/_types/Events";
 import { icons } from "@/data/eventsIcon";
 import { motion } from "framer-motion";
-import BasicLink from "../Links&Btns/BasicLink";
+import BasicLink from "../Links&BtnsComp/BasicLink";
 
 export default function EventBtn({ type, isBtn, state, setState }: eventsBtnType) {
   return (

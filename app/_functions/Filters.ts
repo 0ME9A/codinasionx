@@ -1,41 +1,82 @@
 // import { devsDataType } from "app/_types/Devs";
 import { codinasionDevApiType, devProjectGitType } from "app/_types/Devs";
-import { issueType } from "app/_types/Issue";
+import { issueType } from "app/_types/good1stissue";
 import { programType } from "app/_types/Program";
 import { repoType } from "app/_types/Repos";
 
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // filter repositories
-export const filterRepos = (keywords: string | null, data: repoType[]): repoType[] => {
-    if (keywords && data.length) {
-        const filtred = data.filter((item: any) => {
-            const key: string = item.name.toLocaleLowerCase()
-            const keyword: string | null = keywords.toLocaleLowerCase()
-            return key.includes(keyword)
-        })
-        return filtred
-    }
-    return []
+export function filterRepos(keywords: string | null, data: repoType[]): repoType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !keywords?.trim()) return null
+
+    const filtered = data.filter((item: any) => {
+        const key: string = item.name.toLocaleLowerCase()
+        const keyword: string | null = keywords.toLocaleLowerCase()
+        return key.includes(keyword)
+    })
+    return filtered.length > 0 ? filtered : null;
 }
 
-// filter developers
-export const filterDevs = (keywords: string | null, data: codinasionDevApiType[]): codinasionDevApiType[] => {
-    const layer1 = keywords && data.length ? data.filter((item: codinasionDevApiType) => {
-        const name: string = item.user.login.toLocaleLowerCase()
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+// filter repositories by keyword which is already in gitrepo tag section
+export function filterUniqueRepos(data: repoType[], keyword: string | null): repoType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !keyword?.trim()) return null
+
+    const filtered = data.filter((item: repoType) => {
+        return item.topics.includes(keyword);
+    })
+    return filtered.length > 0 ? filtered : null;
+}
+
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+// filter developers by role team, member, contributer
+export function filterUniqueCondinasionDevs(data: codinasionDevApiType[], keyword: string | null): codinasionDevApiType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !keyword?.trim()) return null
+
+    const filtered = data.filter((item: codinasionDevApiType) => {
+        return item.role.includes(keyword);
+    })
+
+    return filtered.length > 0 ? filtered : null;
+}
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+// filter developers by name or role which is fetched from codinasion developer api
+export function filterDevs(keywords: string | null, data: codinasionDevApiType[]): codinasionDevApiType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !keywords?.trim()) return null;
+
+    const keywordList: string[] = keywords.toLowerCase().split(" ");
+
+    const filtered = data.filter((item: codinasionDevApiType) => {
         const role: string = item.role.toLocaleLowerCase()
-        const keyword: string = keywords.toLocaleLowerCase()
-        return name.includes(keyword) || role.includes(keyword)
-    }) : []
-    return layer1
+        const name: string = item.user.login.toLocaleLowerCase()
+        return keywordList.some((keyword) => name.includes(keyword)) || keywordList.some((keyword) => role.includes(keyword));
+    });
+
+    return filtered.length > 0 ? filtered : null;
 }
 
-export const filterProjecetDevs = (keywords: string | null, data: devProjectGitType[]): devProjectGitType[] => {
-    const layer1 = keywords && data.length ? data.filter((item: devProjectGitType) => {
-        const name: string = item.login.toLocaleLowerCase();
-        const keyword: string[] = keywords.toLocaleLowerCase().split(" ");
-        return keyword.includes(name)
-    }) : []
-    return layer1
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+// filter developers by name which is fetched from github api not codinasion developer api
+export function filterProjecetDevs(keywords: string | null, data: devProjectGitType[]): devProjectGitType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !keywords?.trim()) return null;
+
+    const keywordList: string[] = keywords.toLowerCase().split(" ");
+
+    const filtered = data.filter((item: devProjectGitType) => {
+        const name: string = item.login.toLowerCase();
+        return keywordList.some((keyword) => name.includes(keyword));
+    });
+
+    return filtered.length > 0 ? filtered : null;
 }
+
 
 // export const filterData = (keywords: string | null, data: devsDataType[]): devsDataType[] => {
 //     const layer1 = keywords && data.length ? data.filter(item => {
@@ -46,12 +87,16 @@ export const filterProjecetDevs = (keywords: string | null, data: devProjectGitT
 //     return layer1
 // }
 
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // filter program
-export function filterProgram(data: programType[], tag: string, search: string | null): programType[] {
+export function filterProgram(data: programType[], tag: string, search: string | null): programType[] | null {
+    if (!Array.isArray(data) || data.length === 0) return null;
+
     search = search ? search.trim().toLowerCase() : "";
     tag = tag.trim();
 
-    const layer = data.filter((obj) => {
+    const filtered = data.filter((obj) => {
         // const titalCase = obj.title.toLowerCase().split(" ");
         const titalCase: string[] = obj.slug.toLowerCase().split("-");
         const keywords: string[] = search ? search.split(" ") : [];
@@ -66,36 +111,48 @@ export function filterProgram(data: programType[], tag: string, search: string |
             if (tag === "All") return data
         }
     });
-    return layer;
+    return filtered.length > 0 ? filtered : null;
 }
 
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // filter program in search window
-export const filterProgramII = (keywords: string | null, data: programType[]): programType[] => {
-    const layer1 = keywords && data.length ? data.filter(item => {
+export const filterProgramII = (keywords: string | null, data: programType[]): programType[] | null => {
+    if (!Array.isArray(data) || data.length === 0 || !keywords?.trim()) return null;
+
+    const filtered = data.filter(item => {
         const key: string = item.slug.toLowerCase().replaceAll('-', ' ');
         const keyword: string = keywords.toLowerCase();
         const tagFil: string[] = item.languages.filter(item2 => item2.toLowerCase().includes(keyword));
         return tagFil.length || key.includes(keyword)
-    }) : []
-    return layer1
+    })
+    return filtered.length > 0 ? filtered : null;
 }
 
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // filter related program
-export function filterRelatedProgram(data: programType[], currentProgramTitle: string) {
-    const related = data?.length ? data.filter((item: programType) => {
+export function filterRelatedProgram(data: programType[], currentProgramTitle: string): programType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !currentProgramTitle?.trim()) return null;
+
+    const filtered = data?.length ? data.filter((item: programType) => {
         const programSlug: string[] = item.slug.split('-')
         const currentSlug: String[] = currentProgramTitle.split('-')
         return currentSlug[0] === programSlug[0] && item.slug !== currentProgramTitle
     }) : []
-    return related
+    return filtered.length > 0 ? filtered : null;
 }
 
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // filter good1stissue
-export function filterIssue(data: issueType[], tag: string, search: string | null): issueType[] {
+export function filterIssue(data: issueType[], tag: string, search: string | null): issueType[] | null {
+    if (!Array.isArray(data) || data.length === 0) return null;
+
     search = search ? search.trim().toLowerCase() : "";
     tag = tag.trim();
 
-    const layer = data.filter((obj) => {
+    const filtered = data.filter((obj) => {
         const titalCase: string[] = obj.issue_title.toLowerCase().split(" ");
         const keywords: string[] = search ? search.split(" ") : [];
 
@@ -107,21 +164,26 @@ export function filterIssue(data: issueType[], tag: string, search: string | nul
             if (tag === "All") return data
         }
     });
-    return layer;
+    return filtered.length > 0 ? filtered : null;
 }
 
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // filter good1stissue in search window
-export function filterIssueII(data: issueType[], search: string | null): issueType[] {
-    search = search ? search.trim().toLowerCase() : "";
+export function filterIssueII(data: issueType[], search: string | null): issueType[] | null {
+    if (!Array.isArray(data) || data.length === 0 || !search?.trim()) return null;
 
-    if (search) {
-        const layer = data.filter((obj) => {
-            const titalCase: string[] = obj.issue_title.toLowerCase().split(" ");
-            const keywords: string[] = search ? search.split(" ") : [];
-            const author: string = obj.issue_author.toLowerCase();
-            return keywords.some((str) => titalCase.includes(str) || obj.issue_labels.includes(str)) || keywords.some((str) => author.includes(str));
-        })
-        return layer.length ? layer : [];
-    }
-    else { return []; }
+    search = search.toLowerCase()
+
+    const filtered = data.filter((obj) => {
+        const titalCase: string[] = obj.issue_title.toLowerCase().split(" ");
+        const keywords: string[] = search ? search.split(" ") : [];
+        const author: string = obj.issue_author.toLowerCase();
+        return keywords.some((str) => titalCase.includes(str) || obj.issue_labels.includes(str)) || keywords.some((str) => author.includes(str));
+    })
+    return filtered.length > 0 ? filtered : null;
 }
+
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------

@@ -21,7 +21,7 @@ export default function AstroImg({
   framer = true,
 }: imageType) {
   return (
-    <motion.div
+    <motion.figure
       variants={framer ? childScaleReverse : noFramer}
       className={`h-fit aspect-square bg-very-dark dark:bg-very-light shadow-lightShadow-md dark:shadow-darkShadow-md md:shadow-lightShadow-lg md:dark:shadow-darkShadow-lg ${style} ${ radius && `atropos-banner rounded-[${radius}px]`}`}>
       <Atropos
@@ -38,6 +38,6 @@ export default function AstroImg({
           className={`w-full h-full object-cover ${ radius && `!rounded-[${radius}px]`}`}
         />
       </Atropos>
-    </motion.div>
+    </motion.figure>
   );
 }

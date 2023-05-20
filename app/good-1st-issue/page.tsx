@@ -1,19 +1,16 @@
-import HomeArticles from 'app/_components/Good-1st-issueComp/HomeArticles';
-import HomeAside from 'app/_components/Good-1st-issueComp/HomeAside';
+import Index from 'app/_components/Good1stIssueComp';
+import HomeArticles from 'app/_components/Good1stIssueComp/HomeArticle';
+import HomeAside from 'app/_components/Good1stIssueComp/HomeAside';
+import Container from 'app/_components/LayoutsComp/Container';
+
 
 export default async function Page() {
-  return null;
-  
-  const baseUrl = 'https://api.codinasion.org/';
-  const urls = [`${baseUrl}good-1st-issue`, `${baseUrl}good-1st-issue/labels`];
-  const responses = await Promise.all(urls.map((url) => fetch(url)));
-  const [issue, labels] = await Promise.all(responses.map((res) => res.json()));
-  const [issueStatus, labelsStatus] = responses;
-
   return (
-    <div className={"flex lg:container mx-auto p-2 gap-3 relative"}>
-      <HomeArticles data={issue} status={issueStatus.status} />
-      <HomeAside data={labels} status={labelsStatus.status} allIssue={issue.length} />
-    </div>
+    <section className={"flex xl:container mx-auto px-2 relative py-20"}>
+      <h1 className={`w-fit pt-32 px-2 dark:text-white text-black mx-auto h-screen`}>Api under Maintenance. ⏳</h1>
+    </section>
+  )
+  return (
+    < Index />
   );
 }

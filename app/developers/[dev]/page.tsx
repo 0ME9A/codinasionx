@@ -1,7 +1,7 @@
 import { devGitDataType } from 'app/_types/Devs';
 import { notFound } from "next/navigation";
 import type { Metadata } from 'next';
-import DevInfo from "app/_components/DevsComp/DevInfo";
+import DevInfo from 'app/_components/DevelopersComp/DevInfo';
 import getDev from 'app/_api/getDev';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {

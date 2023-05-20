@@ -1,5 +1,5 @@
+import { Index } from "app/_components/DevelopersComp";
 import { Metadata } from "next";
-import AllDevs from "app/_components/DevsComp/AllDevs";
 
 export const metadata: Metadata = {
   title: `Developers || Codinasion`,
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AllDevs />
+  return <Index />
 }

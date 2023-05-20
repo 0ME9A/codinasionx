@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function TestimonialCard({ imgUrl, name, profession, text, style }: testimonialType) {
   return (
-    <motion.div
+    <motion.article
       className={`grid grid-cols-12 p-2 gap-6 md:gap-0 container mx-auto left-[500px] ${style}`}
       variants={container}
       initial={"hidden"}
@@ -27,19 +27,21 @@ export default function TestimonialCard({ imgUrl, name, profession, text, style 
           />
         </motion.div>
       </Atropos>
-      <article className="col-span-12 md:col-span-7 px-2 pr-[10%] flex text-black dark:text-white flex-col justify-center">
-        <motion.h2 title={name} variants={child} className="text-2xl font-semibold">
-          {name}
-        </motion.h2>
-        <motion.h3
-          variants={child}
-          className="text-gray-500 font-thin tracking-wider">
-          {profession}
-        </motion.h3>
+      <section className="col-span-12 md:col-span-7 px-2 pr-[10%] flex text-black dark:text-white flex-col justify-center">
+        <header>
+          <motion.h2 title={name} variants={child} className="text-2xl font-semibold">
+            {name}
+          </motion.h2>
+          <motion.h3
+            variants={child}
+            className="text-gray-500 font-thin tracking-wider">
+            {profession}
+          </motion.h3>
+        </header>
         <motion.p variants={child} className="opacity-90 mt-2">
           {text}
         </motion.p>
-      </article>
-    </motion.div>
+      </section>
+    </motion.article>
   );
 }
