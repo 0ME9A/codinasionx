@@ -34,15 +34,25 @@ export type qLinkType = {
 };
 
 export type asideType = {
-  repo: repoType;
-  devs: devProjectGitType[];
-  langs: object | null;
-  aside: boolean;
+  repo: {
+    data: repoType;
+    status: number
+  };
+  devs: {
+    data: devProjectGitType[];
+    status: number
+  };
+  langs: {
+    data: object | null;
+    status: number
+  };
 };
 
 export type articleType = {
-  repo: repoType;
-  aside: boolean;
+  repo: {
+    data: repoType;
+    status: number
+  };
 };
 
 export type showoffRepoCardType = {

@@ -2,9 +2,10 @@ import logo from "@/public/icons/icon-32x32.png";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function Brand() {
   return (
-    <div className="text-xl font-semibold uppercase flex gap-2 items-center">
+    <header className="text-xl font-semibold uppercase flex gap-2 items-center">
       <Link
         href={"/"}
         title={"Home"}
@@ -18,12 +19,12 @@ export default function Brand() {
         />
       </Link>
 
-      <span className="flex flex-col">
-        <Link href={"/"} title={"Home"}>
+      <Link href={"/"} title={"Home"}>
+        <h2 className="flex flex-col">
           Codinasion
-        </Link>
-        <span className="text-xs font-light">Codinasion ❤️ Open Source</span>
-      </span>
-    </div>
+        </h2>
+        <h3 className="text-xs font-light">Codinasion ❤️ Open Source</h3>
+      </Link>
+    </header>
   );
 }

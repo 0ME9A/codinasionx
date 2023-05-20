@@ -2,9 +2,7 @@ import { twitterMeta } from "@/data/siteMetadata";
 import { programType } from "app/_types/Program";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import RelatedProgram from "app/_components/ProgramComp/RelatedProgram";
-import ProgramArticle from "app/_components/ProgramComp/ProgramArticle";
-import ProgramAside from "app/_components/ProgramComp/ProgramAside";
+import Index from "app/_components/ProgramComp/ProgramPage";
 import getProgram from "app/_api/getProgram"
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
@@ -25,19 +23,15 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const fetchApi = await getProgram(params.slug);
-  const jsonData = await fetchApi.json();
+  const fetchApi: Response = await getProgram(params.slug);
+  const jsonData: programType = await fetchApi.json();
 
   !fetchApi.ok && notFound();
 
   return (
-    <>
-      <section className={"lg:flex lg:container mx-auto p-2 pb-0 gap-3 relative"}>
-        <ProgramArticle data={jsonData} />
-        <ProgramAside data={jsonData} />
-      </section>
-
-      <RelatedProgram data={jsonData} />
-    </>
+    <Index api={{
+      data: jsonData,
+      status: fetchApi.status
+    }} />
   );
 }

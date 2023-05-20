@@ -1,20 +1,19 @@
 "use client";
-import { commonPropertie } from 'app/_components/RTK/States/States';
 import { projectPath, random } from 'app/_functions/functions';
 import { projectPathType } from 'app/_types/_functionsType';
 import { useSelectedLayoutSegments } from 'next/navigation';
+import { commonPropertie } from 'app/_rtk/States/States';
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import { PLASIDE, PLMENU } from '../RTK/stateType';
+import { PLASIDE, PLMENU } from 'app/_rtk//stateType';
+import { BsFillGridFill } from "react-icons/bs";
 import { projectNavType } from 'app/_types/Nav';
-import { RootState } from '../RTK/Store/store';
+import { RootState } from 'app/_rtk/Store/store';
 import { IoHomeSharp } from "react-icons/io5";
 import { usePathname } from 'next/navigation';
-import { BsThreeDots } from "react-icons/bs";
 import { useEffect } from 'react';
-import SearchBtn from '../Links&Btns/SearchBtn';
+import SearchBtn from '../Links&BtnsComp/SearchBtn';
 import Link from "next/dist/client/link";
-
 
 
 export default function Nav({ layout }: projectNavType) {
@@ -27,48 +26,56 @@ export default function Nav({ layout }: projectNavType) {
 
     function handleMenuStatus() { dispatch(commonPropertie({ type: PLASIDE, value: !aside })) }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (splitPath.includes('developers')) {
             dispatch(commonPropertie({ type: PLMENU, value: false }))
             dispatch(commonPropertie({ type: PLASIDE, value: false }))
-        }else{
+        } else {
             dispatch(commonPropertie({ type: PLMENU, value: true }))
             dispatch(commonPropertie({ type: PLASIDE, value: false }))
         }
-    },[pathName])
+    }, [pathName])
 
     return (
-        <div className={`w-full dark:bg-very-light bg-very-dark text-white dark:text-black sticky top-20 z-20`}>
-            <div className={`mx-auto lg:container flex justify-between item-center text-lg py-1 px-2 sm:px-5`}>
-                <div className="flex items-center gap-2 px-1 capitalize max-w-[80%] truncate">
-                    <Link href={'/'} title={'Home'} className={`hover:scale-110`}><IoHomeSharp /></Link>
+        <>
+            <div className={`w-full h-12 dark:bg-very-light bg-very-dark fixed top-20 z-20`}></div>
+
+            <nav className={`sticky z-[22] top-20 mx-auto h-12 xl:container flex justify-between item-center text-lg text-white dark:text-black py-1 px-2 sm:px-5`}>
+                <ul className="flex items-center gap-2 px-1 capitalize max-w-[80%] truncate">
+                    <li>
+                        <Link href={'/'} title={'Home'} className={`hover:scale-110`}><IoHomeSharp /></Link>
+                    </li>
                     {path.map((item) => (
-                        <span key={random()} className={`flex flex-nowrap items-center gap-2 lg:gap-3`}>
+                        <li key={random()} className={`flex flex-nowrap items-center gap-2 lg:gap-3`}>
                             <HiOutlineChevronRight />
                             {item.active ?
                                 <Link href={item.slug} title={item.name} style={{ display: 'ruby' }}>{item.name}</Link> :
                                 <span title={item.name} style={{ display: 'ruby' }}>{item.name}</span>
                             }
-                        </span>
+                        </li>
                     ))
                     }
-                </div>
-                <div className="flex gap-2 items-center">
-                    <SearchBtn name={layout.name} slug={layout.slug} />
+                </ul>
+                <ul className="flex gap-2 items-center">
+                    <li>
+                        <SearchBtn name={layout.name} slug={layout.slug} />
+                    </li>
                     {menu && (
-                        <div className={`flex h-full items-center gap-2 lg:hidden`}>
-                            <span className="w-[2px] h-[80%] bg-gray-500/30"></span>
-                            <button
-                                type={"button"}
-                                title={"Filter menu"}
-                                onClick={handleMenuStatus}
-                                className={` rounded-lg flex px-2 justify-end items-center h-full hover:bg-very-light dark:hover:bg-very-dark dark:hover:text-white hover:text-black focus:bg-very-light dark:focus:bg-very-dark dark:focus:text-white focus:text-black shadow-lg shadow-gray-500/50 `}>
-                                <BsThreeDots />
-                            </button>
-                        </div>
+                        <ul className={`flex h-full items-center gap-2 lg:hidden`}>
+                            <li className="w-[2px] h-[60%] bg-gray-500/30"></li>
+                            <li>
+                                <button
+                                    type={"button"}
+                                    title={"Filter menu"}
+                                    onClick={handleMenuStatus}
+                                    className={` rounded-lg p-2 aspect-square group shadow-lg shadow-gray-500/50 `}>
+                                    <BsFillGridFill className='group-hover:scale-125'/>
+                                </button>
+                            </li>
+                        </ul>
                     )}
-                </div>
-            </div>
-        </div>
+                </ul>
+            </nav>
+        </>
     );
 }

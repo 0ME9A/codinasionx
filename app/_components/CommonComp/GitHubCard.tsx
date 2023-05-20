@@ -7,6 +7,8 @@ type RepoCardProps = {
 };
 
 export default function GitHubCard({ repo, style }: RepoCardProps) {
+    if (!repo) return <></>
+
     return (
         <Link href={`https://github.com/${repo}`} target="_blank" className={`shadow-xl h-fit shadow-gray-500/10 ${style}`} referrerPolicy={"no-referrer"}>
             <Image

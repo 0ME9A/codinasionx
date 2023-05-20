@@ -2,8 +2,8 @@ import { projects, siteMap, SocialMedia } from "@/data/siteLinks";
 import { random } from "app/_functions/functions";
 import { socialType } from "app/_types/siteMap";
 import { menuType } from "app/_types/Nav";
-import ThemeBtn from "../Links&Btns/ThemeBtn";
-import BtnLink from "../Links&Btns/BtnLink";
+import ThemeBtn from "../Links&BtnsComp/ThemeBtn";
+import BtnLink from "../Links&BtnsComp/BtnLink";
 import Link from "next/link";
 
 export default function Menu({ setState, activeTab }: menuType) {
@@ -43,20 +43,23 @@ export default function Menu({ setState, activeTab }: menuType) {
           ))}
         </ul>
 
-        <div className="py-3 text-black mt-5 dark:text-white border-t border-gray-500/20 col-span-12 flex text-2xl gap-2">
-          <ThemeBtn />
-          <span className="w-[2px] my-auto h-6 rounded-full dark:bg-white/50 bg-black/50"></span>
+        <ul className="text-black mt-5 dark:text-white border-t border-gray-500/20 col-span-12 flex items-center text-2xl gap-4">
+          <li>
+            <ThemeBtn />
+          </li>
+          <li className="w-[2px] my-auto h-6 rounded-full dark:bg-white/50 bg-black/50"></li>
           {SocialMedia &&
             SocialMedia.map((item: socialType) => (
-              <Link
-                key={random()}
-                href={item.href}
-                title={item.name}
-                className="hover:scale-125 p-2">
-                {item.icon}
-              </Link>
+              <li key={random()}>
+                <Link
+                  href={item.href}
+                  title={item.name}
+                  className="hover:scale-125 p-2">
+                  {item.icon}
+                </Link>
+              </li>
             ))}
-        </div>
+        </ul>
 
         <article className="py-5 px-2 max-w-[640px] text-black dark:text-white">
           <h2 title={'Codinasion'} className="text-xl font-semibold">Codinasion</h2>
@@ -66,7 +69,7 @@ export default function Menu({ setState, activeTab }: menuType) {
           <BtnLink
             title={'Join Codinasion'}
             href={"https://github.com/codinasion"}
-            style={`sm:w-fit rounded-tl-none`}>
+            style={`sm:w-fit`}>
             Join Codinasion
           </BtnLink>
         </article>

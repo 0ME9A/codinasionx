@@ -15,11 +15,11 @@ export default function useInfinite({ funcVal, funcCall }: UseInfiniteProps) {
   };
 
   useEffect(() => {
-    const footer = document?.querySelector("#footer")?.clientHeight || 100;
-    setFooterH(footer);
-
-    window.addEventListener("scroll", callApiFunc);
-    return () => window.removeEventListener("scroll", callApiFunc);
+      const footer = document?.querySelector("#footer")?.clientHeight || 100;
+      setFooterH(footer);
+      
+      window.addEventListener("scroll", callApiFunc);
+      return () => window.removeEventListener("scroll", callApiFunc);
   }, [funcCall, funcVal]);
 
   return null;

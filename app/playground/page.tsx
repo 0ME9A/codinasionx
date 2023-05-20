@@ -1,5 +1,5 @@
 import Container from "app/_components/LayoutsComp/Container"
-import BtnLink from "app/_components/Links&Btns/BtnLink"
+import BtnLink from "app/_components/Links&BtnsComp/BtnLink"
 import Markdown from "./codeblock"
 
 export default function Home() {

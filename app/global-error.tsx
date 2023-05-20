@@ -1,14 +1,14 @@
 'use client';
-import BtnLink from "./_components/Links&Btns/BtnLink";
+import BtnLink from "./_components/Links&BtnsComp/BtnLink";
 import Head from "./head";
 import "./globals.css";
+
 
 type globalError = {
     error: Error;
     reset: () => void;
 }
 export default function GlobalError({ error, reset }: globalError) {
-
     return (
         <html>
             <Head />

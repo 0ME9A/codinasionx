@@ -1,6 +1,6 @@
 import { authors, desc, icons, keywords, openGraph, robots, twitterMeta } from '@/data/siteMetadata';
 import { Metadata } from 'next';
-import LayoutClient from "./_components/CommonComp/layoutClient";
+import LayoutClient from "./_components/LayoutsComp/layoutClient";
 import getInitialApi from "./_api/getInitialApi";
 import "atropos/atropos.css";
 import "./globals.css";

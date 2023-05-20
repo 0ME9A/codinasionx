@@ -1,8 +1,9 @@
 import { keywords, twitterMeta } from "@/data/siteMetadata";
-import { repoType } from "app/_types/Repos";
+import { langType, repoType } from "app/_types/Repos";
+import { devProjectGitType } from "app/_types/Devs";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import Index from "app/_components/ReposComp/Readme";
+import Index from "app/_components/ReposComp/RepoPage";
 import getRepo from "app/_api/getRepo";
 
 
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: { params: { repo: string } })
 export default async function Page({ params }: { params: { repo: string } }) {
   const [repoRes, langsRes, devsRes] = await getRepo(params.repo);
 
-  const [repoData, langsData, devsData] = await Promise.all([
+  const [repoData, langsData, devsData]:[repoType, langType, devProjectGitType[]] = await Promise.all([
     repoRes.json(),
     langsRes.json(),
     devsRes.json(),

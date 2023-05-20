@@ -1,5 +1,6 @@
-import Detailed from "app/_components/AboutComp/Detailed";
+import Profile from "app/_components/AboutComp/About/Profile";
+
 
 export default function page() {
-  return <Detailed />;
+  return <Profile />;
 }

@@ -1,11 +1,12 @@
 "use client";
-import { RootState } from "./_components/RTK/Store/store";
+import { RootState } from "./_rtk/Store/store";
 import { useSelector } from "react-redux";
-import OrgHighlights from "./_components/AboutComp/OrgInfo/OrgHighlights";
-import AnimatedRepos from "./_components/ReposComp/AnimatedRepos";
-import AnimatedDevs from "./_components/DevsComp/AnimatedDevs";
-import Intro from "./_components/AboutComp/Intro";
-import About from "./_components/AboutComp/About";
+import AnimatedDevsSection from "./_components/DevelopersComp/AnimatedDevsSection";
+import HighlightSection from "./_components/AboutComp/Highlight/HighlightSection";
+import AnimatedRepos from "./_components/ReposComp/AnimatedReposSection";
+import JoinBanner from "./_components/CommonComp/JoinUsBanner";
+import Aboutus from "./_components/AboutComp/About/Summary";
+import Hero from "./_components/AboutComp/Hero";
 
 
 export default function HomePage() {
@@ -14,13 +15,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Intro />
+      <Hero />
       <div className="bg-very-light dark:bg-very-dark relative z-10 w-full overflow-x-hidden">
-        <OrgHighlights />
-        <About />
+        <HighlightSection />
+        <Aboutus />
         <AnimatedRepos api={repos} />
-        <div className={`relative bg-gradient-to-br from-transparent mt-10 via-very-light to-light dark:via-very-dark dark:to-dark`}>
-          <AnimatedDevs api={devs} header={true} />
+        <div className={`relative bg-gradient-to-br mt-10 md:mt-20 from-transparent via-very-light to-light dark:via-very-dark dark:to-dark`}>
+          <AnimatedDevsSection api={devs} header={true} />
+          <JoinBanner/>
         </div>
       </div>
     </>

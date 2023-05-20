@@ -40,3 +40,10 @@ export type codeType = {
   language: languageType;
   code: string;
 };
+
+export type programApiType = {
+  api: {
+    data: programType;
+    status: number;
+  }
+}

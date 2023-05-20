@@ -1,5 +1,6 @@
-import { programType } from "app/_types/Program";
 import { objectWithTagsType, projectPathType, ResponseData, Tag, TagCount, tagCountType } from "app/_types/_functionsType";
+import { programType } from "app/_types/Program";
+import { theme } from "app/_rtk/States/States";
 
 export async function fetchData(url: string): Promise<ResponseData> {
   try {
@@ -33,18 +34,18 @@ export function checkNull(parent: any, child: string): string | null {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export default function setThemeFun(dispatch: any) {
+export function setTheme(dispatch: any) {
   switch (localStorage.getItem("theme")) {
-    case null || "light":
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-      dispatch({ type: "THEME", payload: "dark" });
-      break;
-    default:
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-      dispatch({ type: "THEME", payload: "light" });
-      break;
+      case null || "light":
+          localStorage.setItem("theme", "dark");
+          document.documentElement.classList.add("dark");
+          dispatch(theme("dark"))
+          break;
+      default:
+          localStorage.setItem("theme", "light");
+          document.documentElement.classList.remove("dark");
+          dispatch(theme("light"))
+          break;
   }
 }
 
@@ -173,6 +174,14 @@ export async function clipBoard2(text: string): Promise<boolean> {
     console.error('Failed to copy text: ', err);
     return false;
   }
+}
+
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+
+export function dummayArray(n: number) {
+  const array = Array.from(Array(n).keys());
+  return array
 }
 
 // ------------------------------------------------------------------------

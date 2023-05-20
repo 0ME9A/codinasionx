@@ -1,7 +1,8 @@
-import { devGitDataType, devProjectGitApiType, devProjectGitType } from "app/_types/Devs";
+import { Index } from "app/_components/ReposComp/RepoPage/DeveloperPage";
+import { devProjectGitType } from "app/_types/Devs";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import ProjectDevs from "app/_components/DevsComp/ProjectDevs";
+
 
 export const metadata: Metadata = {
   title: `Contributors || Repositories || Codinasion`,
@@ -27,5 +28,5 @@ export default async function Page({ params }: { params: { repo: string; devs: s
 
   if (status !== 200) notFound()
 
-  return (<ProjectDevs api={{ data, status }} />)
+  return <Index api={{ data, status }} />
 }
