@@ -1,6 +1,6 @@
 import { dummayArray, random } from "app/_functions/functions";
 import { filterIssueII } from "app/_functions/filters";
-import { issueType } from "app/_types/good1stissue";
+import { issueType } from "app/_types/Good1stIssue";
 import { RootState } from "app/_rtk/Store/store";
 import { useSelector } from "react-redux";
 import ProgramCardSkeleton from "../SkeletonComp/Program/SHomeArticle";

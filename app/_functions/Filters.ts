@@ -1,6 +1,5 @@
-// import { devsDataType } from "app/_types/Devs";
 import { codinasionDevApiType, devProjectGitType } from "app/_types/Devs";
-import { issueType } from "app/_types/good1stissue";
+import { issueType } from "app/_types/Good1stIssue";
 import { programType } from "app/_types/Program";
 import { repoType } from "app/_types/Repos";
 

@@ -1,5 +1,5 @@
 "use client";
-import { good1stIssueType } from "app/_types/good1stissue";
+import { good1stIssueType } from "app/_types/Good1stIssue";
 import { issueProperties } from "app/_rtk/States/States";
 import { useDispatch, useSelector } from "react-redux";
 import { filterIssue } from "app/_functions/filters";

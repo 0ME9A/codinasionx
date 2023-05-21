@@ -1,5 +1,5 @@
 import { KEYWORDS, LIMIT, PLASIDE, PLMENU, TAB, TAG, WINDOW } from '../stateType';
-import { good1stIssueType, labelType } from 'app/_types/good1stissue';
+import { good1stIssueType, labelType } from 'app/_types/Good1stIssue';
 import { codinasionDevApiType } from 'app/_types/Devs';
 import { programType } from 'app/_types/Program';
 import { createSlice } from '@reduxjs/toolkit';

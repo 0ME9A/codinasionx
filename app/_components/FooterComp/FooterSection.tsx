@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import RootFootr from "../SkeletonComp/Footer/RootFooter";
 import FooterBox from "../LayoutsComp/FooterBox";
-import About from "./Company";
+import About from "./AboutUs";
 import Link from "next/link";
 import Langs from "./Langs";
 

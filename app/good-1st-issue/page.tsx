@@ -1,7 +1,4 @@
-import Index from 'app/_components/Good1stIssueComp';
-import HomeArticles from 'app/_components/Good1stIssueComp/HomeArticle';
-import HomeAside from 'app/_components/Good1stIssueComp/HomeAside';
-import Container from 'app/_components/LayoutsComp/Container';
+// import Index from 'app/_components/Good1stIssueComp';
 
 
 export default async function Page() {
@@ -10,7 +7,7 @@ export default async function Page() {
       <h1 className={`w-fit pt-32 px-2 dark:text-white text-black mx-auto h-screen`}>Api under Maintenance. ⏳</h1>
     </section>
   )
-  return (
-    < Index />
-  );
+  // return (
+  //   < Index />
+  // );
 }

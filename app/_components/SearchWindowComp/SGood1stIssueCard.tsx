@@ -1,7 +1,7 @@
 "use client";
 import { searchProperties } from "app/_rtk/States/States";
 import { RiGitRepositoryLine } from "react-icons/ri";
-import { issueType } from "app/_types/good1stissue";
+import { issueType } from "app/_types/Good1stIssue";
 import { random } from "app/_functions/functions";
 import { useDispatch } from "react-redux";
 import { HiUsers } from "react-icons/hi";

@@ -1,6 +1,6 @@
 import { issueProperties } from "app/_rtk/States/States";
 import { useDispatch, useSelector } from "react-redux";
-import { labelType } from "app/_types/good1stissue";
+import { labelType } from "app/_types/Good1stIssue";
 import { RootState } from "app/_rtk/Store/store";
 import Badge from "../Links&BtnsComp/Badge";
 import Box from "../LayoutsComp/Box";
