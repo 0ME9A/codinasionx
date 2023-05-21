@@ -1,3 +1,4 @@
+"use client";
 import { useSelectedLayoutSegments } from 'next/navigation';
 import BasicLink from './_components/Links&BtnsComp/BasicLink';
 
