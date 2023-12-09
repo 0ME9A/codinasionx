@@ -36,35 +36,44 @@ export type devGitDataType = {
   twitter_username: null;
 };
 
-export type codinasionDevApiType = {
+export type codinasionDevApiOldType = {
   user: {
     id: number;
     login: string;
-  }
+  };
   role: "team" | "member" | "contributor";
-}
-export type codinasionDevType = {
+};
+
+export type codinasionDevTypeOld = {
   name: string;
   avatar: string;
   role: "team" | "member" | "contributor";
-}
+};
+
+export type codinasionDevType = {
+  id: string;
+  avatar: string;
+};
 
 export type devProjectGitApiType = {
   data: devProjectGitType[];
   status: number;
-}
+  error: boolean;
+};
 
 export type devApiGitInfoType = {
   data: devGitDataType;
   status: number;
-}
+  error: boolean;
+};
 
 export type devApiCodinasionType = {
-  data: codinasionDevApiType[];
+  data: string[];
   status: number;
-}
+  error: boolean;
+};
 
 export type animatedDevsType = {
-  api: codinasionDevApiType[];
+  api: string[];
   header: boolean;
-}
+};

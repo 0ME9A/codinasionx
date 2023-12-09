@@ -1,4 +1,4 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import { filterRepos } from "app/_functions/filters";
 import { RootState } from "app/_rtk/Store/store";
 import { repoType } from "app/_types/Repos";
@@ -10,7 +10,7 @@ import SReposCard from "./SRepoCard";
 
 
 export default function SRepos(): JSX.Element {
-    const i = dummayArray(5);
+    const i = dummyArray(5);
     const search = useSelector((state: RootState) => state.counter.search);
     const { data, status } = useSelector((state: RootState) => state.counter.repositories);
     const filteredData: repoType[] | null = filterRepos(search.keywords, data);

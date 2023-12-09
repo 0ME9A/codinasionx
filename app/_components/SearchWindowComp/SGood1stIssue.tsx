@@ -1,4 +1,4 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import { filterIssueII } from "app/_functions/filters";
 import { issueType } from "app/_types/Good1stIssue";
 import { RootState } from "app/_rtk/Store/store";
@@ -10,7 +10,7 @@ import SearchTitle from "./SearchTitle";
 
 
 export default function SPrograms() {
-    const i = dummayArray(5);
+    const i = dummyArray(5);
     const search = useSelector((state: RootState) => state.counter.search);
     const { data, status } = useSelector((state: RootState) => state.counter.good1stissue);
     const filteredData: issueType[] | null = filterIssueII(data, search.keywords);

@@ -1,5 +1,5 @@
 "use client";
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import { filterRelatedProgram } from "app/_functions/filters";
 import { programType, } from "app/_types/Program";
 import { RootState } from "app/_rtk/Store/store";
@@ -13,7 +13,7 @@ import Box from "../LayoutsComp/Box";
 
 export default function RelatedProgram({ data }: { data: programType }) {
     const { data: rData, status } = useSelector((state: RootState) => state.counter.program)
-    const i: number[] = dummayArray(4);
+    const i: number[] = dummyArray(4);
     const [isMount, setMount] = useState(false);
     const filtered = filterRelatedProgram(rData, data.slug)
 

@@ -1,4 +1,4 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import SAtom from "../Common/SAtom";
 import Box from "../Common/SBox";
 
@@ -9,7 +9,7 @@ export default function RootFootr() {
             className={`w-full relative z-10 bg-light dark:bg-darkII pb-2`}>
             <div className="xl:container mx-auto flex gap-5 p-3 !rounded-none">
                 {
-                    dummayArray(20).map(() => <SAtom style="w-24 !rounded-full aspect-square" key={random()} />)
+                    dummyArray(20).map(() => <SAtom style="w-24 !rounded-full aspect-square" key={random()} />)
                 }
 
             </div>

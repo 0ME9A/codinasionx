@@ -1,4 +1,11 @@
-import { objectWithTagsType, projectPathType, ResponseData, Tag, TagCount, tagCountType } from "app/_types/_functionsType";
+import {
+  objectWithTagsType,
+  projectPathType,
+  ResponseData,
+  Tag,
+  TagCount,
+  tagCountType,
+} from "app/_types/_functionsType";
 import { programType } from "app/_types/Program";
 import { theme } from "app/_rtk/States/States";
 
@@ -36,16 +43,16 @@ export function checkNull(parent: any, child: string): string | null {
 
 export function setTheme(dispatch: any) {
   switch (localStorage.getItem("theme")) {
-      case null || "light":
-          localStorage.setItem("theme", "dark");
-          document.documentElement.classList.add("dark");
-          dispatch(theme("dark"))
-          break;
-      default:
-          localStorage.setItem("theme", "light");
-          document.documentElement.classList.remove("dark");
-          dispatch(theme("light"))
-          break;
+    case null || "light":
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+      dispatch(theme("dark"));
+      break;
+    default:
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
+      dispatch(theme("light"));
+      break;
   }
 }
 
@@ -55,11 +62,11 @@ export function setTheme(dispatch: any) {
 export function isValidURL(str: string): boolean {
   var pattern: RegExp = new RegExp(
     "^(https?:\\/\\/)?" + // protocol
-    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-    "(\\#[-a-z\\d_]*)?$",
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+      "(\\#[-a-z\\d_]*)?$",
     "i"
   ); // fragment locator
   return !!pattern.test(str);
@@ -82,7 +89,7 @@ export function random(): string {
 // ------------------------------------------------------------------------
 
 export function randomNum(n: number): number {
-  return Math.round(Math.random() * n)
+  return Math.round(Math.random() * n);
 }
 
 // ------------------------------------------------------------------------
@@ -129,15 +136,23 @@ export function tagArray(obj: TagCount | null): Tag[] {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export function compareArrays(arr1: programType[], arr2: programType[]): programType[] {
+export function compareArrays(
+  arr1: programType[],
+  arr2: programType[]
+): programType[] {
   const combinedArray: programType[] = arr1.concat(arr2);
 
-  const uniqueArray = combinedArray.reduce((accumulator: programType[], current: programType) => {
-    const existingObj = accumulator.find((obj: programType) => obj.slug === current.slug);
-    if (!existingObj) accumulator.push(current);
+  const uniqueArray = combinedArray.reduce(
+    (accumulator: programType[], current: programType) => {
+      const existingObj = accumulator.find(
+        (obj: programType) => obj.slug === current.slug
+      );
+      if (!existingObj) accumulator.push(current);
 
-    return accumulator;
-  }, []);
+      return accumulator;
+    },
+    []
+  );
   return uniqueArray;
 }
 
@@ -145,9 +160,16 @@ export function compareArrays(arr1: programType[], arr2: programType[]): program
 // ------------------------------------------------------------------------
 
 export function projectPath(path: string[]): projectPathType {
-  let newPath = []
+  let newPath = [];
   for (let i = 0; i < path.length; i++) {
-    newPath.push({ name: path[i], slug: `/${path.slice(0, i + 1).toString().replaceAll(',', '/')}`, active: path.length !== i + 1 })
+    newPath.push({
+      name: path[i],
+      slug: `/${path
+        .slice(0, i + 1)
+        .toString()
+        .replaceAll(",", "/")}`,
+      active: path.length !== i + 1,
+    });
   }
   return newPath;
 }
@@ -156,13 +178,13 @@ export function projectPath(path: string[]): projectPathType {
 // ------------------------------------------------------------------------
 // deprecated
 export function clipBoard(text: string): boolean {
-  const elem: HTMLTextAreaElement = document.createElement('textarea');
+  const elem: HTMLTextAreaElement = document.createElement("textarea");
   elem.value = text;
   document.body.appendChild(elem);
   elem.select();
-  document.execCommand('copy');
+  document.execCommand("copy");
   document.body.removeChild(elem);
-  return true
+  return true;
 }
 
 // new clipboard function
@@ -171,7 +193,7 @@ export async function clipBoard2(text: string): Promise<boolean> {
     await navigator.clipboard.writeText(text);
     return true;
   } catch (err) {
-    console.error('Failed to copy text: ', err);
+    console.error("Failed to copy text: ", err);
     return false;
   }
 }
@@ -179,9 +201,9 @@ export async function clipBoard2(text: string): Promise<boolean> {
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 
-export function dummayArray(n: number) {
+export function dummyArray(n: number) {
   const array = Array.from(Array(n).keys());
-  return array
+  return array;
 }
 
 // ------------------------------------------------------------------------

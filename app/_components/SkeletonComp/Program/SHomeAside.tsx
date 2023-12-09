@@ -1,9 +1,9 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import SAtom from "../Common/SAtom";
 import Box from "../Common/SBox";
 
 export default function SHomeArticle() {
-    const i = dummayArray(16);
+    const i = dummyArray(16);
 
     return (
         <>

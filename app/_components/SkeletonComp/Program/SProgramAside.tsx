@@ -1,9 +1,9 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import SAtom from "../Common/SAtom";
 import Box from "../Common/SBox";
 
 export default function ProgramAsideSk() {
-    const i = dummayArray(10);
+    const i = dummyArray(10);
 
     return (
         <>

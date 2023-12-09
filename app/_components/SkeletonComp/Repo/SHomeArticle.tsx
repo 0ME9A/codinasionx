@@ -1,9 +1,9 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import Box from "../Common/SBox";
 import Line from "../Common/SAtom";
 
 export default function SHomeArticle() {
-    const i = dummayArray(10);
+    const i = dummyArray(10);
 
     return (
         <div className="w-full">

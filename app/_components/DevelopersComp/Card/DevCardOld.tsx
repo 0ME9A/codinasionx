@@ -10,8 +10,8 @@ type devType = {
   target?: "_self" | "_blank";
 };
 
-export default function DevCard({
-  data: { id, avatar },
+export default function DevCardOld({
+  data: { id, avatar = "contributor" },
   target = "_self",
 }: devType) {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
-import { dummayArray, random } from "app/_functions/functions";
+import { dummyArray, random } from "app/_functions/functions";
 import Line from "../Common/SAtom";
 import Box from "../Common/SBox";
 
 export default function SRepoAside() {
-  const i = dummayArray(20);
+  const i = dummyArray(20);
 
   return (
     <div className="space-y-2 w-full">
