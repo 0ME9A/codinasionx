@@ -1,7 +1,6 @@
 "use client";
 import { randomNum } from "app/_functions/functions";
 import { readmeType } from "app/_types/Repos";
-import { useEffect, useState } from "react";
 import RepoArticle from "app/_components/ReposComp/RepoPage/RepoArticle";
 import RepoAside from "app/_components/ReposComp/RepoPage/RepoAside";
 

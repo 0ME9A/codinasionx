@@ -2,7 +2,7 @@ import { dummyArray, random } from "app/_functions/functions";
 import SAtom from "../Common/SAtom";
 import Box from "../Common/SBox";
 
-export default function RootFootr() {
+export default function RootFooter() {
 
     return (
         <footer

@@ -4,7 +4,7 @@ import { isValidURL } from "app/_functions/functions";
 import { MdOutlineMyLocation } from "react-icons/md";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { GiEarthAsiaOceania } from "react-icons/gi";
-import { devApiGitInfoType } from "app/_types/Devs";
+import { devApiGitInfoType, devGitDataType } from "app/_types/Devs";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import SDevProfile from "app/_components/SkeletonComp/Devs/SDevProfile";
@@ -14,28 +14,44 @@ import History from "../Links&BtnsComp/History";
 import Article from "../LayoutsComp/Article";
 import AstroImg from "../CommonComp/Img";
 
-
-export default function DevInfo({ api: { data, status } }: { api: devApiGitInfoType }) {
+export default function DevInfo({
+  api: { data, status },
+}: {
+  api: { data: devGitDataType; status: number };
+}) {
   const [isMount, setMount] = useState(false);
-  const { name, login, bio, blog, public_repos, followers, following, location, twitter_username, avatar_url, type } = data
-  const isValidUrl = isValidURL(blog)
+  const {
+    name,
+    login,
+    bio,
+    blog,
+    public_repos,
+    followers,
+    following,
+    location,
+    twitter_username,
+    avatar_url,
+    type,
+  } = data;
+  const isValidUrl = isValidURL(blog);
 
-  useEffect(() => setMount(true), [])
+  useEffect(() => setMount(true), []);
 
   if (!isMount && status !== 200) {
     return (
       <ArticleSection style="!bg-transparent !min-h-fit px-2 pb-20">
         <SDevProfile />
       </ArticleSection>
-    )
+    );
   }
 
   return (
     <motion.section
       variants={container}
-      initial={'hidden'}
-      whileInView={'show'}
-      className="p-2 w-full h-full py-20">
+      initial={"hidden"}
+      whileInView={"show"}
+      className="p-2 w-full h-full py-20"
+    >
       <Article style="!min-h-fit xl:container mx-auto flex flex-col md:flex-row justify-center gap-10 relative py-10 md:py-20 p-3 shadow-xl shadow-gray-500/10">
         <AstroImg
           imgUrl={avatar_url}
@@ -47,8 +63,9 @@ export default function DevInfo({ api: { data, status } }: { api: devApiGitInfoT
 
         <motion.section
           variants={child}
-          className={`dark:text-white pt-0 md:pt-20 w-full md:w-[60%] lg:w-[40%]`}>
-          <header title={`${name} (${login})`} >
+          className={`dark:text-white pt-0 md:pt-20 w-full md:w-[60%] lg:w-[40%]`}
+        >
+          <header title={`${name} (${login})`}>
             <h1 className={`text-2xl font-semibold`}>
               {name}{" "}
               {type === "Organization" && (
@@ -58,12 +75,20 @@ export default function DevInfo({ api: { data, status } }: { api: devApiGitInfoT
             <h2 className={`text-gray-500`}>{login}</h2>
           </header>
           <p className="mt-2 text-gray-700 dark:text-gray-300">{bio}</p>
-          <table className={`w-full max-w-xl bg-light/50 dark:bg-dark/50 rounded-xl mt-2 md:mt-5 text-left shadow-xl shadow-gray-500/20 hover:scale-105 `}>
+          <table
+            className={`w-full max-w-xl bg-light/50 dark:bg-dark/50 rounded-xl mt-2 md:mt-5 text-left shadow-xl shadow-gray-500/20 hover:scale-105 `}
+          >
             <thead>
               <tr>
-                <th title={`${public_repos} repo`} className={`p-5 pb-0`}>Repo</th>
-                <th title={`${followers} followers`} className={`p-5 pb-0`}>Followers</th>
-                <th title={`${following} following`} className={`p-5 pb-0`}>Following</th>
+                <th title={`${public_repos} repo`} className={`p-5 pb-0`}>
+                  Repo
+                </th>
+                <th title={`${followers} followers`} className={`p-5 pb-0`}>
+                  Followers
+                </th>
+                <th title={`${following} following`} className={`p-5 pb-0`}>
+                  Following
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -75,9 +100,13 @@ export default function DevInfo({ api: { data, status } }: { api: devApiGitInfoT
             </tbody>
           </table>
 
-          <ul className={`w-full rounded-xl mt-2 md:mt-5 p-3 gap-3 text-left grid grid-cols-3`}>
+          <ul
+            className={`w-full rounded-xl mt-2 md:mt-5 p-3 gap-3 text-left grid grid-cols-3`}
+          >
             {!!location && (
-              <li className={`col-span-3 sm:col-span-1 group flex gap-2 items-center`}>
+              <li
+                className={`col-span-3 sm:col-span-1 group flex gap-2 items-center`}
+              >
                 <MdOutlineMyLocation className={`group-hover:scale-125`} />
                 {location}
               </li>
@@ -86,32 +115,39 @@ export default function DevInfo({ api: { data, status } }: { api: devApiGitInfoT
               <li>
                 <BtnLink
                   href={blog}
-                  title={'Website'}
+                  title={"Website"}
                   target="_blank"
-                  style={`!bg-transparent col-span-3 sm:col-span-2 !p-0 border-none w-fit !shadow-none`}>
+                  style={`!bg-transparent col-span-3 sm:col-span-2 !p-0 border-none w-fit !shadow-none`}
+                >
                   <GiEarthAsiaOceania className={`group-hover:scale-125`} />
                   Website
                 </BtnLink>
               </li>
             )}
             {!!twitter_username && (
-              <BtnLink
-                href={`http://twitter.com/${twitter_username}`}
-                title={'Twitter'}
-                target="_blank"
-                style={`!bg-transparent col-span-3 sm:col-span-1 !p-0 border-none w-fit !shadow-none`}>
-                <FaTwitter className={`group-hover:scale-125`} />
-                Twitter
-              </BtnLink>
+              <li>
+                <BtnLink
+                  href={`http://twitter.com/${twitter_username}`}
+                  title={"Twitter"}
+                  target="_blank"
+                  style={`!bg-transparent col-span-3 sm:col-span-1 !p-0 border-none w-fit !shadow-none`}
+                >
+                  <FaTwitter className={`group-hover:scale-125`} />
+                  Twitter
+                </BtnLink>
+              </li>
             )}
-            <BtnLink
-              href={`https://github.com/${login}`}
-              title={'Github'}
-              target="_blank"
-              style={`!bg-transparent col-span-3 sm:col-span-2 !p-0 border-none w-fit !shadow-none`}>
-              <FaGithub className={`group-hover:scale-125`} />
-              GitHub
-            </BtnLink>
+            <li>
+              <BtnLink
+                href={`https://github.com/${login}`}
+                title={"Github"}
+                target="_blank"
+                style={`!bg-transparent col-span-3 sm:col-span-2 !p-0 border-none w-fit !shadow-none`}
+              >
+                <FaGithub className={`group-hover:scale-125`} />
+                GitHub
+              </BtnLink>
+            </li>
           </ul>
         </motion.section>
 
@@ -121,5 +157,5 @@ export default function DevInfo({ api: { data, status } }: { api: devApiGitInfoT
         />
       </Article>
     </motion.section>
-  )
+  );
 }

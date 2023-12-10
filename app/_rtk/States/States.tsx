@@ -7,7 +7,7 @@ import {
   TAG,
   WINDOW,
 } from "../stateType";
-import { good1stIssueType, labelType } from "app/_types/Good1stIssue";
+import { goodFirstIssueType, labelType } from "app/_types/GoodFirstIssue";
 import { programType } from "app/_types/Program";
 import { createSlice } from "@reduxjs/toolkit";
 import { repoType } from "app/_types/Repos";
@@ -16,7 +16,7 @@ export interface CounterState {
   theme: string;
   search: { window: boolean; tab: string | null; keywords: string | null };
   program: { data: programType[]; status: number; error: boolean };
-  good1stissue: { data: good1stIssueType[]; status: number; error: boolean };
+  goodFirstIssue: { data: goodFirstIssueType[]; status: number; error: boolean };
   issueLabel: { data: labelType[]; status: number; error: boolean };
   repositories: { data: repoType[]; status: number; error: boolean };
   developers: { data: string[]; status: number; error: boolean };
@@ -35,7 +35,7 @@ const initialState: CounterState = {
   theme: "dark",
   search: { window: false, tab: "programs", keywords: null },
   program: { data: [], status: 200, error: false },
-  good1stissue: { data: [], status: 200, error: false },
+  goodFirstIssue: { data: [], status: 200, error: false },
   developers: { data: [], status: 200, error: false },
   issueLabel: { data: [], status: 200, error: false },
   repositories: { data: [], status: 200, error: false },
@@ -69,7 +69,7 @@ export const counterSlice = createSlice({
       }
     },
 
-    commonPropertie: (state, action) => {
+    commonProperties: (state, action) => {
       switch (action.payload.type) {
         case PLASIDE:
           state.commonProperties.projectLayout = {
@@ -110,8 +110,8 @@ export const counterSlice = createSlice({
         error: action.payload.error,
       };
     },
-    good1stissue: (state, action) => {
-      state.good1stissue = {
+    goodFirstIssue: (state, action) => {
+      state.goodFirstIssue = {
         data: action.payload.data,
         status: action.payload.status,
         error: action.payload.error,
@@ -188,8 +188,8 @@ export const {
   programProperties,
   issueProperties,
   repositoriesProperties,
-  good1stissue,
-  commonPropertie,
+  goodFirstIssue,
+  commonProperties,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

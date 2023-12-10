@@ -92,7 +92,7 @@ export default function Search() {
           {search.tab === "repositories" && <SRepos />}
           {search.tab === "developers" && <SDevelopers />}
           {/* {search.tab === 'linkfree-og' && <SLinkfreeOg />}
-                    {search.tab === 'good-1st-issue' && <SGood1stIssue />} */}
+                    {search.tab === 'good-1st-issue' && <SgoodFirstIssue />} */}
         </section>
       </section>
     </section>

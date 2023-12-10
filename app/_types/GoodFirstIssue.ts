@@ -1,4 +1,4 @@
-export type good1stIssueType = {
+export type goodFirstIssueType = {
   issue_title: string;
   issue_author: string;
   issue_url: string;

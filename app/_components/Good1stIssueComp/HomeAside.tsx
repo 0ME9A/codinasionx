@@ -11,7 +11,7 @@ import IssueTags from "./IssueTags";
 // export default function HomeAside({ data, status, allIssue }: { data: labelType[], status: number, allIssue: number }) {
 export default function HomeAside() {
     const { data, status } = useSelector((state: RootState) => state.counter.issueLabel)
-    const { data: isseuData, status: issueStatus } = useSelector((state: RootState) => state.counter.good1stissue)
+    const { data: isseuData, status: issueStatus } = useSelector((state: RootState) => state.counter.goodFirstIssue)
     const [isMount, setMount] = useState(false);
 
     useEffect(() => setMount(true), [])
@@ -27,7 +27,7 @@ export default function HomeAside() {
     return (
         <Aside>
             <IssueTags data={data} status={status} allIssue={isseuData.length} />
-            <GitHubCard repo={"codinasion/good1stissue"} />
+            <GitHubCard repo={"codinasion/goodFirstIssue"} />
         </Aside >
     )
 }

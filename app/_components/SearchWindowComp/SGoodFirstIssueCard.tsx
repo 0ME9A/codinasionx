@@ -1,7 +1,7 @@
 "use client";
 import { searchProperties } from "app/_rtk/States/States";
 import { RiGitRepositoryLine } from "react-icons/ri";
-import { issueType } from "app/_types/Good1stIssue";
+import { issueType } from "app/_types/GoodFirstIssue";
 import { random } from "app/_functions/functions";
 import { useDispatch } from "react-redux";
 import { HiUsers } from "react-icons/hi";
@@ -9,7 +9,7 @@ import Tag from "../CommonComp/Tag";
 import Link from "next/link";
 
 
-export default function SGood1stIssueCard({ issue_title, issue_url, issue_short_url, issue_labels, issue_author, style }: issueType) {
+export default function SgoodFirstIssueCard({ issue_title, issue_url, issue_short_url, issue_labels, issue_author, style }: issueType) {
     const dispatch = useDispatch()
 
     return (

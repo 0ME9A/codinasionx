@@ -6,7 +6,7 @@ import { random } from "app/_functions/functions";
 import { commonData } from "@/data/siteMetadata";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import RootFootr from "../SkeletonComp/Footer/RootFooter";
+import RootFooter from "../SkeletonComp/Footer/RootFooter";
 import FooterBox from "../LayoutsComp/FooterBox";
 import About from "./AboutUs";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function Footer() {
   useEffect(() => setMount(true), [])
 
   if (!isMount) {
-    return <RootFootr />
+    return <RootFooter />
   }
 
   return (

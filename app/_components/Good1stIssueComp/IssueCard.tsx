@@ -1,5 +1,5 @@
 import { RiGitRepositoryLine } from "react-icons/ri";
-import { issueType } from "app/_types/Good1stIssue";
+import { issueType } from "app/_types/goodFirstIssue";
 import { random } from "app/_functions/functions";
 import { HiUsers } from "react-icons/hi";
 import Tag from "../CommonComp/Tag";

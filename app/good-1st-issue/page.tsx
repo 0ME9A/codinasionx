@@ -1,4 +1,4 @@
-// import Index from 'app/_components/Good1stIssueComp';
+// import Index from 'app/_components/goodFirstIssueComp';
 
 
 export default async function Page() {

@@ -56,7 +56,7 @@ export type codinasionDevType = {
 };
 
 export type devProjectGitApiType = {
-  data: devProjectGitType[];
+  data: string[];
   status: number;
   error: boolean;
 };

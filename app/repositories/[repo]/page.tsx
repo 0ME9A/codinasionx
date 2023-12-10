@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: { params: { repo: string } })
 export default async function Page({ params }: { params: { repo: string } }) {
   const [repoRes, langsRes, devsRes] = await getRepo(params.repo);
 
-  const [repoData, langsData, devsData]:[repoType, langType, devProjectGitType[]] = await Promise.all([
+  const [repoData, langsData, devsData]:[repoType, langType, string[]] = await Promise.all([
     repoRes.json(),
     langsRes.json(),
     devsRes.json(),
   ]);
-
+  
   if ([repoRes, langsRes, devsRes].some(res => res.status !== 200)) notFound()
 
   return <Index

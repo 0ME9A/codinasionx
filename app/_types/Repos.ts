@@ -24,7 +24,7 @@ export type basicRepoCardType = {
   repoUrl: string;
   style?: string;
   status: status;
-}
+};
 
 export type qLinkType = {
   id: string | undefined;
@@ -36,22 +36,22 @@ export type qLinkType = {
 export type asideType = {
   repo: {
     data: repoType;
-    status: number
+    status: number;
   };
   devs: {
-    data: devProjectGitType[];
-    status: number
+    data: string[];
+    status: number;
   };
   langs: {
     data: object | null;
-    status: number
+    status: number;
   };
 };
 
 export type articleType = {
   repo: {
     data: repoType;
-    status: number
+    status: number;
   };
 };
 
@@ -85,10 +85,10 @@ export type repoCardType = {
 
 export type langType = {
   [key: string]: number;
-}
+};
 
 export type readmeType = {
-  repo: { data: repoType, status: number };
-  lang: { data: langType, status: number };
-  devs: { data: devProjectGitType[], status: number };
-}
+  repo: { data: repoType; status: number };
+  lang: { data: langType; status: number };
+  devs: { data: string[]; status: number };
+};

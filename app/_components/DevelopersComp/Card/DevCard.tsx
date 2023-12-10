@@ -27,7 +27,7 @@ export default function DevCard({
     >
       <Image
         src={avatar}
-        alt={`${name} profile avatar`}
+        alt={`${id} profile avatar`}
         width={"100"}
         height={"100"}
         className={`w-[80px] aspect-square rounded-full group-hover:shadow-2xl mx-auto object-cover scale-90 group-hover:scale-100 group-hover:brightness-125 shadow-lg !shadow-blue-500 bg-blue-500`}

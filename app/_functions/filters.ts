@@ -1,5 +1,5 @@
+import { issueType } from "app/_types/GoodFirstIssue";
 import { devProjectGitType } from "app/_types/Devs";
-import { issueType } from "app/_types/Good1stIssue";
 import { programType } from "app/_types/Program";
 import { repoType } from "app/_types/Repos";
 
@@ -111,17 +111,17 @@ export function filterDevs(
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 // filter developers by name which is fetched from github api not codinasion developer api
-export function filterProjecetDevs(
+export function filterProjectDevs(
   keywords: string | null,
-  data: devProjectGitType[]
-): devProjectGitType[] | null {
+  data: string[]
+): string[] | null {
   if (!Array.isArray(data) || data.length === 0 || !keywords?.trim())
     return null;
 
   const keywordList: string[] = keywords.toLowerCase().split(" ");
 
-  const filtered = data.filter((item: devProjectGitType) => {
-    const name: string = item.login.toLowerCase();
+  const filtered = data.filter((item: string) => {
+    const name: string = item.toLowerCase();
     return keywordList.some((keyword) => name.includes(keyword));
   });
 
@@ -216,7 +216,7 @@ export function filterRelatedProgram(
 
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
-// filter good1stissue
+// filter goodFirstIssue
 export function filterIssue(
   data: issueType[],
   tag: string,
@@ -247,7 +247,7 @@ export function filterIssue(
 
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
-// filter good1stissue in search window
+// filter goodFirstIssue in search window
 export function filterIssueII(
   data: issueType[],
   search: string | null

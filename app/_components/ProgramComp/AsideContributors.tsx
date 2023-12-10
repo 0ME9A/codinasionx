@@ -14,9 +14,8 @@ export default function AsideContributors({ contributors }: { contributors: stri
           <li key={random()}>
             <BasicDevCard              
               data={{
-                name: item,
-                avatar: `https://github.com/${item}.png`,
-                role: "contributor"
+                id: item,
+                avatar: `https://github.com/${item}.png`
               }}
             />
           </li>
